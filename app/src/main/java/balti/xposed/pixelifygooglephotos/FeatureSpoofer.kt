@@ -4,6 +4,7 @@ import android.util.Log
 import balti.xposed.pixelifygooglephotos.Constants.PACKAGE_NAME_GOOGLE_PHOTOS
 import balti.xposed.pixelifygooglephotos.Constants.PREF_STRICTLY_CHECK_GOOGLE_PHOTOS
 import balti.xposed.pixelifygooglephotos.Constants.PREF_USE_PIXEL_2016
+import balti.xposed.pixelifygooglephotos.Constants.SHARED_PREF_FILE_NAME
 import de.robv.android.xposed.*
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 
@@ -60,7 +61,7 @@ class FeatureSpoofer: IXposedHookLoadPackage {
      * To read preference of user.
      */
     private val pref by lazy {
-        XSharedPreferences("balti.xposed.pixelifygooglephotos")
+        XSharedPreferences("balti.xposed.pixelifygooglephotos", SHARED_PREF_FILE_NAME)
     }
 
     /**
