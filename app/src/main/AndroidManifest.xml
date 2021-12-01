@@ -19,6 +19,14 @@
         <meta-data
             android:name="xposedscope"
             android:resource="@array/module_scope" />
+
+        <activity android:name=".ActivityMain"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
