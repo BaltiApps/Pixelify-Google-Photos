@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:layout_margin="25dp"
+    android:id="@+id/root_view_for_snackbar"
     >
 
     <androidx.appcompat.widget.SwitchCompat

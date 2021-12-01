@@ -7,4 +7,7 @@
     <string name="spoof_only_in_google_photos">Make sure to spoof only in Google Photos.</string>
     <string name="spoof_only_in_google_photos_desc">In LSPosed, the module is by default only activated for Google Photos.
     If you want to use it in other apps, then keep this toggle OFF.</string>
+
+    <!--ActivityMain.xml-->
+    <string name="please_reboot">Please reboot for changes to take effect.</string>
 </resources>
