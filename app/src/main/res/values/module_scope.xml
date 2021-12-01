@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="module_scope">
+        <item>balti.test</item>
+        <item>com.google.android.apps.photos</item>
+    </string-array>
+</resources>
