@@ -12,7 +12,7 @@
             android:value="true" />
         <meta-data
             android:name="xposeddescription"
-            android:value="Module Google Pixel features in Google Photos on any device." />
+            android:value="Add Google Pixel features in Google Photos on any device." />
         <meta-data
             android:name="xposedminversion"
             android:value="90" />
