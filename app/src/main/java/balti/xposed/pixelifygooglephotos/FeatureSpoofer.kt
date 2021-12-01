@@ -70,8 +70,11 @@ class FeatureSpoofer: IXposedHookLoadPackage {
      * else use [featuresToSpoof] (default selection).
      */
     private val finalFeaturesToSpoof by lazy {
-        if (pref.getBoolean(PREF_USE_PIXEL_2016, false)) featuresToSpoofPixel2016
-        else featuresToSpoof
+        pref.getBoolean(PREF_USE_PIXEL_2016, false).let {
+            log("Use Pixel 2016: $it")
+            if (it) featuresToSpoofPixel2016
+            else featuresToSpoof
+        }
     }
 
     /**
