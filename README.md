@@ -3,7 +3,7 @@ LSPosed module to add Google Pixel features on Google Photos for any device.
 
 ### Steps to use:
 1. Install Magisk, [LSPosed](https://github.com/LSPosed/LSPosed).  
-2. Install the apk of this app (available from releases page.)  
+2. Install the apk of this app (available from [Releases](https://github.com/BaltiApps/Pixelify-Google-Photos/releases) page.)  
 3. Open LSPosed app and enable the module. Google Photos will be automatically selected.  
 4. Reboot. Enjoy. (If needed, you might need to clear data of Google Photos app).  
 
@@ -16,6 +16,6 @@ The features being "spoofed" can be found from:
 [PixelFeatureDrops magisk module](https://github.com/ayush5harma/PixelFeatureDrops/tree/master/system/etc/sysconfig)  
 
 ### Disclaimer!!
-The user takes sole responsibility for any damage (if any) that might arise due to use of this module.  
+The user takes sole responsibility for any damage that might arise due to use of this module.  
 This inclused physical damage (to device), injury, data loss, and also legal matters.  
-This project was made as a learning initiative and the developer cannot be held liable for the use of it.
+This project was made as a learning initiative and the developer cannot be held liable in any way for the use of it.
