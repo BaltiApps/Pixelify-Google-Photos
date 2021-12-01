@@ -1,6 +1,8 @@
 package balti.xposed.pixelifygooglephotos
 
 import android.util.Log
+import balti.xposed.pixelifygooglephotos.Constants.PACKAGE_NAME_GOOGLE_PHOTOS
+import balti.xposed.pixelifygooglephotos.Constants.PREF_STRICTLY_CHECK_GOOGLE_PHOTOS
 import balti.xposed.pixelifygooglephotos.Constants.PREF_USE_PIXEL_2016
 import de.robv.android.xposed.*
 import de.robv.android.xposed.callbacks.XC_LoadPackage
@@ -91,6 +93,14 @@ class FeatureSpoofer: IXposedHookLoadPackage {
     }
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam?) {
+
+        /**
+         * If user selects to never use this on any other app other than Google photos,
+         * then check package name and return if necessary.
+         */
+        if (pref.getBoolean(PREF_STRICTLY_CHECK_GOOGLE_PHOTOS, false) &&
+            lpparam?.packageName != PACKAGE_NAME_GOOGLE_PHOTOS) return
+
         log("Loaded ${lpparam?.packageName}")
 
         /**
