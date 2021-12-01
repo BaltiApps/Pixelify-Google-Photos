@@ -28,19 +28,25 @@ class ActivityMain: AppCompatActivity() {
         val switchPixel2016 = findViewById<SwitchCompat>(R.id.pixel_2016_switch)
         val switchEnforceGooglePhotos = findViewById<SwitchCompat>(R.id.spoof_only_in_google_photos_switch)
 
-        switchPixel2016.setOnCheckedChangeListener { _, isChecked ->
-            pref.edit().apply {
-                putBoolean(PREF_USE_PIXEL_2016, isChecked)
-                apply()
-                showRebootSnack()
+        switchPixel2016.apply {
+            isChecked = pref.getBoolean(PREF_USE_PIXEL_2016, false)
+            setOnCheckedChangeListener { _, isChecked ->
+                pref.edit().apply {
+                    putBoolean(PREF_USE_PIXEL_2016, isChecked)
+                    apply()
+                    showRebootSnack()
+                }
             }
         }
 
-        switchEnforceGooglePhotos.setOnCheckedChangeListener { _, isChecked ->
-            pref.edit().apply {
-                putBoolean(PREF_STRICTLY_CHECK_GOOGLE_PHOTOS, isChecked)
-                apply()
-                showRebootSnack()
+        switchEnforceGooglePhotos.apply {
+            isChecked = pref.getBoolean(PREF_STRICTLY_CHECK_GOOGLE_PHOTOS, false)
+            setOnCheckedChangeListener { _, isChecked ->
+                pref.edit().apply {
+                    putBoolean(PREF_STRICTLY_CHECK_GOOGLE_PHOTOS, isChecked)
+                    apply()
+                    showRebootSnack()
+                }
             }
         }
     }
