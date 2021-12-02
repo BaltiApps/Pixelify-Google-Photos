@@ -30,7 +30,7 @@ class ActivityMain: AppCompatActivity() {
      * https://github.com/GravityBox/GravityBox/blob/0aec21792c218a48602a258fbb0ab1fcb1e9be0c/GravityBox/src/main/java/com/ceco/r/gravitybox/WorldReadablePrefs.java
      */
     @SuppressLint("SetWorldReadable")
-    private fun fixPermissions(prefsName: String) {
+    private fun fixPermissions() {
         val dataDirectory = File("/data/data/$packageName")
         dataDirectory.apply {
             setExecutable(true, false)
@@ -43,7 +43,7 @@ class ActivityMain: AppCompatActivity() {
                 setReadable(true, false)
             }
         }
-        val prefsFile = File(sharedPrefsFolder, "$prefsName.xml")
+        val prefsFile = File(sharedPrefsFolder, "$SHARED_PREF_FILE_NAME.xml")
         prefsFile.apply {
             if (exists()) setReadable(true, false)
         }
@@ -60,7 +60,7 @@ class ActivityMain: AppCompatActivity() {
         switchPixel2016.apply {
             isChecked = pref.getBoolean(PREF_USE_PIXEL_2016, false)
             setOnCheckedChangeListener { _, isChecked ->
-                pref.edit().apply {
+                pref.edit().run {
                     putBoolean(PREF_USE_PIXEL_2016, isChecked)
                     apply()
                     showRebootSnack()
@@ -71,7 +71,7 @@ class ActivityMain: AppCompatActivity() {
         switchEnforceGooglePhotos.apply {
             isChecked = pref.getBoolean(PREF_STRICTLY_CHECK_GOOGLE_PHOTOS, false)
             setOnCheckedChangeListener { _, isChecked ->
-                pref.edit().apply {
+                pref.edit().run {
                     putBoolean(PREF_STRICTLY_CHECK_GOOGLE_PHOTOS, isChecked)
                     apply()
                     showRebootSnack()
@@ -79,7 +79,12 @@ class ActivityMain: AppCompatActivity() {
             }
         }
 
-        fixPermissions(SHARED_PREF_FILE_NAME)
+        fixPermissions()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        fixPermissions()
     }
 
 }
