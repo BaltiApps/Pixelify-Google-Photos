@@ -1,5 +1,6 @@
 package balti.xposed.pixelifygooglephotos
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +9,7 @@ import balti.xposed.pixelifygooglephotos.Constants.PREF_STRICTLY_CHECK_GOOGLE_PH
 import balti.xposed.pixelifygooglephotos.Constants.PREF_USE_PIXEL_2016
 import balti.xposed.pixelifygooglephotos.Constants.SHARED_PREF_FILE_NAME
 import com.google.android.material.snackbar.Snackbar
+import java.io.File
 
 class ActivityMain: AppCompatActivity() {
 
@@ -18,6 +20,33 @@ class ActivityMain: AppCompatActivity() {
     private fun showRebootSnack(){
         val rootView = findViewById<LinearLayout>(R.id.root_view_for_snackbar)
         Snackbar.make(rootView, R.string.please_reboot, Snackbar.LENGTH_SHORT).show()
+    }
+
+    /**
+     * Change permissions on private data, shared_prefs directory and preferences file.
+     * Otherwise XSharedPreference cannot read the file.
+     * Solution inspired from:
+     * https://github.com/rovo89/XposedBridge/issues/233
+     * https://github.com/GravityBox/GravityBox/blob/0aec21792c218a48602a258fbb0ab1fcb1e9be0c/GravityBox/src/main/java/com/ceco/r/gravitybox/WorldReadablePrefs.java
+     */
+    @SuppressLint("SetWorldReadable")
+    private fun fixPermissions(prefsName: String) {
+        val dataDirectory = File("/data/data/$packageName")
+        dataDirectory.apply {
+            setExecutable(true, false)
+            setReadable(true, false)
+        }
+        val sharedPrefsFolder = File(dataDirectory, "shared_prefs")
+        sharedPrefsFolder.apply {
+            if (exists()){
+                setExecutable(true, false)
+                setReadable(true, false)
+            }
+        }
+        val prefsFile = File(sharedPrefsFolder, "$prefsName.xml")
+        prefsFile.apply {
+            if (exists()) setReadable(true, false)
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,6 +78,8 @@ class ActivityMain: AppCompatActivity() {
                 }
             }
         }
+
+        fixPermissions(SHARED_PREF_FILE_NAME)
     }
 
 }
