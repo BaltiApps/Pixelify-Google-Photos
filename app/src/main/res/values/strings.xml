@@ -2,6 +2,8 @@
     <string name="app_name">Pixelify Google Photos</string>
 
     <!--activity_main.xml-->
+    <string name="device_to_spoof">Device to spoof</string>
+    <string name="optional">Maybe optional.</string>
     <string name="use_pixel_2016">Use Pixel 2016 feature flags.</string>
     <string name="use_pixel_2016_desc">Use at your own risk as some new options might get disabled.</string>
     <string name="spoof_only_in_google_photos">Make sure to spoof only in Google Photos.</string>
