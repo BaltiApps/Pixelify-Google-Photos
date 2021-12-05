@@ -2,9 +2,11 @@ package balti.xposed.pixelifygooglephotos
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.widget.LinearLayout
+import android.view.View
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
+import balti.xposed.pixelifygooglephotos.Constants.PREF_DEVICE_TO_SPOOF
 import balti.xposed.pixelifygooglephotos.Constants.PREF_STRICTLY_CHECK_GOOGLE_PHOTOS
 import balti.xposed.pixelifygooglephotos.Constants.PREF_USE_PIXEL_2016
 import balti.xposed.pixelifygooglephotos.Constants.SHARED_PREF_FILE_NAME
@@ -18,7 +20,7 @@ class ActivityMain: AppCompatActivity() {
     }
 
     private fun showRebootSnack(){
-        val rootView = findViewById<LinearLayout>(R.id.root_view_for_snackbar)
+        val rootView = findViewById<ScrollView>(R.id.root_view_for_snackbar)
         Snackbar.make(rootView, R.string.please_reboot, Snackbar.LENGTH_SHORT).show()
     }
 
@@ -56,6 +58,7 @@ class ActivityMain: AppCompatActivity() {
 
         val switchPixel2016 = findViewById<SwitchCompat>(R.id.pixel_2016_switch)
         val switchEnforceGooglePhotos = findViewById<SwitchCompat>(R.id.spoof_only_in_google_photos_switch)
+        val deviceSpooferSpinner = findViewById<Spinner>(R.id.device_spoofer_spinner)
 
         switchPixel2016.apply {
             isChecked = pref.getBoolean(PREF_USE_PIXEL_2016, false)
@@ -76,6 +79,27 @@ class ActivityMain: AppCompatActivity() {
                     apply()
                     showRebootSnack()
                 }
+            }
+        }
+
+        deviceSpooferSpinner.apply {
+            val deviceNames = DeviceProps.allDevices.map { it.deviceName }
+            val aa = ArrayAdapter(this@ActivityMain,android.R.layout.simple_spinner_item, deviceNames)
+
+            aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            adapter = aa
+            val defaultSelection = pref.getString(PREF_DEVICE_TO_SPOOF, DeviceProps.defaultDeviceName)
+            setSelection(aa.getPosition(defaultSelection))
+
+            onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                    pref.edit().apply {
+                        putString(PREF_DEVICE_TO_SPOOF, aa.getItem(position))
+                        apply()
+                    }
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {}
             }
         }
 
