@@ -60,7 +60,9 @@ class DeviceSpoofer: IXposedHookLoadPackage {
 
         finalDeviceToSpoof?.props?.run {
 
+            if (keys.isEmpty()) return
             val classLoader = lpparam?.classLoader ?: return
+
             val classBuild = XposedHelpers.findClass("android.os.Build", classLoader)
             keys.forEach {
                 XposedHelpers.setStaticObjectField(classBuild, it, this[it])
