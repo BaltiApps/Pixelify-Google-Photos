@@ -4,6 +4,7 @@ import android.util.Log
 import balti.xposed.pixelifygooglephotos.Constants.PACKAGE_NAME_GOOGLE_PHOTOS
 import balti.xposed.pixelifygooglephotos.Constants.PREF_DEVICE_TO_SPOOF
 import balti.xposed.pixelifygooglephotos.Constants.PREF_STRICTLY_CHECK_GOOGLE_PHOTOS
+import balti.xposed.pixelifygooglephotos.DeviceProps.getDeviceProps
 import de.robv.android.xposed.IXposedHookLoadPackage
 import de.robv.android.xposed.XSharedPreferences
 import de.robv.android.xposed.XposedBridge
@@ -36,9 +37,9 @@ class DeviceSpoofer: IXposedHookLoadPackage {
      * By default use Pixel 5.
      */
     private val finalDeviceToSpoof by lazy {
-        val deviceShortHand = pref.getString(PREF_DEVICE_TO_SPOOF, "p5")
-        log("Device spoof: $deviceShortHand")
-        getDeviceProps(deviceShortHand)
+        val deviceName = pref.getString(PREF_DEVICE_TO_SPOOF, "Pixel 5")
+        log("Device spoof: $deviceName")
+        getDeviceProps(deviceName)
     }
 
     /**
@@ -55,9 +56,9 @@ class DeviceSpoofer: IXposedHookLoadPackage {
             lpparam?.packageName != PACKAGE_NAME_GOOGLE_PHOTOS) return
 
         log("Loaded DeviceSpoofer for ${lpparam?.packageName}")
-        log("Device spoof: $finalDeviceToSpoof")
+        log("Device spoof: ${finalDeviceToSpoof?.deviceName}")
 
-        finalDeviceToSpoof?.run {
+        finalDeviceToSpoof?.props?.run {
 
             val classLoader = lpparam?.classLoader ?: return
             val classBuild = XposedHelpers.findClass("android.os.Build", classLoader)
