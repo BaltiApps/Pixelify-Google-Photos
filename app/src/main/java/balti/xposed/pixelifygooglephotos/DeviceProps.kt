@@ -15,6 +15,8 @@ object DeviceProps {
 
     data class DeviceEntries(val deviceName: String, val props: HashMap<String, String>)
 
+    val defaultDeviceName = "Pixel 5"
+
     val allDevices = listOf(
 
         DeviceEntries("None", hashMapOf()),
