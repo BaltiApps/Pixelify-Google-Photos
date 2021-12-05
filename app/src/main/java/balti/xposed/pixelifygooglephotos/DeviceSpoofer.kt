@@ -4,7 +4,6 @@ import android.util.Log
 import balti.xposed.pixelifygooglephotos.Constants.PACKAGE_NAME_GOOGLE_PHOTOS
 import balti.xposed.pixelifygooglephotos.Constants.PREF_DEVICE_TO_SPOOF
 import balti.xposed.pixelifygooglephotos.Constants.PREF_STRICTLY_CHECK_GOOGLE_PHOTOS
-import balti.xposed.pixelifygooglephotos.DeviceProps.getDeviceProps
 import de.robv.android.xposed.IXposedHookLoadPackage
 import de.robv.android.xposed.XSharedPreferences
 import de.robv.android.xposed.XposedBridge
@@ -37,9 +36,9 @@ class DeviceSpoofer: IXposedHookLoadPackage {
      * By default use Pixel 5.
      */
     private val finalDeviceToSpoof by lazy {
-        val deviceName = pref.getString(PREF_DEVICE_TO_SPOOF, "Pixel 5")
+        val deviceName = pref.getString(PREF_DEVICE_TO_SPOOF, DeviceProps.defaultDeviceName)
         log("Device spoof: $deviceName")
-        getDeviceProps(deviceName)
+        DeviceProps.getDeviceProps(deviceName)
     }
 
     /**
