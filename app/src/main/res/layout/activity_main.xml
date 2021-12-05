@@ -1,41 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:fillViewport="true"
     android:layout_margin="25dp"
     android:id="@+id/root_view_for_snackbar"
     >
 
-    <androidx.appcompat.widget.SwitchCompat
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/use_pixel_2016"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/pixel_2016_switch"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/use_pixel_2016_desc"
-        android:textAppearance="?android:attr/textAppearanceSmall"/>
+        <androidx.appcompat.widget.SwitchCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/use_pixel_2016"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/pixel_2016_switch"/>
 
-    <Space
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/use_pixel_2016_desc"
+            android:textAppearance="?android:attr/textAppearanceSmall"/>
 
-    <androidx.appcompat.widget.SwitchCompat
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/spoof_only_in_google_photos"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/spoof_only_in_google_photos_switch"/>
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/spoof_only_in_google_photos_desc"
-        android:textAppearance="?android:attr/textAppearanceSmall"/>
+        <androidx.appcompat.widget.SwitchCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/spoof_only_in_google_photos"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/spoof_only_in_google_photos_switch"/>
 
-</LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/spoof_only_in_google_photos_desc"
+            android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+    </LinearLayout>
+
+</ScrollView>
