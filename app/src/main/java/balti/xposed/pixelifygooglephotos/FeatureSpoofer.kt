@@ -14,7 +14,7 @@ class FeatureSpoofer: IXposedHookLoadPackage {
      * For Pixel 2016 only features.
      * Use at your own risk.
      * By default [featuresToSpoof] will be used.
-     * https://github.com/DotOS/android_vendor_dot/blob/55f1c26bb6dbb1175d96cf538ae113618caf7d06/prebuilt/common/etc/pixel_2016_exclusive.xml
+     * https://github.com/DotOS/android_vendor_dot/blob/dot12/prebuilt/common/etc/pixel_2016_exclusive.xml
      */
     private val featuresToSpoofPixel2016: List<String> = listOf(
         "com.google.android.apps.photos.NEXUS_PRELOAD",
