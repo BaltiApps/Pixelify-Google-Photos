@@ -1,6 +1,9 @@
 # Pixelify-Google-Photos
 LSPosed module to add Google Pixel features on Google Photos for any device.
 
+[LSPosed module repo](https://github.com/Xposed-Modules-Repo/balti.xposed.pixelifygooglephotos.git)  
+[Development repo](https://github.com/BaltiApps/Pixelify-Google-Photos.git)  
+
 ### Steps to use:
 1. Install Magisk, [LSPosed](https://github.com/LSPosed/LSPosed).  
 2. Install the apk of this app (available from [Releases](https://github.com/BaltiApps/Pixelify-Google-Photos/releases) page.)  
@@ -18,5 +21,5 @@ This module can also spoof some of the `build.prop` information like `BRAND`, `M
 
 ### Disclaimer!!
 The user takes sole responsibility for any damage that might arise due to use of this module.  
-This inclused physical damage (to device), injury, data loss, and also legal matters.  
+This includes physical damage (to device), injury, data loss, and also legal matters.  
 This project was made as a learning initiative and the developer cannot be held liable in any way for the use of it.
