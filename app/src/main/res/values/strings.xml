@@ -9,7 +9,14 @@
     <string name="spoof_only_in_google_photos">Make sure to spoof only in Google Photos.</string>
     <string name="spoof_only_in_google_photos_desc">In LSPosed, the module is by default only activated for Google Photos.
     If you want to use it in other apps, then keep this toggle <b>OFF</b>.</string>
+    <string name="force_stop_google_photos">Force stop\nGoogle Photos</string>
+    <string name="open_google_photos">Open Google Photos</string>
 
     <!--ActivityMain.xml-->
-    <string name="please_reboot">Please reboot for changes to take effect.</string>
+    <string name="please_force_stop_google_photos">Please force stop Google Photos to take effect.</string>
+
+    <!--Utils.kt-->
+    <string name="killing_please_wait">Killing… please wait.</string>
+    <string name="failed_to_stop_package">Failed to stop package. Please stop manually.</string>
+    <string name="failed_to_launch_package">Failed to launch. Please start manually.</string>
 </resources>
