@@ -35,12 +35,18 @@ class ActivityMain: AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
+        /**
+         * Link to xml views.
+         */
         val switchPixel2016 = findViewById<SwitchCompat>(R.id.pixel_2016_switch)
         val switchEnforceGooglePhotos = findViewById<SwitchCompat>(R.id.spoof_only_in_google_photos_switch)
         val deviceSpooferSpinner = findViewById<Spinner>(R.id.device_spoofer_spinner)
         val forceStopGooglePhotos = findViewById<Button>(R.id.force_stop_google_photos)
         val openGooglePhotos = findViewById<ImageButton>(R.id.open_google_photos)
 
+        /**
+         * See [FeatureSpoofer].
+         */
         switchPixel2016.apply {
             isChecked = pref.getBoolean(PREF_USE_PIXEL_2016, false)
             setOnCheckedChangeListener { _, isChecked ->
@@ -52,6 +58,9 @@ class ActivityMain: AppCompatActivity() {
             }
         }
 
+        /**
+         * See [FeatureSpoofer].
+         */
         switchEnforceGooglePhotos.apply {
             isChecked = pref.getBoolean(PREF_STRICTLY_CHECK_GOOGLE_PHOTOS, false)
             setOnCheckedChangeListener { _, isChecked ->
@@ -63,6 +72,9 @@ class ActivityMain: AppCompatActivity() {
             }
         }
 
+        /**
+         * See [DeviceSpoofer].
+         */
         deviceSpooferSpinner.apply {
             val deviceNames = DeviceProps.allDevices.map { it.deviceName }
             val aa = ArrayAdapter(this@ActivityMain,android.R.layout.simple_spinner_item, deviceNames)
@@ -84,10 +96,16 @@ class ActivityMain: AppCompatActivity() {
             }
         }
 
+        /**
+         * See [Utils.forceStopPackage].
+         */
         forceStopGooglePhotos.setOnClickListener {
             utils.forceStopPackage(Constants.PACKAGE_NAME_GOOGLE_PHOTOS, this)
         }
 
+        /**
+         * See [Utils.openApplication].
+         */
         openGooglePhotos.setOnClickListener {
             utils.openApplication(Constants.PACKAGE_NAME_GOOGLE_PHOTOS, this)
         }
