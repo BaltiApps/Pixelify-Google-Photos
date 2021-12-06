@@ -17,7 +17,7 @@ import java.io.BufferedWriter
 import java.io.File
 import java.io.OutputStreamWriter
 
-class ActivityMain: AppCompatActivity() {
+class ActivityMain: AppCompatActivity(R.layout.activity_main) {
 
     private val pref by lazy {
         getSharedPreferences(SHARED_PREF_FILE_NAME, MODE_PRIVATE)
@@ -32,8 +32,6 @@ class ActivityMain: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        setContentView(R.layout.activity_main)
 
         /**
          * Link to xml views.
