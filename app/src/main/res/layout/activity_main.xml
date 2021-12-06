@@ -95,6 +95,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/force_stop_google_photos"
+                android:elevation="3dp"
                 android:id="@+id/force_stop_google_photos"
                 />
 
@@ -107,6 +108,7 @@
                 android:backgroundTint="?android:attr/colorPrimary"
                 android:contentDescription="@string/open_google_photos"
                 android:src="@drawable/ic_open"
+                android:elevation="3dp"
                 android:id="@+id/open_google_photos"
                 />
 
