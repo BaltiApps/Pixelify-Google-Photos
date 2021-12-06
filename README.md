@@ -14,6 +14,7 @@ Thus Google Photos enables Pixel-Exclusive features.
 The features being "spoofed" can be found from:  
 [Dot OS sources](https://github.com/DotOS/android_vendor_dot/blob/55f1c26bb6dbb1175d96cf538ae113618caf7d06/prebuilt/common/etc/pixel_2016_exclusive.xml)  
 [PixelFeatureDrops magisk module](https://github.com/ayush5harma/PixelFeatureDrops/tree/master/system/etc/sysconfig)  
+This module can also spoof some of the `build.prop` information like `BRAND`, `MANUFACTURER`, `MODEL`, `FINGERPRINT` of some Pixel devices.  
 
 ### Disclaimer!!
 The user takes sole responsibility for any damage that might arise due to use of this module.  
