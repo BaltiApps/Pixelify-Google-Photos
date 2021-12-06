@@ -1,6 +1,7 @@
 package balti.xposed.pixelifygooglephotos
 
 import android.annotation.SuppressLint
+import android.app.ActivityManager
 import android.os.Bundle
 import android.view.View
 import android.widget.*
@@ -11,7 +12,10 @@ import balti.xposed.pixelifygooglephotos.Constants.PREF_STRICTLY_CHECK_GOOGLE_PH
 import balti.xposed.pixelifygooglephotos.Constants.PREF_USE_PIXEL_2016
 import balti.xposed.pixelifygooglephotos.Constants.SHARED_PREF_FILE_NAME
 import com.google.android.material.snackbar.Snackbar
+import de.robv.android.xposed.XposedHelpers
+import java.io.BufferedWriter
 import java.io.File
+import java.io.OutputStreamWriter
 
 class ActivityMain: AppCompatActivity() {
 
@@ -21,7 +25,7 @@ class ActivityMain: AppCompatActivity() {
 
     private fun showRebootSnack(){
         val rootView = findViewById<ScrollView>(R.id.root_view_for_snackbar)
-        Snackbar.make(rootView, R.string.please_reboot, Snackbar.LENGTH_SHORT).show()
+        Snackbar.make(rootView, R.string.please_force_stop_google_photos, Snackbar.LENGTH_SHORT).show()
     }
 
     /**
@@ -59,6 +63,8 @@ class ActivityMain: AppCompatActivity() {
         val switchPixel2016 = findViewById<SwitchCompat>(R.id.pixel_2016_switch)
         val switchEnforceGooglePhotos = findViewById<SwitchCompat>(R.id.spoof_only_in_google_photos_switch)
         val deviceSpooferSpinner = findViewById<Spinner>(R.id.device_spoofer_spinner)
+        val forceStopGooglePhotos = findViewById<Button>(R.id.force_stop_google_photos)
+        val openGooglePhotos = findViewById<ImageButton>(R.id.open_google_photos)
 
         switchPixel2016.apply {
             isChecked = pref.getBoolean(PREF_USE_PIXEL_2016, false)
@@ -101,6 +107,14 @@ class ActivityMain: AppCompatActivity() {
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {}
             }
+        }
+
+        forceStopGooglePhotos.setOnClickListener {
+            Utils().forceStopPackage(Constants.PACKAGE_NAME_GOOGLE_PHOTOS, this)
+        }
+
+        openGooglePhotos.setOnClickListener {
+            Utils().openApplication(Constants.PACKAGE_NAME_GOOGLE_PHOTOS, this)
         }
 
         fixPermissions()
