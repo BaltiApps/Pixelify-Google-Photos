@@ -28,6 +28,8 @@ class ActivityMain: AppCompatActivity() {
         Snackbar.make(rootView, R.string.please_force_stop_google_photos, Snackbar.LENGTH_SHORT).show()
     }
 
+    private val utils by lazy { Utils() }
+
     /**
      * Change permissions on private data, shared_prefs directory and preferences file.
      * Otherwise XSharedPreference cannot read the file.
@@ -110,11 +112,11 @@ class ActivityMain: AppCompatActivity() {
         }
 
         forceStopGooglePhotos.setOnClickListener {
-            Utils().forceStopPackage(Constants.PACKAGE_NAME_GOOGLE_PHOTOS, this)
+            utils.forceStopPackage(Constants.PACKAGE_NAME_GOOGLE_PHOTOS, this)
         }
 
         openGooglePhotos.setOnClickListener {
-            Utils().openApplication(Constants.PACKAGE_NAME_GOOGLE_PHOTOS, this)
+            utils.openApplication(Constants.PACKAGE_NAME_GOOGLE_PHOTOS, this)
         }
 
         fixPermissions()
