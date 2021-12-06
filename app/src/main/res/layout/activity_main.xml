@@ -82,6 +82,36 @@
             android:text="@string/spoof_only_in_google_photos_desc"
             android:textAppearance="?android:attr/textAppearanceSmall"/>
 
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/force_stop_google_photos"
+                android:id="@+id/force_stop_google_photos"
+                />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/force_stop_google_photos"
+                android:layout_alignTop="@id/force_stop_google_photos"
+                android:layout_alignBottom="@id/force_stop_google_photos"
+                android:backgroundTint="?android:attr/colorPrimary"
+                android:contentDescription="@string/open_google_photos"
+                android:src="@drawable/ic_open"
+                android:id="@+id/open_google_photos"
+                />
+
+        </RelativeLayout>
+
     </LinearLayout>
 
 </ScrollView>
