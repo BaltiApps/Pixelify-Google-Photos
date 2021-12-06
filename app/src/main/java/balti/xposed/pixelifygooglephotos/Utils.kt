@@ -1,5 +1,6 @@
 package balti.xposed.pixelifygooglephotos
 
+import android.annotation.SuppressLint
 import android.app.ActivityManager
 import android.content.Context
 import android.content.Context.ACTIVITY_SERVICE
@@ -17,6 +18,7 @@ import android.content.Intent
 import android.net.Uri
 import android.provider.Settings
 import androidx.core.content.ContextCompat
+import java.io.File
 
 
 /**
@@ -72,6 +74,33 @@ class Utils {
         }
         catch (e: Exception){
             Toast.makeText(context, R.string.failed_to_launch_package, Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    /**
+     * Change permissions on private data, shared_prefs directory and preferences file.
+     * Otherwise XSharedPreference cannot read the file.
+     * Solution inspired from:
+     * https://github.com/rovo89/XposedBridge/issues/233
+     * https://github.com/GravityBox/GravityBox/blob/0aec21792c218a48602a258fbb0ab1fcb1e9be0c/GravityBox/src/main/java/com/ceco/r/gravitybox/WorldReadablePrefs.java
+     */
+    @SuppressLint("SetWorldReadable")
+    fun fixPermissions(thisPackageName: String) {
+        val dataDirectory = File("/data/data/$thisPackageName")
+        dataDirectory.apply {
+            setExecutable(true, false)
+            setReadable(true, false)
+        }
+        val sharedPrefsFolder = File(dataDirectory, "shared_prefs")
+        sharedPrefsFolder.apply {
+            if (exists()){
+                setExecutable(true, false)
+                setReadable(true, false)
+            }
+        }
+        val prefsFile = File(sharedPrefsFolder, "${Constants.SHARED_PREF_FILE_NAME}.xml")
+        prefsFile.apply {
+            if (exists()) setReadable(true, false)
         }
     }
 

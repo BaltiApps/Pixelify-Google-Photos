@@ -30,33 +30,6 @@ class ActivityMain: AppCompatActivity() {
 
     private val utils by lazy { Utils() }
 
-    /**
-     * Change permissions on private data, shared_prefs directory and preferences file.
-     * Otherwise XSharedPreference cannot read the file.
-     * Solution inspired from:
-     * https://github.com/rovo89/XposedBridge/issues/233
-     * https://github.com/GravityBox/GravityBox/blob/0aec21792c218a48602a258fbb0ab1fcb1e9be0c/GravityBox/src/main/java/com/ceco/r/gravitybox/WorldReadablePrefs.java
-     */
-    @SuppressLint("SetWorldReadable")
-    private fun fixPermissions() {
-        val dataDirectory = File("/data/data/$packageName")
-        dataDirectory.apply {
-            setExecutable(true, false)
-            setReadable(true, false)
-        }
-        val sharedPrefsFolder = File(dataDirectory, "shared_prefs")
-        sharedPrefsFolder.apply {
-            if (exists()){
-                setExecutable(true, false)
-                setReadable(true, false)
-            }
-        }
-        val prefsFile = File(sharedPrefsFolder, "$SHARED_PREF_FILE_NAME.xml")
-        prefsFile.apply {
-            if (exists()) setReadable(true, false)
-        }
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -119,12 +92,12 @@ class ActivityMain: AppCompatActivity() {
             utils.openApplication(Constants.PACKAGE_NAME_GOOGLE_PHOTOS, this)
         }
 
-        fixPermissions()
+        utils.fixPermissions(packageName)
     }
 
     override fun onPause() {
         super.onPause()
-        fixPermissions()
+        utils.fixPermissions(packageName)
     }
 
 }
