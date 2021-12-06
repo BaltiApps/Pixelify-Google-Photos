@@ -13,6 +13,8 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage
 /**
  * Codenames of pixels:
  * https://oneandroid.net/all-google-pixel-codenames-from-sailfish-to-redfin/
+ *
+ * Device properties stored in [DeviceProps].
  */
 class DeviceSpoofer: IXposedHookLoadPackage {
 
