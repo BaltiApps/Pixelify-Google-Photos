@@ -16,6 +16,10 @@ import de.robv.android.xposed.XposedHelpers
 import java.io.BufferedWriter
 import java.io.File
 import java.io.OutputStreamWriter
+import android.content.Intent
+
+
+
 
 class ActivityMain: AppCompatActivity(R.layout.activity_main) {
 
@@ -36,11 +40,28 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
         /**
          * Link to xml views.
          */
+        val resetSettings = findViewById<Button>(R.id.reset_settings)
         val switchPixel2016 = findViewById<SwitchCompat>(R.id.pixel_2016_switch)
         val switchEnforceGooglePhotos = findViewById<SwitchCompat>(R.id.spoof_only_in_google_photos_switch)
         val deviceSpooferSpinner = findViewById<Spinner>(R.id.device_spoofer_spinner)
         val forceStopGooglePhotos = findViewById<Button>(R.id.force_stop_google_photos)
         val openGooglePhotos = findViewById<ImageButton>(R.id.open_google_photos)
+
+        /**
+         * Set default spoof device to [DeviceProps.defaultDeviceName].
+         * Set other boolean values.
+         * Restart the activity.
+         */
+        resetSettings.setOnClickListener {
+            pref.edit().run {
+                putString(PREF_DEVICE_TO_SPOOF, DeviceProps.defaultDeviceName)
+                putBoolean(PREF_USE_PIXEL_2016, false)
+                putBoolean(PREF_STRICTLY_CHECK_GOOGLE_PHOTOS, false)
+                apply()
+            }
+            finish()
+            startActivity(intent)
+        }
 
         /**
          * See [FeatureSpoofer].
