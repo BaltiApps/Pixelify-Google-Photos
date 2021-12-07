@@ -82,7 +82,7 @@ object DeviceProps {
     data class DeviceEntries(
         val deviceName: String,
         val props: HashMap<String, String>,
-        val features: Features?,
+        val featureLevelName: String?,
     )
 
     val defaultDeviceName = "Pixel 5"
@@ -100,7 +100,7 @@ object DeviceProps {
                 Pair("MODEL", "Pixel XL"),
                 Pair("FINGERPRINT", "google/marlin/marlin:10/QP1A.191005.007.A3/5972272:user/release-keys"),
             ),
-            getFeatures("Pixel 2016"),
+            "Pixel 2016",
         ),
 
         DeviceEntries(
@@ -112,7 +112,7 @@ object DeviceProps {
                 Pair("MODEL", "Pixel 2"),
                 Pair("FINGERPRINT", "google/walleye/walleye:8.1.0/OPM1.171019.021/4565141:user/release-keys"),
             ),
-            getFeatures("Pixel 2017"),
+            "Pixel 2017",
         ),
 
         DeviceEntries(
@@ -124,7 +124,7 @@ object DeviceProps {
                 Pair("MODEL", "Pixel 3 XL"),
                 Pair("FINGERPRINT", "google/crosshatch/crosshatch:11/RQ3A.211001.001/7641976:user/release-keys"),
             ),
-            getFeatures("Pixel 2018"),
+            "Pixel 2018",
         ),
 
         DeviceEntries(
@@ -136,7 +136,7 @@ object DeviceProps {
                 Pair("MODEL", "Pixel 3a XL"),
                 Pair("FINGERPRINT", "google/bonito/bonito:11/RQ3A.211001.001/7641976:user/release-keys"),
             ),
-            getFeatures("Pixel 2019 mid-year"),
+            "Pixel 2019 mid-year",
         ),
 
         DeviceEntries(
@@ -148,7 +148,7 @@ object DeviceProps {
                 Pair("MODEL", "Pixel 4 XL"),
                 Pair("FINGERPRINT", "google/coral/coral:12/SP1A.211105.002/7743617:user/release-keys"),
             ),
-            getFeatures("Pixel 2019"),
+            "Pixel 2019",
         ),
 
         DeviceEntries(
@@ -160,7 +160,7 @@ object DeviceProps {
                 Pair("MODEL", "Pixel 4a"),
                 Pair("FINGERPRINT", "google/sunfish/sunfish:11/RQ3A.211001.001/7641976:user/release-keys"),
             ),
-            getFeatures("Pixel 2020 mid-year"),
+            "Pixel 2020 mid-year",
         ),
 
         DeviceEntries(
@@ -172,7 +172,7 @@ object DeviceProps {
                 Pair("MODEL", "Pixel 5"),
                 Pair("FINGERPRINT", "google/redfin/redfin:12/SP1A.211105.003/7757856:user/release-keys"),
             ),
-            getFeatures("Pixel 2020"),
+            "Pixel 2020",
         ),
 
         DeviceEntries(
@@ -184,7 +184,7 @@ object DeviceProps {
                 Pair("MODEL", "Pixel 5a"),
                 Pair("FINGERPRINT", "google/barbet/barbet:11/RD2A.211001.002/7644766:user/release-keys"),
             ),
-            getFeatures("Pixel 2021 mid-year"),
+            "Pixel 2021 mid-year",
         ),
 
         DeviceEntries(
@@ -196,7 +196,7 @@ object DeviceProps {
                 Pair("MODEL", "Pixel 6 Pro"),
                 Pair("FINGERPRINT", "google/raven/raven:12/SD1A.210817.036/7805805:user/release-keys"),
             ),
-            getFeatures("Pixel 2021"),
+            "Pixel 2021",
         ),
     )
 
