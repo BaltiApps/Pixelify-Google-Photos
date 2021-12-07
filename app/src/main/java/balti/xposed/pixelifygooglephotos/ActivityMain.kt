@@ -8,7 +8,6 @@ import androidx.appcompat.widget.SwitchCompat
 import balti.xposed.pixelifygooglephotos.Constants.PREF_DEVICE_TO_SPOOF
 import balti.xposed.pixelifygooglephotos.Constants.PREF_SPOOF_FEATURES_LIST
 import balti.xposed.pixelifygooglephotos.Constants.PREF_STRICTLY_CHECK_GOOGLE_PHOTOS
-import balti.xposed.pixelifygooglephotos.Constants.PREF_USE_PIXEL_2016
 import balti.xposed.pixelifygooglephotos.Constants.SHARED_PREF_FILE_NAME
 import com.google.android.material.snackbar.Snackbar
 
@@ -55,13 +54,13 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
 
         /**
          * Set default spoof device to [DeviceProps.defaultDeviceName].
-         * Set other boolean values.
+         * Set check for google photos as `false`.
+         * Set default feature levels to spoof.
          * Restart the activity.
          */
         resetSettings.setOnClickListener {
             pref.edit().run {
                 putString(PREF_DEVICE_TO_SPOOF, DeviceProps.defaultDeviceName)
-                putBoolean(PREF_USE_PIXEL_2016, false)
                 putBoolean(PREF_STRICTLY_CHECK_GOOGLE_PHOTOS, false)
                 putStringSet(
                     PREF_SPOOF_FEATURES_LIST,
