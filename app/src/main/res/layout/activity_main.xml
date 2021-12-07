@@ -64,18 +64,34 @@
             android:layout_width="wrap_content"
             android:layout_height="25dp"/>
 
-        <androidx.appcompat.widget.SwitchCompat
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/use_pixel_2016"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:id="@+id/pixel_2016_switch"/>
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingTop="10dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:id="@+id/customize_feature_flags"
+            >
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/use_pixel_2016_desc"
-            android:textAppearance="?android:attr/textAppearanceSmall"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/customize_feature_flags"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/feature_flags_changed"
+                android:textColor="?android:attr/colorPrimary"
+                android:alpha="0.0"
+                android:id="@+id/feature_flags_changed"
+                />
+
+        </LinearLayout>
 
         <Space
             android:layout_width="wrap_content"
