@@ -23,6 +23,8 @@ object DeviceProps {
     /**
      * Class to store different feature flags for different pixels.
      * @param displayName String to show to user to customize flag selection. Example "Pixel 2020"
+     * Also note that these display names are what is actually stored in shared preferences.
+     * The actual feature flags are then derived from the display names.
      * @param featureFlags List of actual features spoofed to Google Photos for that particular [displayName].
      * Example, for [displayName] = "Pixel 2020", [featureFlags] = listOf("com.google.android.feature.PIXEL_2020_EXPERIENCE")
      */
