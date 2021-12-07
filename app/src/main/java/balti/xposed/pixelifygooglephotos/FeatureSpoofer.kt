@@ -47,15 +47,24 @@ class FeatureSpoofer: IXposedHookLoadPackage {
      */
     private val finalFeaturesToSpoof: List<String> by lazy {
 
-        val defaultFeatureLevel = DeviceProps.defaultFeatureLevelName
-        val defaultSetMarker = setOf("default")
+        val defaultFeatures = DeviceProps.defaultFeatures
+        val defaultFeatureLevelsName = defaultFeatures.map { it.displayName }.toSet()
 
-        pref.getStringSet(PREF_SPOOF_FEATURES_LIST, defaultSetMarker)?.let { set ->
+        pref.getStringSet(PREF_SPOOF_FEATURES_LIST, defaultFeatureLevelsName)?.let { set ->
 
             val eligibleFeatures: List<DeviceProps.Features> =
 
-            if (set == defaultSetMarker) DeviceProps.getFeaturesUpTo(defaultFeatureLevel)
-            else DeviceProps.allFeatures.filter { set.contains(it.displayName) }
+                when {
+                    set.isEmpty() -> {
+                        log("Feature flags init: EMPTY SET")
+                        listOf()
+                    }
+                    set == defaultFeatureLevelsName -> {
+                        log("Feature flags init: DEFAULT SET")
+                        defaultFeatures
+                    }
+                    else -> DeviceProps.allFeatures.filter { set.contains(it.displayName) }
+                }
 
             val allFeatureFlags = ArrayList<String>(0)
 
@@ -110,7 +119,6 @@ class FeatureSpoofer: IXposedHookLoadPackage {
 
                 override fun beforeHookedMethod(param: MethodHookParam?) {
                     super.beforeHookedMethod(param)
-                    log("$METHOD_HAS_SYSTEM_FEATURE String")
                     returnTrueForSpoofedFeature(param)
                 }
 
@@ -128,7 +136,6 @@ class FeatureSpoofer: IXposedHookLoadPackage {
 
                 override fun beforeHookedMethod(param: MethodHookParam?) {
                     super.beforeHookedMethod(param)
-                    log("$METHOD_HAS_SYSTEM_FEATURE (String, Int)")
                     returnTrueForSpoofedFeature(param)
                 }
 
