@@ -43,8 +43,8 @@ class FeatureSpoofer: IXposedHookLoadPackage {
 
     /**
      * This is the final list of features to spoof.
-     * If user has selected to use Pixel 2016 features, use [featuresToSpoofPixel2016],
-     * else use [featuresToSpoof] (default selection).
+     * Gets the specific set of features to be enabled selected by the user.
+     * If nothing is found (default case) it uses all features from "Pixel 2016" to "Pixel 2020".
      */
     private val finalFeaturesToSpoof by lazy {
         val defaultFeatureLevel = DeviceProps.defaultFeatureLevelName
