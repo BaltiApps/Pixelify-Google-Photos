@@ -103,6 +103,7 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
                     }
 
                     peekFeatureFlagsChanged(featureFlagsChanged)
+                    showRebootSnack()
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {}
