@@ -6,6 +6,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
 import balti.xposed.pixelifygooglephotos.Constants.PREF_DEVICE_TO_SPOOF
+import balti.xposed.pixelifygooglephotos.Constants.PREF_SPOOF_FEATURES_LIST
 import balti.xposed.pixelifygooglephotos.Constants.PREF_STRICTLY_CHECK_GOOGLE_PHOTOS
 import balti.xposed.pixelifygooglephotos.Constants.PREF_USE_PIXEL_2016
 import balti.xposed.pixelifygooglephotos.Constants.SHARED_PREF_FILE_NAME
@@ -62,6 +63,10 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
                 putString(PREF_DEVICE_TO_SPOOF, DeviceProps.defaultDeviceName)
                 putBoolean(PREF_USE_PIXEL_2016, false)
                 putBoolean(PREF_STRICTLY_CHECK_GOOGLE_PHOTOS, false)
+                putStringSet(
+                    PREF_SPOOF_FEATURES_LIST,
+                    DeviceProps.defaultFeatures.map { it.displayName }.toSet()
+                )
                 apply()
             }
             finish()
@@ -97,8 +102,13 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
 
             onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                    val deviceName = aa.getItem(position)
                     pref.edit().apply {
-                        putString(PREF_DEVICE_TO_SPOOF, aa.getItem(position))
+                        putString(PREF_DEVICE_TO_SPOOF, deviceName)
+                        putStringSet(
+                            PREF_SPOOF_FEATURES_LIST,
+                            DeviceProps.getFeaturesUpToFromDeviceName(deviceName)
+                        )
                         apply()
                     }
 
