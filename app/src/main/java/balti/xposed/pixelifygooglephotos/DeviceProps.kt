@@ -85,8 +85,6 @@ object DeviceProps {
         val featureLevelName: String?,
     )
 
-    val defaultDeviceName = "Pixel 5"
-
     val allDevices = listOf(
 
         DeviceEntries("None", hashMapOf(), null),
@@ -201,5 +199,7 @@ object DeviceProps {
     )
 
     fun getDeviceProps(deviceName: String?) = allDevices.find { it.deviceName == deviceName }
+
+    val defaultDeviceName = "Pixel 5"
 
 }
