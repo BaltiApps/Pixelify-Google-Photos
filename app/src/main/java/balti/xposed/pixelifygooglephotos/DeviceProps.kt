@@ -65,6 +65,8 @@ object DeviceProps {
         ),
     )
 
+    fun getFeatures(displayName: String) = allFeatures.find { it.displayName == displayName }
+
     data class DeviceEntries(
         val deviceName: String,
         val props: HashMap<String, String>,
