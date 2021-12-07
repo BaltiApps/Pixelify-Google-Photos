@@ -47,8 +47,6 @@ object DeviceProps {
      */
     val allFeatures = listOf(
 
-        Features("None", ),
-
         Features("Pixel 2016", // Pixel XL
             "com.google.android.apps.photos.NEXUS_PRELOAD",
             "com.google.android.apps.photos.nexus_preload",
