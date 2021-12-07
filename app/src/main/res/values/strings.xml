@@ -12,6 +12,7 @@
     If you want to use it in other apps, then keep this toggle <b>OFF</b>.</string>
     <string name="force_stop_google_photos">Force stop\nGoogle Photos</string>
     <string name="open_google_photos">Open Google Photos</string>
+    <string name="telegram_group">Telegram group!</string>
 
     <!--ActivityMain.xml-->
     <string name="please_force_stop_google_photos">Please force stop Google Photos to take effect.</string>
