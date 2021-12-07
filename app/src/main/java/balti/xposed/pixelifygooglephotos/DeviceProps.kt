@@ -256,6 +256,6 @@ object DeviceProps {
     /**
      * Default feature level to spoof up to. Corresponds to what is expected for the device in [defaultDeviceName].
      */
-    val defaultFeatureLevelName = "Pixel 2020"
+    val defaultFeatures = getFeaturesUpTo("Pixel 2020")
 
 }
