@@ -1,7 +1,5 @@
 package balti.xposed.pixelifygooglephotos
 
-import android.annotation.SuppressLint
-import android.app.ActivityManager
 import android.os.Bundle
 import android.view.View
 import android.widget.*
@@ -12,13 +10,6 @@ import balti.xposed.pixelifygooglephotos.Constants.PREF_STRICTLY_CHECK_GOOGLE_PH
 import balti.xposed.pixelifygooglephotos.Constants.PREF_USE_PIXEL_2016
 import balti.xposed.pixelifygooglephotos.Constants.SHARED_PREF_FILE_NAME
 import com.google.android.material.snackbar.Snackbar
-import de.robv.android.xposed.XposedHelpers
-import java.io.BufferedWriter
-import java.io.File
-import java.io.OutputStreamWriter
-import android.content.Intent
-
-
 
 
 class ActivityMain: AppCompatActivity(R.layout.activity_main) {
@@ -32,6 +23,19 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
         Snackbar.make(rootView, R.string.please_force_stop_google_photos, Snackbar.LENGTH_SHORT).show()
     }
 
+    /**
+     * Animate the "Feature flags changed" textview and hide it after showing for sometime.
+     */
+    private fun peekFeatureFlagsChanged(textView: TextView){
+        textView.run {
+            alpha = 1.0f
+            animate().alpha(0.0f).apply {
+                duration = 1000
+                startDelay = 3000
+            }.start()
+        }
+    }
+
     private val utils by lazy { Utils() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,7 +45,8 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
          * Link to xml views.
          */
         val resetSettings = findViewById<Button>(R.id.reset_settings)
-        val switchPixel2016 = findViewById<SwitchCompat>(R.id.pixel_2016_switch)
+        val customizeFeatureFlags = findViewById<LinearLayout>(R.id.customize_feature_flags)
+        val featureFlagsChanged = findViewById<TextView>(R.id.feature_flags_changed)
         val switchEnforceGooglePhotos = findViewById<SwitchCompat>(R.id.spoof_only_in_google_photos_switch)
         val deviceSpooferSpinner = findViewById<Spinner>(R.id.device_spoofer_spinner)
         val forceStopGooglePhotos = findViewById<Button>(R.id.force_stop_google_photos)
@@ -61,20 +66,6 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
             }
             finish()
             startActivity(intent)
-        }
-
-        /**
-         * See [FeatureSpoofer].
-         */
-        switchPixel2016.apply {
-            isChecked = pref.getBoolean(PREF_USE_PIXEL_2016, false)
-            setOnCheckedChangeListener { _, isChecked ->
-                pref.edit().run {
-                    putBoolean(PREF_USE_PIXEL_2016, isChecked)
-                    apply()
-                    showRebootSnack()
-                }
-            }
         }
 
         /**
@@ -101,7 +92,8 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
             aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             adapter = aa
             val defaultSelection = pref.getString(PREF_DEVICE_TO_SPOOF, DeviceProps.defaultDeviceName)
-            setSelection(aa.getPosition(defaultSelection))
+            /** Second argument is `false` to prevent calling [peekFeatureFlagsChanged] on initialization */
+            setSelection(aa.getPosition(defaultSelection), false)
 
             onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -109,6 +101,8 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
                         putString(PREF_DEVICE_TO_SPOOF, aa.getItem(position))
                         apply()
                     }
+
+                    peekFeatureFlagsChanged(featureFlagsChanged)
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {}
