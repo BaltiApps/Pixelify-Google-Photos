@@ -1,7 +1,7 @@
 package balti.xposed.pixelifygooglephotos
 
 /**
- * Values taken from:
+ * Build values taken from:
  * Pixel 6:
  * https://github.com/DotOS/android_frameworks_base/blob/dot12/core/java/com/android/internal/util/custom/PixelPropsUtils.java
  * Pixel 2:
@@ -10,8 +10,18 @@ package balti.xposed.pixelifygooglephotos
  * https://github.com/orgs/Pixel-Props/repositories
  * Also from
  * https://github.com/DotOS/android_frameworks_base/commit/3f7ea7d070017ed1f38035333f084865865698b2
+ *
+ * Features taken from:
+ * https://t.me/PixelProps
+ * https://github.com/DotOS/android_vendor_dot/blob/dot12/prebuilt/common/etc/pixel_2016_exclusive.xml
+ * https://github.com/ayush5harma/PixelFeatureDrops/tree/master/system/etc/sysconfig
  */
 object DeviceProps {
+
+    class Features(
+        val displayName: String,
+        vararg val featureFlags: String,
+    )
 
     data class DeviceEntries(
         val deviceName: String,
