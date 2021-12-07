@@ -90,7 +90,7 @@ object DeviceProps {
      * list of all elements from [allFeatures] from "Pixel 2016" i.e. index = 0,
      * to "Pixel 2020" i.e index = 6, both inclusive.
      */
-    fun getFeaturesUpTo(featureLevel: String): List<Features> {
+    private fun getFeaturesUpTo(featureLevel: String): List<Features> {
         val allFeatureDisplayNames = allFeatures.map { it.displayName }
         val levelIndex = allFeatureDisplayNames.indexOf(featureLevel)
         return if (levelIndex == -1) listOf()
