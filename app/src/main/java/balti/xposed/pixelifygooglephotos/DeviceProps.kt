@@ -114,7 +114,7 @@ object DeviceProps {
     data class DeviceEntries(
         val deviceName: String,
         val props: HashMap<String, String>,
-        val featureLevelName: String?,
+        val featureLevelName: String,
     )
 
     /**
@@ -122,7 +122,7 @@ object DeviceProps {
      */
     val allDevices = listOf(
 
-        DeviceEntries("None", hashMapOf(), null),
+        DeviceEntries("None", hashMapOf(), "None"),
 
         DeviceEntries(
             "Pixel XL", hashMapOf(
