@@ -3,6 +3,7 @@ package balti.xposed.pixelifygooglephotos
 object Constants {
 
     val PACKAGE_NAME_GOOGLE_PHOTOS = "com.google.android.apps.photos"
+    val TELEGRAM_GROUP = "https://t.me/pixelifyGooglePhotos"
 
     val SHARED_PREF_FILE_NAME = "prefs"
 
