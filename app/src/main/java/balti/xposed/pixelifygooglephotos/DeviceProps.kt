@@ -23,6 +23,46 @@ object DeviceProps {
         vararg val featureFlags: String,
     )
 
+    val allFeatures = listOf(
+
+        Features("Pixel 2016",
+            "com.google.android.apps.photos.NEXUS_PRELOAD",
+            "com.google.android.apps.photos.nexus_preload",
+        ),
+
+        Features("Pixel 2017",
+            "com.google.android.feature.PIXEL_2017_EXPERIENCE",
+        ),
+
+        Features("Pixel 2018",
+            "com.google.android.feature.PIXEL_2018_EXPERIENCE",
+        ),
+
+        Features("Pixel 2019",
+            "com.google.android.feature.PIXEL_2019_EXPERIENCE",
+        ),
+
+        Features("Pixel 2019 mid-year",
+            "com.google.android.feature.PIXEL_2019_MIDYEAR_EXPERIENCE",
+        ),
+
+        Features("Pixel 2020",
+            "com.google.android.feature.PIXEL_2020_EXPERIENCE",
+        ),
+
+        Features("Pixel 2020 mid-year",
+            "com.google.android.feature.PIXEL_2020_MIDYEAR_EXPERIENCE",
+        ),
+
+        Features("Pixel 2021",
+            "com.google.android.feature.PIXEL_2021_EXPERIENCE",
+        ),
+
+        Features("Pixel 2021 mid-year",
+            "com.google.android.feature.PIXEL_2021_MIDYEAR_EXPERIENCE",
+        ),
+    )
+
     data class DeviceEntries(
         val deviceName: String,
         val props: HashMap<String, String>,
