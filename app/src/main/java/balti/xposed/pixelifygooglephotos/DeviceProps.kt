@@ -6,6 +6,8 @@ package balti.xposed.pixelifygooglephotos
  * https://github.com/DotOS/android_frameworks_base/blob/dot12/core/java/com/android/internal/util/custom/PixelPropsUtils.java
  * Pixel 2:
  * https://gist.github.com/markstachowski/4069f15c5c989827b9e64c0aec045434
+ * Pixel 5a:
+ * https://github.com/LineageOS/android_device_google_barbet/blob/lineage-18.1/lineage_barbet.mk
  * All other pixels:
  * https://github.com/orgs/Pixel-Props/repositories
  * Also from
@@ -60,7 +62,7 @@ object DeviceProps {
             "com.google.android.feature.PIXEL_2021_EXPERIENCE",
         ),
 
-        Features("Pixel 2021 mid-year", // Pixel 5a 5G (build props not available yet)
+        Features("Pixel 2021 mid-year", // Pixel 5a
             "com.google.android.feature.PIXEL_2021_MIDYEAR_EXPERIENCE",
         ),
     )
@@ -161,6 +163,18 @@ object DeviceProps {
                 Pair("FINGERPRINT", "google/redfin/redfin:12/SP1A.211105.003/7757856:user/release-keys"),
             ),
             getFeatures("Pixel 2020"),
+        ),
+
+        DeviceEntries(
+            "Pixel 5a", hashMapOf(
+                Pair("BRAND", "google"),
+                Pair("MANUFACTURER", "Google"),
+                Pair("DEVICE", "barbet"),
+                Pair("PRODUCT", "barbet"),
+                Pair("MODEL", "Pixel 5a"),
+                Pair("FINGERPRINT", "google/barbet/barbet:11/RD2A.211001.002/7644766:user/release-keys"),
+            ),
+            getFeatures("Pixel 2021 mid-year"),
         ),
 
         DeviceEntries(
