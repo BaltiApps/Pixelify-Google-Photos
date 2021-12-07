@@ -201,5 +201,6 @@ object DeviceProps {
     fun getDeviceProps(deviceName: String?) = allDevices.find { it.deviceName == deviceName }
 
     val defaultDeviceName = "Pixel 5"
+    val defaultFeatureLevelName = "Pixel 2020"
 
 }
