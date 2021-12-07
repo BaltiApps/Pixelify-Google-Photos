@@ -239,6 +239,16 @@ object DeviceProps {
     fun getDeviceProps(deviceName: String?) = allDevices.find { it.deviceName == deviceName }
 
     /**
+     * Call [getFeaturesUpTo] using a device name rather than feature level.
+     * Used in spinner in main activity.
+     */
+    fun getFeaturesUpToFromDeviceName(deviceName: String?): Set<String>{
+        return getDeviceProps(deviceName)?.let {
+            getFeaturesUpTo(it.featureLevelName).map { it.displayName }.toSet()
+        }?: setOf()
+    }
+
+    /**
      * Default name of device to spoof.
      */
     val defaultDeviceName = "Pixel 5"
