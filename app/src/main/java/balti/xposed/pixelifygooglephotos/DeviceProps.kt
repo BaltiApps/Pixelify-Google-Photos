@@ -86,11 +86,6 @@ object DeviceProps {
     )
 
     /**
-     * Get an element from [allFeatures] by specifying a [displayName].
-     */
-    fun getFeatures(displayName: String) = allFeatures.find { it.displayName == displayName }
-
-    /**
      * Example if [featureLevel] = "Pixel 2020", return will have
      * list of all elements from [allFeatures] from "Pixel 2016" i.e. index = 0,
      * to "Pixel 2020" i.e index = 6, both inclusive.
