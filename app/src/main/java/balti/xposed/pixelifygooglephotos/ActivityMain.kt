@@ -2,6 +2,8 @@ package balti.xposed.pixelifygooglephotos
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Paint
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.*
@@ -12,6 +14,7 @@ import balti.xposed.pixelifygooglephotos.Constants.PREF_DEVICE_TO_SPOOF
 import balti.xposed.pixelifygooglephotos.Constants.PREF_SPOOF_FEATURES_LIST
 import balti.xposed.pixelifygooglephotos.Constants.PREF_STRICTLY_CHECK_GOOGLE_PHOTOS
 import balti.xposed.pixelifygooglephotos.Constants.SHARED_PREF_FILE_NAME
+import balti.xposed.pixelifygooglephotos.Constants.TELEGRAM_GROUP
 import com.google.android.material.snackbar.Snackbar
 
 
@@ -66,6 +69,7 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
         val deviceSpooferSpinner = findViewById<Spinner>(R.id.device_spoofer_spinner)
         val forceStopGooglePhotos = findViewById<Button>(R.id.force_stop_google_photos)
         val openGooglePhotos = findViewById<ImageButton>(R.id.open_google_photos)
+        val telegramLink = findViewById<TextView>(R.id.telegram_group)
 
         /**
          * Set default spoof device to [DeviceProps.defaultDeviceName].
@@ -153,6 +157,18 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
          */
         customizeFeatureFlags.setOnClickListener {
             childActivityLauncher.launch(Intent(this, FeatureCustomize::class.java))
+        }
+
+        /**
+         * Open telegram group.
+         */
+        telegramLink.apply {
+            paintFlags = Paint.UNDERLINE_TEXT_FLAG
+            setOnClickListener {
+                startActivity(Intent(Intent.ACTION_VIEW).apply {
+                    data = Uri.parse(TELEGRAM_GROUP)
+                })
+            }
         }
 
         utils.fixPermissions(packageName)
