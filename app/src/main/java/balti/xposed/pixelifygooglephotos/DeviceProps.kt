@@ -13,7 +13,10 @@ package balti.xposed.pixelifygooglephotos
  */
 object DeviceProps {
 
-    data class DeviceEntries(val deviceName: String, val props: HashMap<String, String>)
+    data class DeviceEntries(
+        val deviceName: String,
+        val props: HashMap<String, String>,
+    )
 
     val defaultDeviceName = "Pixel 5"
 
