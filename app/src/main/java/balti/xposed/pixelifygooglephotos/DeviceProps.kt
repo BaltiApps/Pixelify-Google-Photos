@@ -25,6 +25,8 @@ object DeviceProps {
 
     val allFeatures = listOf(
 
+        Features("None", ),
+
         Features("Pixel 2016",
             "com.google.android.apps.photos.NEXUS_PRELOAD",
             "com.google.android.apps.photos.nexus_preload",
