@@ -27,40 +27,40 @@ object DeviceProps {
 
         Features("None", ),
 
-        Features("Pixel 2016",
+        Features("Pixel 2016", // Pixel XL
             "com.google.android.apps.photos.NEXUS_PRELOAD",
             "com.google.android.apps.photos.nexus_preload",
         ),
 
-        Features("Pixel 2017",
+        Features("Pixel 2017", // Pixel 2
             "com.google.android.feature.PIXEL_2017_EXPERIENCE",
         ),
 
-        Features("Pixel 2018",
+        Features("Pixel 2018", // Pixel 3 XL
             "com.google.android.feature.PIXEL_2018_EXPERIENCE",
         ),
 
-        Features("Pixel 2019",
+        Features("Pixel 2019", // Pixel 4 XL
             "com.google.android.feature.PIXEL_2019_EXPERIENCE",
         ),
 
-        Features("Pixel 2019 mid-year",
+        Features("Pixel 2019 mid-year", // Pixel 3a XL
             "com.google.android.feature.PIXEL_2019_MIDYEAR_EXPERIENCE",
         ),
 
-        Features("Pixel 2020",
+        Features("Pixel 2020", // Pixel 5
             "com.google.android.feature.PIXEL_2020_EXPERIENCE",
         ),
 
-        Features("Pixel 2020 mid-year",
+        Features("Pixel 2020 mid-year", // Pixel 4a
             "com.google.android.feature.PIXEL_2020_MIDYEAR_EXPERIENCE",
         ),
 
-        Features("Pixel 2021",
+        Features("Pixel 2021", // Pixel 6 Pro
             "com.google.android.feature.PIXEL_2021_EXPERIENCE",
         ),
 
-        Features("Pixel 2021 mid-year",
+        Features("Pixel 2021 mid-year", // Pixel 5a 5G (build props not available yet)
             "com.google.android.feature.PIXEL_2021_MIDYEAR_EXPERIENCE",
         ),
     )
