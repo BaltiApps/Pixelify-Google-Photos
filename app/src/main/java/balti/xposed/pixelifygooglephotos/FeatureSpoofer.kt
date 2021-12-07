@@ -4,7 +4,6 @@ import android.util.Log
 import balti.xposed.pixelifygooglephotos.Constants.PACKAGE_NAME_GOOGLE_PHOTOS
 import balti.xposed.pixelifygooglephotos.Constants.PREF_SPOOF_FEATURES_LIST
 import balti.xposed.pixelifygooglephotos.Constants.PREF_STRICTLY_CHECK_GOOGLE_PHOTOS
-import balti.xposed.pixelifygooglephotos.Constants.PREF_USE_PIXEL_2016
 import balti.xposed.pixelifygooglephotos.Constants.SHARED_PREF_FILE_NAME
 import de.robv.android.xposed.*
 import de.robv.android.xposed.callbacks.XC_LoadPackage
@@ -44,15 +43,18 @@ class FeatureSpoofer: IXposedHookLoadPackage {
     /**
      * This is the final list of features to spoof.
      * Gets the specific set of features to be enabled selected by the user.
-     * If nothing is found (default case) it uses all features from "Pixel 2016" to "Pixel 2020".
+     * Default case: uses all features from "Pixel 2016" to "Pixel 2020".
      */
-    private val finalFeaturesToSpoof by lazy {
+    private val finalFeaturesToSpoof: List<String> by lazy {
+
         val defaultFeatureLevel = DeviceProps.defaultFeatureLevelName
-        pref.getStringSet(PREF_SPOOF_FEATURES_LIST, setOf()).let { set ->
+        val defaultSetMarker = setOf("default")
+
+        pref.getStringSet(PREF_SPOOF_FEATURES_LIST, defaultSetMarker)?.let { set ->
 
             val eligibleFeatures: List<DeviceProps.Features> =
 
-            if (set?.isEmpty() != false) DeviceProps.getFeaturesUpTo(defaultFeatureLevel)
+            if (set == defaultSetMarker) DeviceProps.getFeaturesUpTo(defaultFeatureLevel)
             else DeviceProps.allFeatures.filter { set.contains(it.displayName) }
 
             val allFeatureFlags = ArrayList<String>(0)
@@ -64,7 +66,7 @@ class FeatureSpoofer: IXposedHookLoadPackage {
             log("Feature flags init: $allFeatureFlags")
 
             allFeatureFlags
-        }
+        }?: listOf()
     }
 
     /**
