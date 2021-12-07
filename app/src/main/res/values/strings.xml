@@ -16,6 +16,9 @@
     <!--ActivityMain.xml-->
     <string name="please_force_stop_google_photos">Please force stop Google Photos to take effect.</string>
 
+    <!--feature_customize.xml-->
+    <string name="save">Save</string>
+
     <!--Utils.kt-->
     <string name="killing_please_wait">Killing… please wait.</string>
     <string name="failed_to_stop_package">Failed to stop package. Please stop manually.</string>
