@@ -2,6 +2,7 @@ package balti.xposed.pixelifygooglephotos
 
 import android.util.Log
 import balti.xposed.pixelifygooglephotos.Constants.PACKAGE_NAME_GOOGLE_PHOTOS
+import balti.xposed.pixelifygooglephotos.Constants.PREF_SPOOF_FEATURES_LIST
 import balti.xposed.pixelifygooglephotos.Constants.PREF_STRICTLY_CHECK_GOOGLE_PHOTOS
 import balti.xposed.pixelifygooglephotos.Constants.PREF_USE_PIXEL_2016
 import balti.xposed.pixelifygooglephotos.Constants.SHARED_PREF_FILE_NAME
@@ -9,30 +10,6 @@ import de.robv.android.xposed.*
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 
 class FeatureSpoofer: IXposedHookLoadPackage {
-
-    /**
-     * For Pixel 2016 only features.
-     * Use at your own risk.
-     * By default [featuresToSpoof] will be used.
-     * https://github.com/DotOS/android_vendor_dot/blob/dot12/prebuilt/common/etc/pixel_2016_exclusive.xml
-     */
-    private val featuresToSpoofPixel2016: List<String> = listOf(
-        "com.google.android.apps.photos.NEXUS_PRELOAD",
-        "com.google.android.apps.photos.nexus_preload",
-    )
-
-    /**
-     * Features from PixelFeatureDrops magisk module.
-     * https://github.com/ayush5harma/PixelFeatureDrops/tree/master/system/etc/sysconfig
-     */
-    private val featuresToSpoof: List<String> = featuresToSpoofPixel2016 + listOf(
-        "com.google.android.feature.PIXEL_2017_EXPERIENCE",
-        "com.google.android.feature.PIXEL_2018_EXPERIENCE",
-        "com.google.android.feature.PIXEL_2019_EXPERIENCE",
-        "com.google.android.feature.PIXEL_2019_MIDYEAR_EXPERIENCE",
-        "com.google.android.feature.PIXEL_2020_EXPERIENCE",
-        "com.google.android.feature.PIXEL_2020_MIDYEAR_EXPERIENCE",
-    )
 
     /**
      * Actual class is not android.content.pm.PackageManager.
@@ -70,10 +47,23 @@ class FeatureSpoofer: IXposedHookLoadPackage {
      * else use [featuresToSpoof] (default selection).
      */
     private val finalFeaturesToSpoof by lazy {
-        pref.getBoolean(PREF_USE_PIXEL_2016, false).let {
-            log("Use Pixel 2016: $it")
-            if (it) featuresToSpoofPixel2016
-            else featuresToSpoof
+        val defaultFeatureLevel = DeviceProps.defaultFeatureLevelName
+        pref.getStringSet(PREF_SPOOF_FEATURES_LIST, setOf()).let { set ->
+
+            val eligibleFeatures: List<DeviceProps.Features> =
+
+            if (set?.isEmpty() != false) DeviceProps.getFeaturesUpTo(defaultFeatureLevel)
+            else DeviceProps.allFeatures.filter { set.contains(it.displayName) }
+
+            val allFeatureFlags = ArrayList<String>(0)
+
+            eligibleFeatures.forEach {
+                allFeatureFlags.addAll(it.featureFlags)
+            }
+
+            log("Feature flags init: $allFeatureFlags")
+
+            allFeatureFlags
         }
     }
 
