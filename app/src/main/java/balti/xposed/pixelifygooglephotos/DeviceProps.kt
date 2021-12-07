@@ -22,8 +22,18 @@ object DeviceProps {
 
     class Features(
         val displayName: String,
-        vararg val featureFlags: String,
-    )
+        val featureFlags: List<String>,
+    ){
+        constructor(displayName: String, vararg featureFlags: String) : this(
+            displayName,
+            featureFlags.toList()
+        )
+
+        constructor(displayName: String, singleFeature: String) : this(
+            displayName,
+            listOf(singleFeature)
+        )
+    }
 
     val allFeatures = listOf(
 
