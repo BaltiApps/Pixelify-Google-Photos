@@ -79,6 +79,15 @@ object DeviceProps {
 
     fun getFeatures(displayName: String) = allFeatures.find { it.displayName == displayName }
 
+    fun getFeaturesUpTo(featureLevel: String): List<Features> {
+        val allFeatureDisplayNames = allFeatures.map { it.displayName }
+        val levelIndex = allFeatureDisplayNames.indexOf(featureLevel)
+        return if (levelIndex == -1) listOf()
+        else {
+            allFeatures.withIndex().filter { it.index <= levelIndex }.map { it.value }
+        }
+    }
+
     data class DeviceEntries(
         val deviceName: String,
         val props: HashMap<String, String>,
