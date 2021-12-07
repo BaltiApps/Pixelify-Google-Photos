@@ -20,6 +20,12 @@ package balti.xposed.pixelifygooglephotos
  */
 object DeviceProps {
 
+    /**
+     * Class to store different feature flags for different pixels.
+     * @param displayName String to show to user to customize flag selection. Example "Pixel 2020"
+     * @param featureFlags List of actual features spoofed to Google Photos for that particular [displayName].
+     * Example, for [displayName] = "Pixel 2020", [featureFlags] = listOf("com.google.android.feature.PIXEL_2020_EXPERIENCE")
+     */
     class Features(
         val displayName: String,
         val featureFlags: List<String>,
@@ -35,6 +41,10 @@ object DeviceProps {
         )
     }
 
+    /**
+     * List of all possible feature flags.
+     * CHRONOLOGY IS IMPORTANT. Elements are arranged in accordance of device release date.
+     */
     val allFeatures = listOf(
 
         Features("None", ),
@@ -77,8 +87,16 @@ object DeviceProps {
         ),
     )
 
+    /**
+     * Get an element from [allFeatures] by specifying a [displayName].
+     */
     fun getFeatures(displayName: String) = allFeatures.find { it.displayName == displayName }
 
+    /**
+     * Example if [featureLevel] = "Pixel 2020", return will have
+     * list of all elements from [allFeatures] from "Pixel 2016" i.e. index = 0,
+     * to "Pixel 2020" i.e index = 6, both inclusive.
+     */
     fun getFeaturesUpTo(featureLevel: String): List<Features> {
         val allFeatureDisplayNames = allFeatures.map { it.displayName }
         val levelIndex = allFeatureDisplayNames.indexOf(featureLevel)
@@ -88,12 +106,22 @@ object DeviceProps {
         }
     }
 
+    /**
+     * Class to contain device names and their respective build properties.
+     * @param deviceName Actual device names, example "Pixel 4a".
+     * @param props Contains the device properties to spoof.
+     * @param featureLevelName Points to the features expected to be spoofed from [allFeatures],
+     * from "Pixel 2016" up to this level.
+     */
     data class DeviceEntries(
         val deviceName: String,
         val props: HashMap<String, String>,
         val featureLevelName: String?,
     )
 
+    /**
+     * List of all devices and their build props and their required feature levels.
+     */
     val allDevices = listOf(
 
         DeviceEntries("None", hashMapOf(), null),
@@ -207,9 +235,19 @@ object DeviceProps {
         ),
     )
 
+    /**
+     * Get instance of [DeviceEntries] from a supplied [deviceName].
+     */
     fun getDeviceProps(deviceName: String?) = allDevices.find { it.deviceName == deviceName }
 
+    /**
+     * Default name of device to spoof.
+     */
     val defaultDeviceName = "Pixel 5"
+
+    /**
+     * Default feature level to spoof up to. Corresponds to what is expected for the device in [defaultDeviceName].
+     */
     val defaultFeatureLevelName = "Pixel 2020"
 
 }
