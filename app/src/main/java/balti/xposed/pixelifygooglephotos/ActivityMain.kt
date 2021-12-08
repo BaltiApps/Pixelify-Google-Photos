@@ -257,8 +257,6 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
                 }
             }
         }
-
-        utils.fixPermissions(packageName)
     }
 
     /**
@@ -350,11 +348,6 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
         startActivity(Intent(Intent.ACTION_VIEW).apply {
             data = Uri.parse(url)
         })
-    }
-
-    override fun onPause() {
-        super.onPause()
-        utils.fixPermissions(packageName)
     }
 
 }

@@ -1,24 +1,12 @@
 package balti.xposed.pixelifygooglephotos
 
-import android.annotation.SuppressLint
-import android.app.ActivityManager
 import android.content.Context
-import android.content.Context.ACTIVITY_SERVICE
-import android.util.Log
-import android.widget.Toast
-import de.robv.android.xposed.IXposedHookLoadPackage
-import de.robv.android.xposed.XC_MethodHook
-import de.robv.android.xposed.XposedHelpers
-import de.robv.android.xposed.callbacks.XC_LoadPackage
-import java.io.BufferedWriter
-import java.io.OutputStreamWriter
-import androidx.core.content.ContextCompat.startActivity
-
 import android.content.Intent
 import android.net.Uri
 import android.provider.Settings
-import androidx.core.content.ContextCompat
-import java.io.File
+import android.widget.Toast
+import java.io.BufferedWriter
+import java.io.OutputStreamWriter
 
 
 /**
@@ -84,7 +72,7 @@ class Utils {
      * https://github.com/rovo89/XposedBridge/issues/233
      * https://github.com/GravityBox/GravityBox/blob/0aec21792c218a48602a258fbb0ab1fcb1e9be0c/GravityBox/src/main/java/com/ceco/r/gravitybox/WorldReadablePrefs.java
      */
-    @SuppressLint("SetWorldReadable")
+    /*@SuppressLint("SetWorldReadable")
     fun fixPermissions(thisPackageName: String) {
         val dataDirectory = File("/data/data/$thisPackageName")
         dataDirectory.apply {
@@ -102,6 +90,6 @@ class Utils {
         prefsFile.apply {
             if (exists()) setReadable(true, false)
         }
-    }
+    }*/
 
 }

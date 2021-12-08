@@ -74,13 +74,6 @@ class FeatureCustomize: AppCompatActivity(R.layout.feature_customize) {
             finish()
 
         }
-
-        utils.fixPermissions(packageName)
-    }
-
-    override fun onPause() {
-        super.onPause()
-        utils.fixPermissions(packageName)
     }
 
 }
