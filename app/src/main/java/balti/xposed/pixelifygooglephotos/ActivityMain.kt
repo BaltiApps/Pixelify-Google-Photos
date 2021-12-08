@@ -37,10 +37,10 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
     /**
      * Normally [MODE_WORLD_READABLE] causes a crash.
      * But if "xposedsharedprefs" flag is present in AndroidManifest,
-     * then the file is accordingly taken care by xposed framework.
+     * then the file is accordingly taken care by lsposed framework.
      *
      * If an exception is thrown, means module is not enabled,
-     * hence Android in throws a security exception.
+     * hence Android throws a security exception.
      */
     private val pref by lazy {
         try {

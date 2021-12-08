@@ -19,7 +19,7 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage
 class DeviceSpoofer: IXposedHookLoadPackage {
 
     /**
-     * Simple message to log messages in xposed log as well as android log.
+     * Simple message to log messages in lsposed log as well as android log.
      */
     private fun log(message: String){
         XposedBridge.log("PixelifyGooglePhotos: $message")
