@@ -8,9 +8,11 @@ import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
 import balti.xposed.pixelifygooglephotos.Constants.PREF_DEVICE_TO_SPOOF
+import balti.xposed.pixelifygooglephotos.Constants.PREF_LAST_VERSION
 import balti.xposed.pixelifygooglephotos.Constants.PREF_SPOOF_FEATURES_LIST
 import balti.xposed.pixelifygooglephotos.Constants.PREF_STRICTLY_CHECK_GOOGLE_PHOTOS
 import balti.xposed.pixelifygooglephotos.Constants.SHARED_PREF_FILE_NAME
@@ -171,7 +173,32 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
             }
         }
 
+        /**
+         * Check if changelogs need to be shown.
+         */
+        pref.apply {
+            val thisVersion = BuildConfig.VERSION_CODE
+            if (getInt(PREF_LAST_VERSION, 0) < thisVersion){
+                showChangeLog()
+                edit().apply {
+                    putInt(PREF_LAST_VERSION, thisVersion)
+                    apply()
+                }
+            }
+        }
+
         utils.fixPermissions(packageName)
+    }
+
+    /**
+     * Method to show latest changes.
+     */
+    private fun showChangeLog(){
+        AlertDialog.Builder(this)
+            .setTitle(R.string.version_head)
+            .setMessage(R.string.version_desc)
+            .setPositiveButton(android.R.string.ok, null)
+            .show()
     }
 
     override fun onPause() {
