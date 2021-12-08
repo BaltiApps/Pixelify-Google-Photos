@@ -84,7 +84,7 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
         resetSettings.setOnClickListener {
             pref.edit().run {
                 putString(PREF_DEVICE_TO_SPOOF, DeviceProps.defaultDeviceName)
-                putBoolean(PREF_STRICTLY_CHECK_GOOGLE_PHOTOS, false)
+                putBoolean(PREF_STRICTLY_CHECK_GOOGLE_PHOTOS, true)
                 putStringSet(
                     PREF_SPOOF_FEATURES_LIST,
                     DeviceProps.defaultFeatures.map { it.displayName }.toSet()
@@ -99,7 +99,7 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
          * See [FeatureSpoofer].
          */
         switchEnforceGooglePhotos.apply {
-            isChecked = pref.getBoolean(PREF_STRICTLY_CHECK_GOOGLE_PHOTOS, false)
+            isChecked = pref.getBoolean(PREF_STRICTLY_CHECK_GOOGLE_PHOTOS, true)
             setOnCheckedChangeListener { _, isChecked ->
                 pref.edit().run {
                     putBoolean(PREF_STRICTLY_CHECK_GOOGLE_PHOTOS, isChecked)

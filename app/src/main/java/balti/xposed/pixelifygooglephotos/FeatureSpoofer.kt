@@ -103,7 +103,7 @@ class FeatureSpoofer: IXposedHookLoadPackage {
          * If user selects to never use this on any other app other than Google photos,
          * then check package name and return if necessary.
          */
-        if (pref.getBoolean(PREF_STRICTLY_CHECK_GOOGLE_PHOTOS, false) &&
+        if (pref.getBoolean(PREF_STRICTLY_CHECK_GOOGLE_PHOTOS, true) &&
             lpparam?.packageName != PACKAGE_NAME_GOOGLE_PHOTOS) return
 
         log("Loaded ${lpparam?.packageName}")
