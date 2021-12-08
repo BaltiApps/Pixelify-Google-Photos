@@ -34,8 +34,20 @@ import java.net.URL
 
 class ActivityMain: AppCompatActivity(R.layout.activity_main) {
 
+    /**
+     * Normally [MODE_WORLD_READABLE] causes a crash.
+     * But if "xposedsharedprefs" flag is present in AndroidManifest,
+     * then the file is accordingly taken care by xposed framework.
+     *
+     * If an exception is thrown, means module is not enabled,
+     * hence Android in throws a security exception.
+     */
     private val pref by lazy {
-        getSharedPreferences(SHARED_PREF_FILE_NAME, MODE_WORLD_READABLE)
+        try {
+            getSharedPreferences(SHARED_PREF_FILE_NAME, MODE_WORLD_READABLE)
+        } catch (_: Exception){
+            null
+        }
     }
 
     private fun showRebootSnack(){
@@ -74,6 +86,19 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
         super.onCreate(savedInstanceState)
 
         /**
+         * Check if [pref] is not null. If it is, then module is not enabled.
+         */
+        if (pref == null){
+            AlertDialog.Builder(this)
+                .setMessage(R.string.module_not_enabled)
+                .setPositiveButton(R.string.close) {_, _ ->
+                    finish()
+                }
+                .setCancelable(false)
+                .show()
+        }
+
+        /**
          * Link to xml views.
          */
         val resetSettings = findViewById<Button>(R.id.reset_settings)
@@ -94,7 +119,7 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
          * Restart the activity.
          */
         resetSettings.setOnClickListener {
-            pref.edit().run {
+            pref?.edit()?.run {
                 putString(PREF_DEVICE_TO_SPOOF, DeviceProps.defaultDeviceName)
                 putBoolean(PREF_OVERRIDE_ROM_FEATURE_LEVELS, true)
                 putBoolean(PREF_STRICTLY_CHECK_GOOGLE_PHOTOS, true)
@@ -112,9 +137,9 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
          * See [FeatureSpoofer.featuresNotToSpoof].
          */
         overrideROMFeatureLevels.apply {
-            isChecked = pref.getBoolean(PREF_OVERRIDE_ROM_FEATURE_LEVELS, true)
+            isChecked = pref?.getBoolean(PREF_OVERRIDE_ROM_FEATURE_LEVELS, true) ?: false
             setOnCheckedChangeListener { _, isChecked ->
-                pref.edit().run {
+                pref?.edit()?.run {
                     putBoolean(PREF_OVERRIDE_ROM_FEATURE_LEVELS, isChecked)
                     apply()
                     showRebootSnack()
@@ -126,9 +151,9 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
          * See [FeatureSpoofer].
          */
         switchEnforceGooglePhotos.apply {
-            isChecked = pref.getBoolean(PREF_STRICTLY_CHECK_GOOGLE_PHOTOS, true)
+            isChecked = pref?.getBoolean(PREF_STRICTLY_CHECK_GOOGLE_PHOTOS, true) ?: false
             setOnCheckedChangeListener { _, isChecked ->
-                pref.edit().run {
+                pref?.edit()?.run {
                     putBoolean(PREF_STRICTLY_CHECK_GOOGLE_PHOTOS, isChecked)
                     apply()
                     showRebootSnack()
@@ -145,14 +170,14 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
 
             aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             adapter = aa
-            val defaultSelection = pref.getString(PREF_DEVICE_TO_SPOOF, DeviceProps.defaultDeviceName)
+            val defaultSelection = pref?.getString(PREF_DEVICE_TO_SPOOF, DeviceProps.defaultDeviceName)
             /** Second argument is `false` to prevent calling [peekFeatureFlagsChanged] on initialization */
             setSelection(aa.getPosition(defaultSelection), false)
 
             onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                     val deviceName = aa.getItem(position)
-                    pref.edit().apply {
+                    pref?.edit()?.apply {
                         putString(PREF_DEVICE_TO_SPOOF, deviceName)
                         putStringSet(
                             PREF_SPOOF_FEATURES_LIST,
@@ -203,7 +228,7 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
         /**
          * Check if changelogs need to be shown when upgrading from older version.
          */
-        pref.apply {
+        pref?.apply {
             val thisVersion = BuildConfig.VERSION_CODE
             if (getInt(PREF_LAST_VERSION, 0) < thisVersion){
                 showChangeLog()
