@@ -38,7 +38,9 @@ class FeatureSpoofer: IXposedHookLoadPackage {
      * To read preference of user.
      */
     private val pref by lazy {
-        XSharedPreferences("balti.xposed.pixelifygooglephotos", SHARED_PREF_FILE_NAME)
+        XSharedPreferences("balti.xposed.pixelifygooglephotos", SHARED_PREF_FILE_NAME).apply {
+            log("Preference location: ${file.canonicalPath}")
+        }
     }
 
     /**
