@@ -5,6 +5,8 @@ import android.content.Intent
 import android.graphics.Paint
 import android.net.Uri
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
@@ -174,7 +176,7 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
         }
 
         /**
-         * Check if changelogs need to be shown.
+         * Check if changelogs need to be shown when upgrading from older version.
          */
         pref.apply {
             val thisVersion = BuildConfig.VERSION_CODE
@@ -199,6 +201,25 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
             .setMessage(R.string.version_desc)
             .setPositiveButton(android.R.string.ok, null)
             .show()
+    }
+
+    /**
+     * Populate menu.
+     * Menu contains option to show changelog.
+     */
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_activity_main, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    /**
+     * Click listener on menu.
+     */
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.menu_changelog -> showChangeLog()
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onPause() {

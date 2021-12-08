@@ -25,6 +25,9 @@
         # Add update check functionality.\n
     </string>
 
+    <!--menu_activity_main.xml-->
+    <string name="changelog">Change log</string>
+
     <!--ActivityMain.xml-->
     <string name="please_force_stop_google_photos">Please force stop Google Photos to take effect.</string>
 
