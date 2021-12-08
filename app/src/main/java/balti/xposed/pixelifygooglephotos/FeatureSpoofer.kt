@@ -2,6 +2,7 @@ package balti.xposed.pixelifygooglephotos
 
 import android.util.Log
 import balti.xposed.pixelifygooglephotos.Constants.PACKAGE_NAME_GOOGLE_PHOTOS
+import balti.xposed.pixelifygooglephotos.Constants.PREF_OVERRIDE_ROM_FEATURE_LEVELS
 import balti.xposed.pixelifygooglephotos.Constants.PREF_SPOOF_FEATURES_LIST
 import balti.xposed.pixelifygooglephotos.Constants.PREF_STRICTLY_CHECK_GOOGLE_PHOTOS
 import balti.xposed.pixelifygooglephotos.Constants.SHARED_PREF_FILE_NAME
@@ -104,20 +105,25 @@ class FeatureSpoofer: IXposedHookLoadPackage {
     /**
      * If a feature needed for google photos is needed, i.e. features in [finalFeaturesToSpoof],
      * then set result of hooked method [METHOD_HAS_SYSTEM_FEATURE] as `true`.
+     * If [PREF_OVERRIDE_ROM_FEATURE_LEVELS] is enabled, and the feature is present in [featuresNotToSpoof]
+     * then set result as `false`.
      * Else don't set anything.
-     *
-     * The [METHOD_HAS_SYSTEM_FEATURE] will be hooked anyway, but if the arguments passed,
-     * is in [finalFeaturesToSpoof], then set result as true.
      */
     private fun returnTrueForSpoofedFeature(param: XC_MethodHook.MethodHookParam?){
         val arguments = param?.args?.toList()
 
-        var isFeatureToBeSpoofed = false
+        var passFeatureTrue = false
+        var passFeatureFalse = false
+
         arguments?.forEach {
-            if (it.toString() in finalFeaturesToSpoof) isFeatureToBeSpoofed = true
+            if (it.toString() in finalFeaturesToSpoof) passFeatureTrue = true
+            else if (overrideCustomROMLevels){
+                if (it.toString() in featuresNotToSpoof) passFeatureFalse = true
+            }
         }
 
-        if (isFeatureToBeSpoofed) param?.setResult(true)
+        if (passFeatureTrue) param?.setResult(true)
+        else if (passFeatureFalse) param?.setResult(false)
     }
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam?) {
