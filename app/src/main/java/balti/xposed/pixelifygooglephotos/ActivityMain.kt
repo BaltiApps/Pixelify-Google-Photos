@@ -35,7 +35,7 @@ import java.net.URL
 class ActivityMain: AppCompatActivity(R.layout.activity_main) {
 
     private val pref by lazy {
-        getSharedPreferences(SHARED_PREF_FILE_NAME, MODE_PRIVATE)
+        getSharedPreferences(SHARED_PREF_FILE_NAME, MODE_WORLD_READABLE)
     }
 
     private fun showRebootSnack(){
