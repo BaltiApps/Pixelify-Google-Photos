@@ -30,7 +30,7 @@ class DeviceSpoofer: IXposedHookLoadPackage {
      * To read preference of user.
      */
     private val pref by lazy {
-        XSharedPreferences("balti.xposed.pixelifygooglephotos", Constants.SHARED_PREF_FILE_NAME)
+        XSharedPreferences(BuildConfig.APPLICATION_ID, Constants.SHARED_PREF_FILE_NAME)
     }
 
     /**
