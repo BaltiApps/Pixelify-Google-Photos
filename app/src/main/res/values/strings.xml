@@ -25,6 +25,8 @@
     <string name="override_rom_feature_levels_desc">Pass false to hooked method for higher feature levels present in ROM
     if user selects a lower Pixel feature level. <b>(Recommended)</b></string>
     <string name="force_stop_google_photos">Force stop\nGoogle Photos</string>
+    <string name="module_not_enabled">Looks like the this app module is not enabled. Please enable it in LSPosed / Xposed, then reboot.</string>
+    <string name="close">Close</string>
     <string name="open_google_photos">Open Google Photos</string>
     <string name="telegram_group">Telegram group!</string>
     <string name="update_available">App update available!</string>
