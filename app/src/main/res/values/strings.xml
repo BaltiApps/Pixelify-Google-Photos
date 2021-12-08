@@ -14,6 +14,17 @@
     <string name="open_google_photos">Open Google Photos</string>
     <string name="telegram_group">Telegram group!</string>
 
+    <!--changelog-->
+    <string name="version_head">Version 2.0</string>
+    <string name="version_desc">
+        \n
+        # Add option to fine tune feature flags.\n
+        # Selecting a device to spoof automatically adjusts flags.\n
+        # Add Telegram group link.\n
+        # Add changelog.\n
+        # Add update check functionality.\n
+    </string>
+
     <!--ActivityMain.xml-->
     <string name="please_force_stop_google_photos">Please force stop Google Photos to take effect.</string>
 
