@@ -117,6 +117,24 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/update_available"
+            android:textColor="@color/red"
+            android:clickable="true"
+            android:focusable="true"
+            android:textStyle="bold"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:visibility="gone"
+            android:id="@+id/update_available_link"
+            />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="5dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="@string/telegram_group"
             android:textColor="?android:attr/colorPrimary"
             android:clickable="true"
