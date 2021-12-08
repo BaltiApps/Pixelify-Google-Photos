@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.Paint
 import android.net.Uri
+import android.os.AsyncTask
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -13,13 +14,21 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
+import balti.xposed.pixelifygooglephotos.Constants.FIELD_LATEST_VERSION_CODE
 import balti.xposed.pixelifygooglephotos.Constants.PREF_DEVICE_TO_SPOOF
 import balti.xposed.pixelifygooglephotos.Constants.PREF_LAST_VERSION
 import balti.xposed.pixelifygooglephotos.Constants.PREF_SPOOF_FEATURES_LIST
 import balti.xposed.pixelifygooglephotos.Constants.PREF_STRICTLY_CHECK_GOOGLE_PHOTOS
+import balti.xposed.pixelifygooglephotos.Constants.RELEASES_URL
+import balti.xposed.pixelifygooglephotos.Constants.RELEASES_URL2
 import balti.xposed.pixelifygooglephotos.Constants.SHARED_PREF_FILE_NAME
 import balti.xposed.pixelifygooglephotos.Constants.TELEGRAM_GROUP
+import balti.xposed.pixelifygooglephotos.Constants.UPDATE_INFO_URL
+import balti.xposed.pixelifygooglephotos.Constants.UPDATE_INFO_URL2
 import com.google.android.material.snackbar.Snackbar
+import org.json.JSONObject
+import java.io.ByteArrayOutputStream
+import java.net.URL
 
 
 class ActivityMain: AppCompatActivity(R.layout.activity_main) {
@@ -220,6 +229,67 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
             R.id.menu_changelog -> showChangeLog()
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    /**
+     * Check if update is available. Return url string of Github Releases page if update is present.
+     * Else returns null.
+     *
+     * This checks for update in two repositories.
+     * The original BaltiApps repository, as well as LSPosed repository.
+     * If update is available in any of them it send the respective repo's Release page link.
+     */
+    private fun isUpdateAvailable(): String? {
+
+        fun getUpdateStatus(url: String): Boolean {
+            var jsonString = ""
+            val baos = ByteArrayOutputStream()
+
+            /**
+             * Get contents of the file into a string.
+             */
+            try {
+                URL(url).openStream().use { input ->
+                    baos.use { output ->
+                        input.copyTo(output)
+                    }
+                    jsonString = baos.toString()
+                }
+            } catch (_: Exception) {
+                return false
+            }
+
+            /**
+             * Parse the string as a JSON object.
+             */
+            return if (jsonString.isNotBlank()) {
+                try {
+                    val json = JSONObject(jsonString)
+                    val remoteVersion = json.getInt(FIELD_LATEST_VERSION_CODE)
+                    BuildConfig.VERSION_CODE < remoteVersion
+                } catch (_: Exception) {
+                    false
+                }
+            } else false
+        }
+
+        /**
+         * Check both repositories.
+         */
+        return when {
+            getUpdateStatus(UPDATE_INFO_URL) -> RELEASES_URL
+            getUpdateStatus(UPDATE_INFO_URL2) -> RELEASES_URL2
+            else -> null
+        }
+    }
+
+    /**
+     * Open any url link
+     */
+    fun openWebLink(url: String){
+        startActivity(Intent(Intent.ACTION_VIEW).apply {
+            data = Uri.parse(url)
+        })
     }
 
     override fun onPause() {
