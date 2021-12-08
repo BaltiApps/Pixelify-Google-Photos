@@ -4,7 +4,7 @@
     <!--activity_main.xml-->
     <string name="reset">Reset</string>
     <string name="device_to_spoof">Device to spoof</string>
-    <string name="optional">Maybe optional.</string>
+    <string name="spoofs_build_and_features">Spoofs build.prop and feature flags.</string>
     <string name="customize_feature_flags">Customize feature flags.</string>
     <string name="feature_flags_changed">Feature flags changed!</string>
     <string name="spoof_only_in_google_photos">Make sure to spoof only in Google Photos.</string>
