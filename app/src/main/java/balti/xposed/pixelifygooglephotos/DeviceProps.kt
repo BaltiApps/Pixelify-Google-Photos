@@ -53,38 +53,48 @@ object DeviceProps {
             "com.google.android.apps.photos.NEXUS_PRELOAD",
             "com.google.android.apps.photos.nexus_preload",
             "com.google.android.feature.PIXEL_EXPERIENCE",
+            "com.google.android.apps.photos.PIXEL_PRELOAD",
+            "com.google.android.apps.photos.PIXEL_2016_PRELOAD",
         ),
 
         Features("Pixel 2017", // Pixel 2
             "com.google.android.feature.PIXEL_2017_EXPERIENCE",
+            "com.google.android.apps.photos.PIXEL_2017_PRELOAD"
         ),
 
         Features("Pixel 2018", // Pixel 3 XL
             "com.google.android.feature.PIXEL_2018_EXPERIENCE",
+            "com.google.android.apps.photos.PIXEL_2018_PRELOAD"
         ),
 
         Features("Pixel 2019 mid-year", // Pixel 3a XL
             "com.google.android.feature.PIXEL_2019_MIDYEAR_EXPERIENCE",
+            "com.google.android.apps.photos.PIXEL_2019_MIDYEAR_PRELOAD",
         ),
 
         Features("Pixel 2019", // Pixel 4 XL
             "com.google.android.feature.PIXEL_2019_EXPERIENCE",
+            "com.google.android.apps.photos.PIXEL_2019_PRELOAD",
         ),
 
         Features("Pixel 2020 mid-year", // Pixel 4a
             "com.google.android.feature.PIXEL_2020_MIDYEAR_EXPERIENCE",
+            "com.google.android.apps.photos.PIXEL_2020_MIDYEAR_PRELOAD",
         ),
 
         Features("Pixel 2020", // Pixel 5
             "com.google.android.feature.PIXEL_2020_EXPERIENCE",
+            "com.google.android.apps.photos.PIXEL_2020_PRELOAD",
         ),
 
         Features("Pixel 2021 mid-year", // Pixel 5a
             "com.google.android.feature.PIXEL_2021_MIDYEAR_EXPERIENCE",
+            "com.google.android.apps.photos.PIXEL_2021_MIDYEAR_PRELOAD",
         ),
 
         Features("Pixel 2021", // Pixel 6 Pro
             "com.google.android.feature.PIXEL_2021_EXPERIENCE",
+            "com.google.android.apps.photos.PIXEL_2021_PRELOAD",
         ),
     )
 
