@@ -17,6 +17,7 @@ import androidx.appcompat.widget.SwitchCompat
 import balti.xposed.pixelifygooglephotos.Constants.FIELD_LATEST_VERSION_CODE
 import balti.xposed.pixelifygooglephotos.Constants.PREF_DEVICE_TO_SPOOF
 import balti.xposed.pixelifygooglephotos.Constants.PREF_LAST_VERSION
+import balti.xposed.pixelifygooglephotos.Constants.PREF_OVERRIDE_ROM_FEATURE_LEVELS
 import balti.xposed.pixelifygooglephotos.Constants.PREF_SPOOF_FEATURES_LIST
 import balti.xposed.pixelifygooglephotos.Constants.PREF_STRICTLY_CHECK_GOOGLE_PHOTOS
 import balti.xposed.pixelifygooglephotos.Constants.RELEASES_URL
@@ -78,6 +79,7 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
         val resetSettings = findViewById<Button>(R.id.reset_settings)
         val customizeFeatureFlags = findViewById<LinearLayout>(R.id.customize_feature_flags)
         val featureFlagsChanged = findViewById<TextView>(R.id.feature_flags_changed)
+        val overrideROMFeatureLevels = findViewById<SwitchCompat>(R.id.override_rom_feature_levels)
         val switchEnforceGooglePhotos = findViewById<SwitchCompat>(R.id.spoof_only_in_google_photos_switch)
         val deviceSpooferSpinner = findViewById<Spinner>(R.id.device_spoofer_spinner)
         val forceStopGooglePhotos = findViewById<Button>(R.id.force_stop_google_photos)
@@ -94,6 +96,7 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
         resetSettings.setOnClickListener {
             pref.edit().run {
                 putString(PREF_DEVICE_TO_SPOOF, DeviceProps.defaultDeviceName)
+                putBoolean(PREF_OVERRIDE_ROM_FEATURE_LEVELS, true)
                 putBoolean(PREF_STRICTLY_CHECK_GOOGLE_PHOTOS, true)
                 putStringSet(
                     PREF_SPOOF_FEATURES_LIST,
@@ -103,6 +106,20 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
             }
             finish()
             startActivity(intent)
+        }
+
+        /**
+         * See [FeatureSpoofer.featuresNotToSpoof].
+         */
+        overrideROMFeatureLevels.apply {
+            isChecked = pref.getBoolean(PREF_OVERRIDE_ROM_FEATURE_LEVELS, true)
+            setOnCheckedChangeListener { _, isChecked ->
+                pref.edit().run {
+                    putBoolean(PREF_OVERRIDE_ROM_FEATURE_LEVELS, isChecked)
+                    apply()
+                    showRebootSnack()
+                }
+            }
         }
 
         /**
