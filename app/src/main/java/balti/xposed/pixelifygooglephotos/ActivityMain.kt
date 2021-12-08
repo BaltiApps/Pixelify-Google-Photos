@@ -178,9 +178,7 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
         telegramLink.apply {
             paintFlags = Paint.UNDERLINE_TEXT_FLAG
             setOnClickListener {
-                startActivity(Intent(Intent.ACTION_VIEW).apply {
-                    data = Uri.parse(TELEGRAM_GROUP)
-                })
+                openWebLink(TELEGRAM_GROUP)
             }
         }
 
