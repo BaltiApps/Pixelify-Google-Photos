@@ -32,15 +32,11 @@
     <string name="update_available">App update available!</string>
 
     <!--changelog-->
-    <string name="version_head">Version 2.0</string>
+    <string name="version_head">Version 3.0</string>
     <string name="version_desc">
         \n
-        # Add option to fine tune feature flags.\n
-        # Selecting a device to spoof automatically adjusts flags.\n
-        # Spoofing is restricted to Google Photos be default.\n
-        # Add Telegram group link.\n
-        # Add changelog.\n
-        # Add update check functionality.\n
+        # Add option to block / override higher feature levels from custom ROMs.\n
+        # Fix user selection not being read in higher Android versions.\n
     </string>
 
     <!--menu_activity_main.xml-->
