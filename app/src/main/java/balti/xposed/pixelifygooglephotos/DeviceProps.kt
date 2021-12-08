@@ -52,6 +52,7 @@ object DeviceProps {
         Features("Pixel 2016", // Pixel XL
             "com.google.android.apps.photos.NEXUS_PRELOAD",
             "com.google.android.apps.photos.nexus_preload",
+            "com.google.android.feature.PIXEL_EXPERIENCE",
         ),
 
         Features("Pixel 2017", // Pixel 2
