@@ -79,6 +79,29 @@ class FeatureSpoofer: IXposedHookLoadPackage {
     }
 
     /**
+     * Preference to override upper feature levels from custom ROMs
+     */
+    private val overrideCustomROMLevels by lazy {
+        pref.getBoolean(PREF_OVERRIDE_ROM_FEATURE_LEVELS, true)
+    }
+
+    /**
+     * List of feature flags which are not present in [finalFeaturesToSpoof].
+     * If any feature is in this list, spoof it as not present.
+     * Only if preference [PREF_OVERRIDE_ROM_FEATURE_LEVELS] are enabled.
+     */
+    private val featuresNotToSpoof: List<String> by lazy {
+
+        val allFeatureFlags = ArrayList<String>(0)
+
+        DeviceProps.allFeatures.map { it.featureFlags }.forEach {
+            allFeatureFlags.addAll(it)
+        }
+
+        allFeatureFlags.filter { it !in finalFeaturesToSpoof }
+    }
+
+    /**
      * If a feature needed for google photos is needed, i.e. features in [finalFeaturesToSpoof],
      * then set result of hooked method [METHOD_HAS_SYSTEM_FEATURE] as `true`.
      * Else don't set anything.
