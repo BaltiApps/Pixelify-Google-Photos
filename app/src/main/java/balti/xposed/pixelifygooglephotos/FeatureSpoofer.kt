@@ -115,7 +115,7 @@ class FeatureSpoofer: IXposedHookLoadPackage {
      * then set result as `false`.
      * Else don't set anything.
      */
-    private fun returnTrueForSpoofedFeature(param: XC_MethodHook.MethodHookParam?){
+    private fun spoofFeatureEnquiryResultIfNeeded(param: XC_MethodHook.MethodHookParam?){
         val arguments = param?.args?.toList()
 
         var passFeatureTrue = false
@@ -141,7 +141,7 @@ class FeatureSpoofer: IXposedHookLoadPackage {
         if (pref.getBoolean(PREF_STRICTLY_CHECK_GOOGLE_PHOTOS, true) &&
             lpparam?.packageName != PACKAGE_NAME_GOOGLE_PHOTOS) return
 
-        log("Loaded ${lpparam?.packageName}")
+        log("Loaded FeatureSpoofer for ${lpparam?.packageName}")
 
         /**
          * Hook hasSystemFeature(String).
@@ -154,7 +154,7 @@ class FeatureSpoofer: IXposedHookLoadPackage {
 
                 override fun beforeHookedMethod(param: MethodHookParam?) {
                     super.beforeHookedMethod(param)
-                    returnTrueForSpoofedFeature(param)
+                    spoofFeatureEnquiryResultIfNeeded(param)
                 }
 
             }
@@ -171,7 +171,7 @@ class FeatureSpoofer: IXposedHookLoadPackage {
 
                 override fun beforeHookedMethod(param: MethodHookParam?) {
                     super.beforeHookedMethod(param)
-                    returnTrueForSpoofedFeature(param)
+                    spoofFeatureEnquiryResultIfNeeded(param)
                 }
 
             }
