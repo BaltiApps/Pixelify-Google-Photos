@@ -20,6 +20,7 @@
         \n
         # Add option to fine tune feature flags.\n
         # Selecting a device to spoof automatically adjusts flags.\n
+        # Spoofing is restricted to Google Photos be default.\n
         # Add Telegram group link.\n
         # Add changelog.\n
         # Add update check functionality.\n
