@@ -51,6 +51,7 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
     }
 
     private fun showRebootSnack(){
+        if (pref == null) return // don't display snackbar if module not active.
         val rootView = findViewById<ScrollView>(R.id.root_view_for_snackbar)
         Snackbar.make(rootView, R.string.please_force_stop_google_photos, Snackbar.LENGTH_SHORT).show()
     }
