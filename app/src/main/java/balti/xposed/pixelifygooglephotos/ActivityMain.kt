@@ -83,6 +83,7 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
         val forceStopGooglePhotos = findViewById<Button>(R.id.force_stop_google_photos)
         val openGooglePhotos = findViewById<ImageButton>(R.id.open_google_photos)
         val telegramLink = findViewById<TextView>(R.id.telegram_group)
+        val updateAvailableLink = findViewById<TextView>(R.id.update_available_link)
 
         /**
          * Set default spoof device to [DeviceProps.defaultDeviceName].
@@ -192,6 +193,25 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
                 edit().apply {
                     putInt(PREF_LAST_VERSION, thisVersion)
                     apply()
+                }
+            }
+        }
+
+        /**
+         * Check for updates in background thread.
+         * Yes AsyncTask is deprecated, but it works fine and for such a short network operation
+         * it is useless to try coroutine or something like that.
+         */
+        AsyncTask.execute {
+            isUpdateAvailable()?.let { url ->
+                runOnUiThread {
+                    updateAvailableLink.apply {
+                        paintFlags = Paint.UNDERLINE_TEXT_FLAG
+                        visibility = View.VISIBLE
+                        setOnClickListener {
+                            openWebLink(url)
+                        }
+                    }
                 }
             }
         }
