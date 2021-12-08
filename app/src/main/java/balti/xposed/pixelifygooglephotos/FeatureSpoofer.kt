@@ -51,7 +51,7 @@ class FeatureSpoofer: IXposedHookLoadPackage {
         val defaultFeatures = DeviceProps.defaultFeatures
         val defaultFeatureLevelsName = defaultFeatures.map { it.displayName }.toSet()
 
-        pref.getStringSet(PREF_SPOOF_FEATURES_LIST, defaultFeatureLevelsName)?.let { set ->
+        val featureFlags = pref.getStringSet(PREF_SPOOF_FEATURES_LIST, defaultFeatureLevelsName)?.let { set ->
 
             val eligibleFeatures: List<DeviceProps.Features> =
 
@@ -73,10 +73,12 @@ class FeatureSpoofer: IXposedHookLoadPackage {
                 allFeatureFlags.addAll(it.featureFlags)
             }
 
-            log("Feature flags init: $allFeatureFlags")
-
             allFeatureFlags
         }?: listOf()
+
+        featureFlags.apply {
+            log("Pass TRUE for feature flags: $featureFlags")
+        }
     }
 
     /**
