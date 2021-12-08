@@ -1,4 +1,15 @@
 <resources>
+
+    <!--Things to update in new versions:
+
+    build.gradle: versionCode
+    build.gradle: versionName
+
+    update_info.json
+
+    changelog
+    -->
+
     <string name="app_name">Pixelify Google Photos</string>
 
     <!--activity_main.xml-->
