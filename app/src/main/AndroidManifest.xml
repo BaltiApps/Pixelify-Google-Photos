@@ -19,8 +19,11 @@
             android:name="xposeddescription"
             android:value="Add Google Pixel features in Google Photos on any device." />
         <meta-data
+            android:name="xposedsharedprefs"
+            android:value="true" />
+        <meta-data
             android:name="xposedminversion"
-            android:value="90" />
+            android:value="93" />
         <meta-data
             android:name="xposedscope"
             android:resource="@array/module_scope" />
