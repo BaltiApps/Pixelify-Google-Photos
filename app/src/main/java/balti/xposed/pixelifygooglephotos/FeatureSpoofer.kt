@@ -99,7 +99,9 @@ class FeatureSpoofer: IXposedHookLoadPackage {
             allFeatureFlags.addAll(it)
         }
 
-        allFeatureFlags.filter { it !in finalFeaturesToSpoof }
+        allFeatureFlags.filter { it !in finalFeaturesToSpoof }.apply {
+            log("Pass FALSE for feature flags: $this")
+        }
     }
 
     /**
