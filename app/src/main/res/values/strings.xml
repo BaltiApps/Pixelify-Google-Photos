@@ -49,6 +49,10 @@
 
     <!--ActivityMain.xml-->
     <string name="please_force_stop_google_photos">Please force stop Google Photos to take effect.</string>
+    <string name="export_config">Export configuration</string>
+    <string name="export_config_desc">Save or share your settings of this module with others.</string>
+    <string name="share">Share</string>
+    <string name="select_a_location">Select a location to save.</string>
     <string name="share_config_file">Share configuration file</string>
     <string name="share_error">Share error!</string>
 
