@@ -49,6 +49,8 @@
 
     <!--ActivityMain.xml-->
     <string name="please_force_stop_google_photos">Please force stop Google Photos to take effect.</string>
+    <string name="share_config_file">Share configuration file</string>
+    <string name="share_error">Share error!</string>
 
     <!--feature_customize.xml-->
     <string name="save">Save</string>
