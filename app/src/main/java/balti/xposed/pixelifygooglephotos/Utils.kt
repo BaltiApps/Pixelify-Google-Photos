@@ -6,9 +6,15 @@ import android.content.SharedPreferences
 import android.net.Uri
 import android.provider.Settings
 import android.widget.Toast
+import balti.xposed.pixelifygooglephotos.Constants.PREF_DEVICE_TO_SPOOF
 import balti.xposed.pixelifygooglephotos.Constants.PREF_LAST_VERSION
+import balti.xposed.pixelifygooglephotos.Constants.PREF_OVERRIDE_ROM_FEATURE_LEVELS
+import balti.xposed.pixelifygooglephotos.Constants.PREF_SPOOF_FEATURES_LIST
+import balti.xposed.pixelifygooglephotos.Constants.PREF_STRICTLY_CHECK_GOOGLE_PHOTOS
+import org.json.JSONArray
 import org.json.JSONObject
 import java.io.BufferedWriter
+import java.io.ByteArrayOutputStream
 import java.io.OutputStreamWriter
 
 
@@ -107,7 +113,8 @@ class Utils {
     fun writeConfigFile(context: Context, uri: Uri, pref: SharedPreferences?) {
 
         // List of keys from shared preference which need not be copied to file.
-        val fieldsNotToCopy = listOf(PREF_LAST_VERSION)
+        // Or copied later like PREF_SPOOF_FEATURES_LIST.
+        val fieldsNotToCopy = listOf(PREF_LAST_VERSION, PREF_SPOOF_FEATURES_LIST)
 
         val outputStream = context.contentResolver.openOutputStream(uri)
         val writer = BufferedWriter(OutputStreamWriter(outputStream))
@@ -119,8 +126,13 @@ class Utils {
             }
         }
 
+        // Store PREF_SPOOF_FEATURES_LIST
+        pref?.getStringSet(PREF_SPOOF_FEATURES_LIST, setOf())?.let {
+            jsonObject.put(PREF_SPOOF_FEATURES_LIST, JSONArray(it.toTypedArray()))
+        }
+
         writer.run {
-            write(jsonObject.toString())
+            write(jsonObject.toString(4))
             close()
         }
     }
