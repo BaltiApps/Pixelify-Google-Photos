@@ -87,6 +87,15 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
             }
         }
 
+    /**
+     * Close and reopen the activity.
+     * For some reason, invalidate or recreate() does not refresh the switches.
+     */
+    private fun restartActivity(){
+        finish()
+        startActivity(intent)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -135,8 +144,7 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
                 )
                 apply()
             }
-            finish()
-            startActivity(intent)
+            restartActivity()
         }
 
         /**
