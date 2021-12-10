@@ -54,6 +54,7 @@
     <string name="export_config_desc">Save or share your settings of this module with others.\n
         \"Save\" will prompt to select a location to export the settings as a JSON file.
     </string>
+    <string name="export_complete">Export complete!</string>
     <string name="share">Share</string>
     <string name="select_a_location">Select a location to save.</string>
     <string name="share_config_file">Share configuration file</string>

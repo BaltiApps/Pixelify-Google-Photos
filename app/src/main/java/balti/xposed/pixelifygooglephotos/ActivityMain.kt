@@ -445,6 +445,7 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
         try {
             if (it.resultCode == Activity.RESULT_OK) {
                 utils.writeConfigFile(this, it.data!!.data!!, pref)
+                Toast.makeText(this, R.string.export_complete, Toast.LENGTH_SHORT).show()
             }
         }
         catch (e: Exception){
