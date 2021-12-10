@@ -236,7 +236,17 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
          * Also see [Utils.writeConfigFile].
          */
         confExport.setOnClickListener {
-            shareConfFile()
+            AlertDialog.Builder(this).apply {
+                setTitle(R.string.export_config)
+                setMessage(R.string.export_config_desc)
+                setPositiveButton(R.string.share){_, _ ->
+                    shareConfFile()
+                }
+                setNegativeButton(R.string.save){_, _ ->
+                    saveConfFile()
+                }
+            }
+                .show()
         }
 
         /**
