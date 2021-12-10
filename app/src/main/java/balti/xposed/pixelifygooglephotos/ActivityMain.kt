@@ -454,4 +454,32 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
         }
     }
 
+    /**
+     * Read a JSON file to get the configurations.
+     * Opens system file picker to select the file.
+     *
+     * https://developer.android.com/training/data-storage/shared/documents-files#open-file
+     */
+    private fun importConfFile(){
+        val openIntent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
+            addCategory(Intent.CATEGORY_OPENABLE)
+            type = "*/*"
+        }
+        configOpenLauncher.launch(openIntent)
+    }
+
+    private val configOpenLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
+        try {
+            if (it.resultCode == Activity.RESULT_OK) {
+                utils.readConfigFile(this, it.data!!.data!!, pref)
+                Toast.makeText(this, R.string.import_complete, Toast.LENGTH_SHORT).show()
+                restartActivity()
+            }
+        }
+        catch (e: Exception){
+            e.printStackTrace()
+            Toast.makeText(this, "${getString(R.string.read_error)}: ${e.message}", Toast.LENGTH_SHORT).show()
+        }
+    }
+
 }
