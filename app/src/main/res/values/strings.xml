@@ -35,6 +35,7 @@
     <string name="open_google_photos">Open Google Photos</string>
     <string name="telegram_group">Telegram group!</string>
     <string name="update_available">App update available!</string>
+    <string name="configuration_export">Configuration export</string>
 
     <!--changelog-->
     <string name="version_head">Version 3.0</string>

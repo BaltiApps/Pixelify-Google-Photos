@@ -27,6 +27,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_export"
                 android:backgroundTint="@android:color/transparent"
+                android:contentDescription="@string/configuration_export"
                 android:id="@+id/conf_export"
                 />
 
