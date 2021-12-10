@@ -126,6 +126,7 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
         val telegramLink = findViewById<TextView>(R.id.telegram_group)
         val updateAvailableLink = findViewById<TextView>(R.id.update_available_link)
         val confExport = findViewById<ImageButton>(R.id.conf_export)
+        val confImport = findViewById<ImageButton>(R.id.conf_import)
 
         /**
          * Set default spoof device to [DeviceProps.defaultDeviceName].
@@ -253,6 +254,18 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
                 setNegativeButton(R.string.save){_, _ ->
                     saveConfFile()
                 }
+            }
+                .show()
+        }
+
+        confImport.setOnClickListener {
+            AlertDialog.Builder(this).apply {
+                setTitle(R.string.import_config)
+                setMessage(R.string.import_config_desc)
+                setPositiveButton(android.R.string.ok){_, _ ->
+                    importConfFile()
+                }
+                setNegativeButton(android.R.string.cancel, null)
             }
                 .show()
         }
