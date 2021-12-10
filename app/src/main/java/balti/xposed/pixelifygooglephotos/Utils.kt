@@ -137,4 +137,69 @@ class Utils {
         }
     }
 
+    /**
+     * Read an exported JSON file and stores entries in shared preference.
+     *
+     * @param context Activity context
+     * @param uri Uri of file to read from.
+     * @param pref SharedPreference instance.
+     */
+    fun readConfigFile(context: Context, uri: Uri, pref: SharedPreferences?) {
+
+        var jsonObject = JSONObject()
+        val baos = ByteArrayOutputStream()
+
+        val inputStream = context.contentResolver.openInputStream(uri)
+        inputStream?.use { input ->
+            baos.use { output ->
+                input.copyTo(output)
+            }
+            jsonObject = JSONObject(baos.toString())
+        }
+
+        /**
+         * In inbuilt function exists to convert JSONArray to List.
+         */
+        fun convertJsonArrayToList(jsonArray: JSONArray): List<String> {
+            val list = ArrayList<String>()
+            for (i in 0 until jsonArray.length()) {
+                list.add(jsonArray[i].toString())
+            }
+            return list
+        }
+
+        /**
+         * Check for field and store in shared prefs.
+         */
+        pref?.edit()?.apply {
+
+            PREF_SPOOF_FEATURES_LIST.let { key ->
+                jsonObject.optJSONArray(key)?.let {
+                    putStringSet(key, convertJsonArrayToList(it).toSet())
+                }
+            }
+
+            PREF_DEVICE_TO_SPOOF.let { key ->
+                jsonObject.optString(key)?.let {
+                    putString(key, it)
+                }
+            }
+
+            PREF_STRICTLY_CHECK_GOOGLE_PHOTOS.let { key ->
+                jsonObject.optBoolean(key, true).let {
+                    putBoolean(key, it)
+                }
+            }
+
+            PREF_OVERRIDE_ROM_FEATURE_LEVELS.let { key ->
+                jsonObject.optBoolean(key, true).let {
+                    putBoolean(key, it)
+                }
+            }
+
+            apply()
+        }
+
+    }
+
 }
