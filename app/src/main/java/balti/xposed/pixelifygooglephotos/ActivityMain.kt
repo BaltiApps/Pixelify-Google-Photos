@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Paint
 import android.net.Uri
 import android.os.AsyncTask
+import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -14,6 +15,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
+import androidx.core.content.FileProvider
+import balti.xposed.pixelifygooglephotos.Constants.CONF_EXPORT_NAME
 import balti.xposed.pixelifygooglephotos.Constants.FIELD_LATEST_VERSION_CODE
 import balti.xposed.pixelifygooglephotos.Constants.PREF_DEVICE_TO_SPOOF
 import balti.xposed.pixelifygooglephotos.Constants.PREF_LAST_VERSION
@@ -29,6 +32,7 @@ import balti.xposed.pixelifygooglephotos.Constants.UPDATE_INFO_URL2
 import com.google.android.material.snackbar.Snackbar
 import org.json.JSONObject
 import java.io.ByteArrayOutputStream
+import java.io.File
 import java.net.URL
 
 
@@ -112,6 +116,7 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
         val openGooglePhotos = findViewById<ImageButton>(R.id.open_google_photos)
         val telegramLink = findViewById<TextView>(R.id.telegram_group)
         val updateAvailableLink = findViewById<TextView>(R.id.update_available_link)
+        val confExport = findViewById<ImageButton>(R.id.conf_export)
 
         /**
          * Set default spoof device to [DeviceProps.defaultDeviceName].
@@ -224,6 +229,14 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
             setOnClickListener {
                 openWebLink(TELEGRAM_GROUP)
             }
+        }
+
+        /**
+         * Open config share options.
+         * Also see [Utils.writeConfigFile].
+         */
+        confExport.setOnClickListener {
+            shareConfFile()
         }
 
         /**
@@ -349,6 +362,40 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
         startActivity(Intent(Intent.ACTION_VIEW).apply {
             data = Uri.parse(url)
         })
+    }
+
+    /**
+     * Creates configuration export file.
+     * Shares it to other apps.
+     */
+    private fun shareConfFile(){
+
+        try {
+            val confFile = File(cacheDir, CONF_EXPORT_NAME)
+            val uriFromFile = Uri.fromFile(confFile)
+
+            confFile.delete()
+            utils.writeConfigFile(this, uriFromFile, pref)
+
+            val confFileShareUri =
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+                    FileProvider.getUriForFile(this, BuildConfig.APPLICATION_ID, confFile)
+                else uriFromFile
+
+            Intent().run {
+
+                action = Intent.ACTION_SEND
+                type = "text/plain"
+                flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
+
+                this.putExtra(Intent.EXTRA_STREAM, confFileShareUri)
+                startActivity(Intent.createChooser(this, getString(R.string.share_config_file)))
+            }
+        }
+        catch (e: Exception){
+            e.printStackTrace()
+            Toast.makeText(this, "${getString(R.string.share_error)}: ${e.message}", Toast.LENGTH_SHORT).show()
+        }
     }
 
 }
