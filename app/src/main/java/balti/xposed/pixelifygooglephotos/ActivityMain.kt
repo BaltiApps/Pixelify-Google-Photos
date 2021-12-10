@@ -254,6 +254,7 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
                 setNegativeButton(R.string.save){_, _ ->
                     saveConfFile()
                 }
+                setNeutralButton(android.R.string.cancel, null)
             }
                 .show()
         }
