@@ -398,4 +398,41 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
         }
     }
 
+    /**
+     * Open a storage location on the device to export the configuration as a document.
+     * Uses intent with action [Intent.ACTION_CREATE_DOCUMENT]
+     * Also see [documentCreateLauncher].
+     *
+     * Derived from https://gist.github.com/neonankiti/05922cf0a44108a2e2732671ed9ef386
+     */
+    private fun saveConfFile(){
+        val openIntent = Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
+            // filter to only show openable items.
+            addCategory(Intent.CATEGORY_OPENABLE)
+
+            // Create a file with the requested Mime type
+            type = "text/plain"
+            putExtra(Intent.EXTRA_TITLE, CONF_EXPORT_NAME)
+        }
+        Toast.makeText(this, R.string.select_a_location, Toast.LENGTH_SHORT).show()
+        documentCreateLauncher.launch(openIntent)
+    }
+
+    /**
+     * Intent launcher to start system file picker UI to select location of export.
+     * The Uri of the location is present in result.
+     * Then call [Utils.writeConfigFile] using that Uri.
+     */
+    private val documentCreateLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
+        try {
+            if (it.resultCode == Activity.RESULT_OK) {
+                utils.writeConfigFile(this, it.data!!.data!!, pref)
+            }
+        }
+        catch (e: Exception){
+            e.printStackTrace()
+            Toast.makeText(this, "${getString(R.string.share_error)}: ${e.message}", Toast.LENGTH_SHORT).show()
+        }
+    }
+
 }
