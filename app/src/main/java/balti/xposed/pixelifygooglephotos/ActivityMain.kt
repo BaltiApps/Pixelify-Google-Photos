@@ -365,7 +365,7 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
     }
 
     /**
-     * Creates configuration export file.
+     * Creates configuration export file to internal cache.
      * Shares it to other apps.
      */
     private fun shareConfFile(){
