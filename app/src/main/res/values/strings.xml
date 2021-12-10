@@ -59,6 +59,8 @@
     <string name="share">Share</string>
     <string name="select_a_location">Select a location to save.</string>
     <string name="share_config_file">Share configuration file</string>
+    <string name="import_config">Import configuration</string>
+    <string name="import_config_desc">This will open a system window to select the configuration file.</string>
     <string name="share_error">Share error!</string>
     <string name="read_error">Read error! Make sure to select a proper file!</string>
     <string name="import_complete">Import complete!</string>
