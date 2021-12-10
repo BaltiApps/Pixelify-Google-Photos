@@ -36,6 +36,7 @@
     <string name="telegram_group">Telegram group!</string>
     <string name="update_available">App update available!</string>
     <string name="configuration_export">Configuration export</string>
+    <string name="configuration_import">Configuration import</string>
 
     <!--changelog-->
     <string name="version_head">Version 3.0</string>
@@ -59,6 +60,8 @@
     <string name="select_a_location">Select a location to save.</string>
     <string name="share_config_file">Share configuration file</string>
     <string name="share_error">Share error!</string>
+    <string name="read_error">Read error! Make sure to select a proper file!</string>
+    <string name="import_complete">Import complete!</string>
 
     <!--feature_customize.xml-->
     <string name="save">Save</string>
