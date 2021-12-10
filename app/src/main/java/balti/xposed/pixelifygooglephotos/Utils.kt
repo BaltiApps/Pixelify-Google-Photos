@@ -2,9 +2,12 @@ package balti.xposed.pixelifygooglephotos
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.net.Uri
 import android.provider.Settings
 import android.widget.Toast
+import balti.xposed.pixelifygooglephotos.Constants.PREF_LAST_VERSION
+import org.json.JSONObject
 import java.io.BufferedWriter
 import java.io.OutputStreamWriter
 
@@ -91,5 +94,35 @@ class Utils {
             if (exists()) setReadable(true, false)
         }
     }*/
+
+    /**
+     * Write all keys of shared preference in a file as a JSON string.
+     *
+     * @param context Activity context
+     * @param uri Uri of file to write to.
+     * Using uri as it can be used to write a file in internal cache directory,
+     * as well as an external location opened using [Intent.ACTION_CREATE_DOCUMENT].
+     * @param pref SharedPreference instance.
+     */
+    fun writeConfigFile(context: Context, uri: Uri, pref: SharedPreferences?) {
+
+        // List of keys from shared preference which need not be copied to file.
+        val fieldsNotToCopy = listOf(PREF_LAST_VERSION)
+
+        val outputStream = context.contentResolver.openOutputStream(uri)
+        val writer = BufferedWriter(OutputStreamWriter(outputStream))
+
+        val jsonObject = JSONObject()
+        pref?.all?.let { allPrefs ->
+            for (key in allPrefs.keys){
+                if (key !in fieldsNotToCopy) jsonObject.put(key, allPrefs[key])
+            }
+        }
+
+        writer.run {
+            write(jsonObject.toString())
+            close()
+        }
+    }
 
 }
