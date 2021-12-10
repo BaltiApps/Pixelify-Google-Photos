@@ -41,6 +41,17 @@
         </activity>
 
         <activity android:name=".FeatureCustomize"/>
+
+        <!--Guide at: https://infinum.com/the-capsized-eight/share-files-using-fileprovider-->
+        <provider
+            android:authorities="${applicationId}"
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"/>
+        </provider>
     </application>
 
 </manifest>

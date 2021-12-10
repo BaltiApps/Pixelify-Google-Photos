@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Guide at: https://infinum.com/the-capsized-eight/share-files-using-fileprovider-->
+<paths>
+    <cache-path name="cache" path="/" />
+</paths>
