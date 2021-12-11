@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_export"
                 android:backgroundTint="@android:color/white"
-                android:contentDescription="@string/configuration_export"
+                android:contentDescription="@string/export_config"
                 android:id="@+id/conf_export"
                 />
 
@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_import"
                 android:backgroundTint="@android:color/white"
-                android:contentDescription="@string/configuration_import"
+                android:contentDescription="@string/import_config"
                 android:id="@+id/conf_import"
                 />
 
