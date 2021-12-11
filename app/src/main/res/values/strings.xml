@@ -62,6 +62,7 @@
     <string name="share_error">Share error!</string>
     <string name="read_error">Read error! Make sure to select a proper file!</string>
     <string name="import_complete">Import complete!</string>
+    <string name="advanced_options">Advanced options</string>
 
     <!--feature_customize.xml-->
     <string name="save">Save</string>

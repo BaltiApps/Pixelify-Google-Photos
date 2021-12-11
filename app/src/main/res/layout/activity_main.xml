@@ -160,7 +160,25 @@
 
         <Space
             android:layout_width="wrap_content"
-            android:layout_height="25dp"/>
+            android:layout_height="15dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/advanced_options"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textStyle="bold"
+            android:textColor="?android:attr/colorAccent"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:id="@+id/advanced_options"
+            />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"/>
 
         <TextView
             android:layout_width="wrap_content"
