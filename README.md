@@ -1,6 +1,6 @@
 # Pixelify-Google-Photos
-LSPosed module to add Google Pixel features on Google Photos for any device.  
-Also reported to work on EdXposed. Tested by [Jim Wu](https://github.com/MlgmXyysd)  
+LSPosed / EdXposed module to add Google Pixel features on Google Photos for any device.  
+Tested on EdXposed by [Jim Wu](https://github.com/MlgmXyysd)  
 
 [LSPosed module repo](https://github.com/Xposed-Modules-Repo/balti.xposed.pixelifygooglephotos.git)  
 [Development repo](https://github.com/BaltiApps/Pixelify-Google-Photos.git)  
