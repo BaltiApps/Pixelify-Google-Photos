@@ -73,6 +73,16 @@
     <string name="enable_verbose_logging_desc">More debug information in LSPosed logs and Android logcat.\n
         To share logs, open LSPosed -> Logs -> top Save icon. Then share the created file.
     </string>
+    <string name="spoof_android_version">Spoof android version.</string>
+    <string name="spoof_android_version_desc">Do not set an Android version greater than your current version.\n
+        Example, if your Android version is <b>Pie</b>, you can set <b>Nougat / Oreo / Pie</b>, but not Q / R / S.
+    </string>
+    <string name="this_might_cause_crash">This might cause Google Photos to immediately crash!</string>
+    <string name="dont_spoof_android_version">Don\'t spoof Android version <b>(Recommended)</b></string>
+    <string name="follow_spoof_device_version">Follow spoof device Android version.</string>
+    <string name="current_spoof_device">Current spoofing device</string>
+    <string name="device_android_version">Device Android version</string>
+    <string name="manually_set_android_version">Manually set Android version.</string>
 
     <!--Utils.kt-->
     <string name="killing_please_wait">Killing… please wait.</string>
