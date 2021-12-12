@@ -42,6 +42,8 @@
 
         <activity android:name=".FeatureCustomize"/>
 
+        <activity android:name=".AdvancedOptionsActivity"/>
+
         <!--Guide at: https://infinum.com/the-capsized-eight/share-files-using-fileprovider-->
         <provider
             android:authorities="${applicationId}"
