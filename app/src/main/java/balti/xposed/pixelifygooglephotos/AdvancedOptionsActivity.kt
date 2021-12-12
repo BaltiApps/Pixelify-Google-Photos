@@ -40,10 +40,14 @@ class AdvancedOptionsActivity: AppCompatActivity(R.layout.advanced_options_activ
         deviceAndroidVersion.text = spoofDevice?.androidVersion?.label
 
         /**
+         * String list of all [DeviceProps.AndroidVersion.label].
+         */
+        val allVersionLabels = DeviceProps.allAndroidVersions.map { it.label }
+
+        /**
          * Set spinner for manually setting android version.
          */
         androidVersionSpinner.apply {
-            val allVersionLabels = DeviceProps.allAndroidVersions.map { it.label }
             val aa = ArrayAdapter(
                 this@AdvancedOptionsActivity,
                 android.R.layout.simple_spinner_item,
@@ -66,10 +70,12 @@ class AdvancedOptionsActivity: AppCompatActivity(R.layout.advanced_options_activ
                 androidVersionSpinner.isVisible = checkedId == R.id.manually_set_android_version
             }
 
+            val manualVersion = pref.getString(PREF_SPOOF_ANDROID_VERSION_MANUAL, null)?.trim()
+
             check(
                 when {
                     pref.getBoolean(PREF_SPOOF_ANDROID_VERSION_FOLLOW_DEVICE, false) -> R.id.follow_spoof_device_version
-                    pref.getString(PREF_SPOOF_ANDROID_VERSION_MANUAL, null) != null -> R.id.manually_set_android_version
+                    manualVersion != null && manualVersion in allVersionLabels -> R.id.manually_set_android_version
                     else -> R.id.dont_spoof_android_version
                 }
             )
