@@ -1,5 +1,6 @@
 package balti.xposed.pixelifygooglephotos
 
+import android.app.Activity
 import android.os.Bundle
 import android.widget.CheckBox
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +11,15 @@ class AdvancedOptionsActivity: AppCompatActivity(R.layout.advanced_options_activ
 
     private val pref by lazy {
         getSharedPreferences(SHARED_PREF_FILE_NAME, MODE_WORLD_READABLE)
+    }
+
+    /**
+     * This will send [Activity.RESULT_OK] to caller activity.
+     * To be called when any option in this activity page is changed.
+     * Example in [CheckBox.setPreferenceState].
+     */
+    private fun setResultOk(){
+        setResult(Activity.RESULT_OK)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,6 +42,7 @@ class AdvancedOptionsActivity: AppCompatActivity(R.layout.advanced_options_activ
     fun CheckBox.setPreferenceState(preferenceKey: String, defaultValue: Boolean){
         isChecked = pref.getBoolean(preferenceKey, defaultValue)
         setOnCheckedChangeListener { _, isChecked ->
+            setResultOk()
             pref.edit().run {
                 putBoolean(preferenceKey, isChecked)
                 apply()
