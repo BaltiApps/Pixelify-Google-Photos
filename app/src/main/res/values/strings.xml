@@ -37,11 +37,12 @@
     <string name="update_available">App update available!</string>
 
     <!--changelog-->
-    <string name="version_head">Version 3.0</string>
+    <string name="version_head">Version 4.0</string>
     <string name="version_desc">
         \n
-        # Add option to block / override higher feature levels from custom ROMs.\n
-        # Fix user selection not being read in higher Android versions.\n
+        # Fix Custom feature flags selection not getting applied.\n
+        # Option to export / import configs.\n
+        # Added Advanced options -> Verbose logging.\n
     </string>
 
     <!--menu_activity_main.xml-->
