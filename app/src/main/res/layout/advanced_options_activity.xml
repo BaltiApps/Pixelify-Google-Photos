@@ -3,13 +3,15 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="25dp">
+    android:fillViewport="true"
+    android:layout_margin="25dp"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_gravity="center_vertical"
+        android:gravity="center"
         >
 
         <CheckBox
@@ -35,7 +37,7 @@
             android:layout_height="wrap_content"
             android:text="@string/spoof_android_version"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/black"
+            android:textColor="?android:attr/textColorPrimary"
             />
 
         <Space
@@ -68,14 +70,14 @@
 
             <RadioButton
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:text="@string/dont_spoof_android_version"
                 android:id="@+id/dont_spoof_android_version"
                 />
 
             <RadioButton
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:text="@string/follow_spoof_device_version"
                 android:id="@+id/follow_spoof_device_version"
                 />
@@ -110,7 +112,7 @@
 
             <RadioButton
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:text="@string/manually_set_android_version"
                 android:id="@+id/manually_set_android_version"
                 />
