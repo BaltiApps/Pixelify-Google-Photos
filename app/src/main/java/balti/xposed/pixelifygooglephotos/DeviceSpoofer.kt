@@ -1,9 +1,12 @@
 package balti.xposed.pixelifygooglephotos
 
+import android.os.Build
 import android.util.Log
 import balti.xposed.pixelifygooglephotos.Constants.PACKAGE_NAME_GOOGLE_PHOTOS
 import balti.xposed.pixelifygooglephotos.Constants.PREF_DEVICE_TO_SPOOF
 import balti.xposed.pixelifygooglephotos.Constants.PREF_ENABLE_VERBOSE_LOGS
+import balti.xposed.pixelifygooglephotos.Constants.PREF_SPOOF_ANDROID_VERSION_FOLLOW_DEVICE
+import balti.xposed.pixelifygooglephotos.Constants.PREF_SPOOF_ANDROID_VERSION_MANUAL
 import balti.xposed.pixelifygooglephotos.Constants.PREF_STRICTLY_CHECK_GOOGLE_PHOTOS
 import de.robv.android.xposed.IXposedHookLoadPackage
 import de.robv.android.xposed.XSharedPreferences
@@ -36,6 +39,23 @@ class DeviceSpoofer: IXposedHookLoadPackage {
 
     private val verboseLog: Boolean by lazy {
         pref.getBoolean(PREF_ENABLE_VERBOSE_LOGS, false)
+    }
+
+    /**
+     * This will always be null if the user has not chosen to spoof android version.
+     * If not null, then following will be spoofed:
+     * [Build.VERSION.RELEASE], [Build.VERSION.SDK_INT]
+     *
+     * @see DeviceProps.AndroidVersion
+     */
+    private val androidVersionToSpoof: DeviceProps.AndroidVersion? by lazy {
+        if (pref.getBoolean(PREF_SPOOF_ANDROID_VERSION_FOLLOW_DEVICE, false))
+            finalDeviceToSpoof?.androidVersion
+        else {
+            pref.getString(PREF_SPOOF_ANDROID_VERSION_MANUAL, null)?.let {
+                DeviceProps.getAndroidVersionFromLabel(it)
+            }
+        }
     }
 
     /**
