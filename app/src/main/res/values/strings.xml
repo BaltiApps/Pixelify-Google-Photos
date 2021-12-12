@@ -80,8 +80,6 @@
     <string name="this_might_cause_crash">This might cause Google Photos to immediately crash!</string>
     <string name="dont_spoof_android_version">Don\'t spoof Android version <b>(Recommended)</b></string>
     <string name="follow_spoof_device_version">Follow spoof device Android version.</string>
-    <string name="current_spoof_device">Current spoofing device</string>
-    <string name="device_android_version">Device Android version</string>
     <string name="manually_set_android_version">Manually set Android version.</string>
 
     <!--Utils.kt-->
