@@ -168,11 +168,11 @@
             android:text="@string/advanced_options"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textStyle="bold"
-            android:textColor="?android:attr/colorAccent"
             android:clickable="true"
             android:focusable="true"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
+            android:foreground="?android:attr/selectableItemBackground"
             android:id="@+id/advanced_options"
             />
 
