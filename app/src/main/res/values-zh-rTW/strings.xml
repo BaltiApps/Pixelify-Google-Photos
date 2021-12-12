@@ -38,11 +38,13 @@
     <string name="update_available">有最新的更新可用！</string>
 
     <!--changelog-->
-    <string name="version_head">版本 3.0</string>
+    <string name="version_head">Version 4.0</string>
     <string name="version_desc">
         \n
-        # 新增選項以阻止/覆蓋來自自定義 ROM 的更高功能級別。\n
-        # 修復在更高的 Android 版本中無法讀取用戶選擇。\n
+        # Fix Custom feature flags selection not getting applied.\n
+        # Option to export / share / import configs.\n
+        # Added Advanced options -> Verbose logging.\n
+        # Added Advanced options -> Spoof android version.\n
     </string>
 
     <!--menu_activity_main.xml-->
@@ -55,7 +57,7 @@
     <string name="save">儲存</string>
 
     <!--Utils.kt-->
-    <string name="killing_please_wait">強制停止中...請稍候。</string>
+    <string name="killing_please_wait">強制停止中…請稍候。</string>
     <string name="failed_to_stop_package">無法自動強制停止。請手動強制停止。</string>
     <string name="failed_to_launch_package">無法自動啟動。請手動啟動。</string>
 </resources>
