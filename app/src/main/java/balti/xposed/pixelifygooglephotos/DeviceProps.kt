@@ -123,7 +123,13 @@ object DeviceProps {
         val label: String,
         val release: String,
         val sdk: Int,
-    )
+    ){
+        fun getAsMap() = hashMapOf(
+            Pair("RELEASE", release),
+            Pair("SDK_INT", sdk),
+            Pair("SDK", sdk.toString()),
+        )
+    }
 
     /**
      * List of all major android versions.
