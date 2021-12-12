@@ -19,8 +19,11 @@ import androidx.core.content.FileProvider
 import balti.xposed.pixelifygooglephotos.Constants.CONF_EXPORT_NAME
 import balti.xposed.pixelifygooglephotos.Constants.FIELD_LATEST_VERSION_CODE
 import balti.xposed.pixelifygooglephotos.Constants.PREF_DEVICE_TO_SPOOF
+import balti.xposed.pixelifygooglephotos.Constants.PREF_ENABLE_VERBOSE_LOGS
 import balti.xposed.pixelifygooglephotos.Constants.PREF_LAST_VERSION
 import balti.xposed.pixelifygooglephotos.Constants.PREF_OVERRIDE_ROM_FEATURE_LEVELS
+import balti.xposed.pixelifygooglephotos.Constants.PREF_SPOOF_ANDROID_VERSION_FOLLOW_DEVICE
+import balti.xposed.pixelifygooglephotos.Constants.PREF_SPOOF_ANDROID_VERSION_MANUAL
 import balti.xposed.pixelifygooglephotos.Constants.PREF_SPOOF_FEATURES_LIST
 import balti.xposed.pixelifygooglephotos.Constants.PREF_STRICTLY_CHECK_GOOGLE_PHOTOS
 import balti.xposed.pixelifygooglephotos.Constants.RELEASES_URL
@@ -144,6 +147,9 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
                     PREF_SPOOF_FEATURES_LIST,
                     DeviceProps.defaultFeatures.map { it.displayName }.toSet()
                 )
+                putBoolean(PREF_ENABLE_VERBOSE_LOGS, false)
+                putBoolean(PREF_SPOOF_ANDROID_VERSION_FOLLOW_DEVICE, false)
+                putString(PREF_SPOOF_ANDROID_VERSION_MANUAL, null)
                 apply()
             }
             restartActivity()
