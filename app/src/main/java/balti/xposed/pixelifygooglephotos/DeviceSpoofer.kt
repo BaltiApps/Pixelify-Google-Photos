@@ -3,6 +3,7 @@ package balti.xposed.pixelifygooglephotos
 import android.util.Log
 import balti.xposed.pixelifygooglephotos.Constants.PACKAGE_NAME_GOOGLE_PHOTOS
 import balti.xposed.pixelifygooglephotos.Constants.PREF_DEVICE_TO_SPOOF
+import balti.xposed.pixelifygooglephotos.Constants.PREF_ENABLE_VERBOSE_LOGS
 import balti.xposed.pixelifygooglephotos.Constants.PREF_STRICTLY_CHECK_GOOGLE_PHOTOS
 import de.robv.android.xposed.IXposedHookLoadPackage
 import de.robv.android.xposed.XSharedPreferences
@@ -31,6 +32,10 @@ class DeviceSpoofer: IXposedHookLoadPackage {
      */
     private val pref by lazy {
         XSharedPreferences(BuildConfig.APPLICATION_ID, Constants.SHARED_PREF_FILE_NAME)
+    }
+
+    private val verboseLog: Boolean by lazy {
+        pref.getBoolean(PREF_ENABLE_VERBOSE_LOGS, false)
     }
 
     /**
@@ -67,6 +72,7 @@ class DeviceSpoofer: IXposedHookLoadPackage {
             val classBuild = XposedHelpers.findClass("android.os.Build", classLoader)
             keys.forEach {
                 XposedHelpers.setStaticObjectField(classBuild, it, this[it])
+                if (verboseLog) log("DEVICE PROPS: $it - ${this[it]}")
             }
 
         }

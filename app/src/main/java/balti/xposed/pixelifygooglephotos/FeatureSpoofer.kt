@@ -2,6 +2,7 @@ package balti.xposed.pixelifygooglephotos
 
 import android.util.Log
 import balti.xposed.pixelifygooglephotos.Constants.PACKAGE_NAME_GOOGLE_PHOTOS
+import balti.xposed.pixelifygooglephotos.Constants.PREF_ENABLE_VERBOSE_LOGS
 import balti.xposed.pixelifygooglephotos.Constants.PREF_OVERRIDE_ROM_FEATURE_LEVELS
 import balti.xposed.pixelifygooglephotos.Constants.PREF_SPOOF_FEATURES_LIST
 import balti.xposed.pixelifygooglephotos.Constants.PREF_STRICTLY_CHECK_GOOGLE_PHOTOS
@@ -41,6 +42,10 @@ class FeatureSpoofer: IXposedHookLoadPackage {
         XSharedPreferences(BuildConfig.APPLICATION_ID, SHARED_PREF_FILE_NAME).apply {
             log("Preference location: ${file.canonicalPath}")
         }
+    }
+
+    private val verboseLog: Boolean by lazy {
+        pref.getBoolean(PREF_ENABLE_VERBOSE_LOGS, false)
     }
 
     /**
@@ -128,8 +133,15 @@ class FeatureSpoofer: IXposedHookLoadPackage {
             }
         }
 
-        if (passFeatureTrue) param?.setResult(true)
-        else if (passFeatureFalse) param?.setResult(false)
+        if (passFeatureTrue) param?.setResult(true).apply {
+            if (verboseLog) log("TRUE - feature args: $arguments")
+        }
+        else if (passFeatureFalse) param?.setResult(false).apply {
+            if (verboseLog) log("FALSE - feature args: $arguments")
+        }
+        else {
+            if (verboseLog) log("NO_CHANGE - feature args: $arguments")
+        }
     }
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam?) {
