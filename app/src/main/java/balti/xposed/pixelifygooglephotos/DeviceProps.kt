@@ -113,6 +113,38 @@ object DeviceProps {
     }
 
     /**
+     * Class storing android version information to be faked.
+     *
+     * @param label Just a string to show the user. Not spoofed.
+     * @param release Corresponds to `ro.build.version.release`. Example values: "12", "11", "8.1.0" etc.
+     * @param sdk Corresponds to `ro.build.version.sdk`.
+     */
+    data class AndroidVersion(
+        val label: String,
+        val release: String,
+        val sdk: Int,
+    )
+
+    /**
+     * List of all major android versions.
+     * Pixel 1 series launched with nougat, so that is the lowest version.
+     */
+    val allAndroidVersions = listOf(
+        AndroidVersion("Nougat 7.1.2", "7.1.2", 25),
+        AndroidVersion("Oreo 8.1.0", "8.1.0", 27),
+        AndroidVersion("Pie 9.0", "9", 28),
+        AndroidVersion("Q 10.0", "10", 29),
+        AndroidVersion("R 11.0", "11", 30),
+        AndroidVersion("S 12.0", "12", 31),
+    )
+
+    /**
+     * Get instance of [AndroidVersion] from specified [label].
+     * Send null if no such label.
+     */
+    fun getAndroidVersionFromLabel(label: String) = allAndroidVersions.find { it.label == label }
+
+    /**
      * Class to contain device names and their respective build properties.
      * @param deviceName Actual device names, example "Pixel 4a".
      * @param props Contains the device properties to spoof.
