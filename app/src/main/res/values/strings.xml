@@ -28,7 +28,7 @@
     <string name="module_not_enabled">
         \n
         Looks like the this app module is not enabled.\n
-        Please enable it in LSPosed, then reboot.\n
+        Please enable it in LSPosed / EdXposed, then reboot.\n
         If already enabled, then just reboot. If that does not work, kindly uninstall and reinstall.
     </string>
     <string name="close">Close</string>
@@ -71,8 +71,8 @@
 
     <!--advanced_options_activity.xml-->
     <string name="enable_verbose_logging">Enable verbose logging</string>
-    <string name="enable_verbose_logging_desc">More debug information in LSPosed logs and Android logcat.\n
-        To share logs, open LSPosed -> Logs -> top Save icon. Then share the created file.
+    <string name="enable_verbose_logging_desc">More debug information in LSPosed / EdXposed logs and Android logcat.\n
+        To share logs, open LSPosed / EdXposed -> Logs -> top Save icon. Then share the created file.
     </string>
     <string name="spoof_android_version">Spoof android version.</string>
     <string name="spoof_android_version_desc">Do not set an Android version greater than your current version.\n
