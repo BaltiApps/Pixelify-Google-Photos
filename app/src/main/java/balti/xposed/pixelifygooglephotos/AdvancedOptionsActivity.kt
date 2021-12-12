@@ -87,11 +87,43 @@ class AdvancedOptionsActivity: AppCompatActivity(R.layout.advanced_options_activ
     private fun savePreferences(){
         pref?.edit()?.run {
 
+            /** Option for verbose log. */
             putBoolean(PREF_ENABLE_VERBOSE_LOGS, verboseLogging.isChecked)
+
+            when(androidVersionRadioGroup.checkedRadioButtonId){
+
+                /** If not to spoof, disable both preferences */
+                R.id.dont_spoof_android_version -> {
+                    putBoolean(PREF_SPOOF_ANDROID_VERSION_FOLLOW_DEVICE, false)
+                    putString(PREF_SPOOF_ANDROID_VERSION_MANUAL, null)
+                }
+
+                /** Enable only [PREF_SPOOF_ANDROID_VERSION_FOLLOW_DEVICE]
+                 * if to follow spoof device android version.
+                 */
+                R.id.follow_spoof_device_version -> {
+                    putBoolean(PREF_SPOOF_ANDROID_VERSION_FOLLOW_DEVICE, true)
+                    putString(PREF_SPOOF_ANDROID_VERSION_MANUAL, null)
+                }
+
+                /**
+                 * If manually set, then get the label from spinner itself
+                 * and set the value for preference [PREF_SPOOF_ANDROID_VERSION_MANUAL].
+                 */
+                R.id.manually_set_android_version -> {
+                    putBoolean(PREF_SPOOF_ANDROID_VERSION_FOLLOW_DEVICE, false)
+                    putString(
+                        PREF_SPOOF_ANDROID_VERSION_MANUAL,
+                        androidVersionSpinner.selectedItem.toString()
+                    )
+                }
+
+            }
 
             apply()
         }
         setResult(Activity.RESULT_OK)
+        finish()
     }
 
 }
