@@ -16,7 +16,7 @@ import balti.xposed.pixelifygooglephotos.Constants.SHARED_PREF_FILE_NAME
 class FeatureCustomize: AppCompatActivity(R.layout.feature_customize) {
 
     private val pref by lazy {
-        getSharedPreferences(SHARED_PREF_FILE_NAME, MODE_PRIVATE)
+        getSharedPreferences(SHARED_PREF_FILE_NAME, MODE_WORLD_READABLE)
     }
 
     /**
