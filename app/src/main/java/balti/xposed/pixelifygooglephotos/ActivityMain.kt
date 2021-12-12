@@ -123,6 +123,7 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
         val deviceSpooferSpinner = findViewById<Spinner>(R.id.device_spoofer_spinner)
         val forceStopGooglePhotos = findViewById<Button>(R.id.force_stop_google_photos)
         val openGooglePhotos = findViewById<ImageButton>(R.id.open_google_photos)
+        val advancedOptions = findViewById<TextView>(R.id.advanced_options)
         val telegramLink = findViewById<TextView>(R.id.telegram_group)
         val updateAvailableLink = findViewById<TextView>(R.id.update_available_link)
         val confExport = findViewById<ImageButton>(R.id.conf_export)
@@ -206,6 +207,13 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {}
+            }
+        }
+
+        advancedOptions.apply {
+            paintFlags = Paint.UNDERLINE_TEXT_FLAG
+            setOnClickListener {
+                childActivityLauncher.launch(Intent(this@ActivityMain, AdvancedOptionsActivity::class.java))
             }
         }
 
