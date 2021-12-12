@@ -1,0 +1,61 @@
+<resources>
+
+    <!--Things to update in new versions:
+
+    build.gradle: versionCode
+    build.gradle: versionName
+
+    update_info.json
+
+    changelog
+    -->
+
+    <string name="app_name">Pixelify Google Photos</string>
+
+    <!--activity_main.xml-->
+    <string name="reset">還原</string>
+    <string name="device_to_spoof">設備模擬</string>
+    <string name="spoofs_build_and_features">修改 build.prop 下的設備參數</string>
+    <string name="customize_feature_flags">自定義功能參數</string>
+    <string name="feature_flags_changed">功能參數已更改！</string>
+    <string name="spoof_only_in_google_photos">確保僅對 Google 相冊進行 HOOK</string>
+    <string name="spoof_only_in_google_photos_desc">因 LSPosed 中僅使用白名單，默認該模塊僅針對 Google 相簿啟用，
+     如果您想在其他應用中使用它，請保持此開關 <b>關閉</b>.</string>
+    <string name="override_rom_feature_levels">覆蓋 ROM 自訂功能</string>
+    <string name="override_rom_feature_levels_desc">如果用戶選擇較低版本的 Pixel，
+    將避免部分 ROM 內含有模擬 Pixel 的功能影響 Pixelify Google Photos <b>(推薦啟用)</b></string>
+    <string name="force_stop_google_photos">強制停止\nGoogle 相簿</string>
+    <string name="module_not_enabled">
+        \n
+        此模塊似乎未啟用。\n
+        請在 LSPosed 中啟用它，然後重新啟動。\n
+        如果已啟用，可能需強制強制停止 Pixelify Google Photos 後重啟。\n
+        如果沒用，請移除並重新安裝。
+    </string>
+    <string name="close">關閉</string>
+    <string name="open_google_photos">開啟 Google 相簿</string>
+    <string name="telegram_group">Telegram 討論組！</string>
+    <string name="update_available">有最新的更新可用！</string>
+
+    <!--changelog-->
+    <string name="version_head">版本 3.0</string>
+    <string name="version_desc">
+        \n
+        # 新增選項以阻止/覆蓋來自自定義 ROM 的更高功能級別。\n
+        # 修復在更高的 Android 版本中無法讀取用戶選擇。\n
+    </string>
+
+    <!--menu_activity_main.xml-->
+    <string name="changelog">更改日誌</string>
+
+    <!--ActivityMain.xml-->
+    <string name="please_force_stop_google_photos">請強制停止 Google 相簿以使其生效。</string>
+
+    <!--feature_customize.xml-->
+    <string name="save">儲存</string>
+
+    <!--Utils.kt-->
+    <string name="killing_please_wait">強制停止中...請稍候。</string>
+    <string name="failed_to_stop_package">無法自動強制停止。請手動強制停止。</string>
+    <string name="failed_to_launch_package">無法自動啟動。請手動啟動。</string>
+</resources>
