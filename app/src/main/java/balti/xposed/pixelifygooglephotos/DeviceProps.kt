@@ -161,6 +161,7 @@ object DeviceProps {
         val deviceName: String,
         val props: HashMap<String, String>,
         val featureLevelName: String,
+        val androidVersion: AndroidVersion?,
     )
 
     /**
@@ -168,7 +169,7 @@ object DeviceProps {
      */
     val allDevices = listOf(
 
-        DeviceEntries("None", hashMapOf(), "None"),
+        DeviceEntries("None", hashMapOf(), "None", null),
 
         DeviceEntries(
             "Pixel XL", hashMapOf(
@@ -180,6 +181,7 @@ object DeviceProps {
                 Pair("FINGERPRINT", "google/marlin/marlin:10/QP1A.191005.007.A3/5972272:user/release-keys"),
             ),
             "Pixel 2016",
+            getAndroidVersionFromLabel("Q 10.0"),
         ),
 
         DeviceEntries(
@@ -192,6 +194,7 @@ object DeviceProps {
                 Pair("FINGERPRINT", "google/walleye/walleye:8.1.0/OPM1.171019.021/4565141:user/release-keys"),
             ),
             "Pixel 2017",
+            getAndroidVersionFromLabel("Oreo 8.1.0"),
         ),
 
         DeviceEntries(
@@ -204,6 +207,7 @@ object DeviceProps {
                 Pair("FINGERPRINT", "google/crosshatch/crosshatch:11/RQ3A.211001.001/7641976:user/release-keys"),
             ),
             "Pixel 2018",
+            getAndroidVersionFromLabel("R 11.0"),
         ),
 
         DeviceEntries(
@@ -216,6 +220,7 @@ object DeviceProps {
                 Pair("FINGERPRINT", "google/bonito/bonito:11/RQ3A.211001.001/7641976:user/release-keys"),
             ),
             "Pixel 2019 mid-year",
+            getAndroidVersionFromLabel("R 11.0"),
         ),
 
         DeviceEntries(
@@ -228,6 +233,7 @@ object DeviceProps {
                 Pair("FINGERPRINT", "google/coral/coral:12/SP1A.211105.002/7743617:user/release-keys"),
             ),
             "Pixel 2019",
+            getAndroidVersionFromLabel("S 12.0"),
         ),
 
         DeviceEntries(
@@ -240,6 +246,7 @@ object DeviceProps {
                 Pair("FINGERPRINT", "google/sunfish/sunfish:11/RQ3A.211001.001/7641976:user/release-keys"),
             ),
             "Pixel 2020 mid-year",
+            getAndroidVersionFromLabel("R 11.0"),
         ),
 
         DeviceEntries(
@@ -252,6 +259,7 @@ object DeviceProps {
                 Pair("FINGERPRINT", "google/redfin/redfin:12/SP1A.211105.003/7757856:user/release-keys"),
             ),
             "Pixel 2020",
+            getAndroidVersionFromLabel("S 12.0"),
         ),
 
         DeviceEntries(
@@ -264,6 +272,7 @@ object DeviceProps {
                 Pair("FINGERPRINT", "google/barbet/barbet:11/RD2A.211001.002/7644766:user/release-keys"),
             ),
             "Pixel 2021 mid-year",
+            getAndroidVersionFromLabel("R 11.0"),
         ),
 
         DeviceEntries(
@@ -276,6 +285,7 @@ object DeviceProps {
                 Pair("FINGERPRINT", "google/raven/raven:12/SD1A.210817.036/7805805:user/release-keys"),
             ),
             "Pixel 2021",
+            getAndroidVersionFromLabel("S 12.0"),
         ),
     )
 
