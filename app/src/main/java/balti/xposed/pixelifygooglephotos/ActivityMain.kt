@@ -431,7 +431,7 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
             Intent().run {
 
                 action = Intent.ACTION_SEND
-                type = "text/plain"
+                type = "application/octet-stream"
                 flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
 
                 this.putExtra(Intent.EXTRA_STREAM, confFileShareUri)
@@ -457,7 +457,7 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
             addCategory(Intent.CATEGORY_OPENABLE)
 
             // Create a file with the requested Mime type
-            type = "text/plain"
+            type = "application/octet-stream"
             putExtra(Intent.EXTRA_TITLE, CONF_EXPORT_NAME)
         }
         Toast.makeText(this, R.string.select_a_location, Toast.LENGTH_SHORT).show()
@@ -491,7 +491,7 @@ class ActivityMain: AppCompatActivity(R.layout.activity_main) {
     private fun importConfFile(){
         val openIntent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
             addCategory(Intent.CATEGORY_OPENABLE)
-            type = "*/*"
+            type = "application/octet-stream"
         }
         configOpenLauncher.launch(openIntent)
     }
