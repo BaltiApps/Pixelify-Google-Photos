@@ -41,8 +41,9 @@
     <string name="version_desc">
         \n
         # Fix Custom feature flags selection not getting applied.\n
-        # Option to export / import configs.\n
+        # Option to export / share / import configs.\n
         # Added Advanced options -> Verbose logging.\n
+        # Added Advanced options -> Spoof android version.\n
     </string>
 
     <!--menu_activity_main.xml-->
