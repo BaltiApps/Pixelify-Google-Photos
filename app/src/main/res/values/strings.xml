@@ -67,6 +67,12 @@
     <!--feature_customize.xml-->
     <string name="save">Save</string>
 
+    <!--advanced_options_activity.xml-->
+    <string name="enable_verbose_logging">Enable verbose logging</string>
+    <string name="enable_verbose_logging_desc">More debug information in LSPosed logs and Android logcat.\n
+        To share logs, open LSPosed -> Logs -> top Save icon. Then share the created file.
+    </string>
+
     <!--Utils.kt-->
     <string name="killing_please_wait">Killing… please wait.</string>
     <string name="failed_to_stop_package">Failed to stop package. Please stop manually.</string>
