@@ -7,8 +7,11 @@ import android.net.Uri
 import android.provider.Settings
 import android.widget.Toast
 import balti.xposed.pixelifygooglephotos.Constants.PREF_DEVICE_TO_SPOOF
+import balti.xposed.pixelifygooglephotos.Constants.PREF_ENABLE_VERBOSE_LOGS
 import balti.xposed.pixelifygooglephotos.Constants.PREF_LAST_VERSION
 import balti.xposed.pixelifygooglephotos.Constants.PREF_OVERRIDE_ROM_FEATURE_LEVELS
+import balti.xposed.pixelifygooglephotos.Constants.PREF_SPOOF_ANDROID_VERSION_FOLLOW_DEVICE
+import balti.xposed.pixelifygooglephotos.Constants.PREF_SPOOF_ANDROID_VERSION_MANUAL
 import balti.xposed.pixelifygooglephotos.Constants.PREF_SPOOF_FEATURES_LIST
 import balti.xposed.pixelifygooglephotos.Constants.PREF_STRICTLY_CHECK_GOOGLE_PHOTOS
 import org.json.JSONArray
@@ -194,6 +197,26 @@ class Utils {
             PREF_OVERRIDE_ROM_FEATURE_LEVELS.let { key ->
                 jsonObject.optBoolean(key, true).let {
                     putBoolean(key, it)
+                }
+            }
+
+            /** Advanced options */
+
+            PREF_ENABLE_VERBOSE_LOGS.let { key ->
+                jsonObject.optBoolean(key, true).let {
+                    putBoolean(key, it)
+                }
+            }
+
+            PREF_SPOOF_ANDROID_VERSION_FOLLOW_DEVICE.let { key ->
+                jsonObject.optBoolean(key, true).let {
+                    putBoolean(key, it)
+                }
+            }
+
+            PREF_SPOOF_ANDROID_VERSION_MANUAL.let { key ->
+                jsonObject.optString(key)?.let {
+                    putString(key, it)
                 }
             }
 
