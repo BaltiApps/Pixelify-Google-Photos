@@ -61,7 +61,7 @@
     <string name="save">儲存</string>
 
     <!--advanced_options_activity.xml-->
-    <string name="enable_verbose_logging"開啟詳細日誌記錄</string>
+    <string name="enable_verbose_logging">開啟詳細日誌記錄</string>
     <string name="enable_verbose_logging_desc">LSPosed / EdXposed 日誌和 Android logcat 中的的除錯資訊。\n
         如果要匯出日誌，請開啟 LSPosed / EdXposed -> 日誌 -> 頂部儲存圖示。然後分享儲存後的檔案或壓縮檔。
     </string>
