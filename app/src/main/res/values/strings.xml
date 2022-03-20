@@ -37,13 +37,11 @@
     <string name="update_available">App update available!</string>
 
     <!--changelog-->
-    <string name="version_head">Version 4.0</string>
+    <string name="version_head">Version 4.1</string>
     <string name="version_desc">
         \n
-        # Fix Custom feature flags selection not getting applied.\n
-        # Option to export / share / import configs.\n
-        # Added Advanced options -> Verbose logging.\n
-        # Added Advanced options -> Spoof android version.\n
+        # In light of recent event of Vanced project getting shut down because of using Youtube logo,
+        this app\'s logo has been updated to avoid any legal conflict.\n
     </string>
 
     <!--menu_activity_main.xml-->
