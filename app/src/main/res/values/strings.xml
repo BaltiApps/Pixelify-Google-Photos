@@ -10,7 +10,7 @@
     changelog
     -->
 
-    <string name="app_name">Pixelify Google Photos</string>
+    <string name="app_name">Pixelify GPhotos</string>
 
     <!--activity_main.xml-->
     <string name="reset">Reset</string>
