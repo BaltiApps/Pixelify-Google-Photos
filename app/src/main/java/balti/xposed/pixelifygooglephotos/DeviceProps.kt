@@ -96,6 +96,11 @@ object DeviceProps {
             "com.google.android.feature.PIXEL_2021_EXPERIENCE",
             "com.google.android.apps.photos.PIXEL_2021_PRELOAD",
         ),
+
+        Features("Pixel 2022", // Pixel 7 Pro
+            "com.google.android.feature.PIXEL_2022_EXPERIENCE",
+            "com.google.android.apps.photos.PIXEL_2022_PRELOAD",
+        ),
     )
 
     /**
@@ -142,6 +147,7 @@ object DeviceProps {
         AndroidVersion("Q 10.0", "10", 29),
         AndroidVersion("R 11.0", "11", 30),
         AndroidVersion("S 12.0", "12", 31),
+        AndroidVersion("T 13.0", "13", 33),
     )
 
     /**
@@ -287,6 +293,15 @@ object DeviceProps {
             "Pixel 2021",
             getAndroidVersionFromLabel("S 12.0"),
         ),
+
+        DeviceEntries(
+            "Pixel 7 Pro", hashMapOf(
+                Pair("BRAND", "google"),
+                Pair("MANUFACTURER", "Google"),
+                Pair("DEVICE", "cheetah"),
+                Pair("PRODUCT", "cheetah"),
+                Pair("MODEL", "Pixel 7 Pro"),
+                Pair("FINGERPRINT", "google/cheetah/raven:13/TD1A.220804.009.A2/7805805:user/release-keys")
     )
 
     /**
