@@ -293,7 +293,7 @@ object DeviceProps {
             "Pixel 2021",
             getAndroidVersionFromLabel("S 12.0"),
         ),
-
+        
         DeviceEntries(
             "Pixel 7 Pro", hashMapOf(
                 Pair("BRAND", "google"),
@@ -301,8 +301,11 @@ object DeviceProps {
                 Pair("DEVICE", "cheetah"),
                 Pair("PRODUCT", "cheetah"),
                 Pair("MODEL", "Pixel 7 Pro"),
-                Pair("FINGERPRINT", "google/cheetah/raven:13/TD1A.220804.009.A2/7805805:user/release-keys")
-    )
+                Pair("FINGERPRINT", "I NEED IT"),
+            ),
+            "Pixel 2022",
+            getAndroidVersionFromLabel("T 13.0"),
+        ),
 
     /**
      * Get instance of [DeviceEntries] from a supplied [deviceName].
