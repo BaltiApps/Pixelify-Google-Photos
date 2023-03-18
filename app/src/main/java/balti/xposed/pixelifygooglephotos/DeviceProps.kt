@@ -306,6 +306,7 @@ object DeviceProps {
             "Pixel 2022",
             getAndroidVersionFromLabel("T 13.0"),
         ),
+    )
 
     /**
      * Get instance of [DeviceEntries] from a supplied [deviceName].
