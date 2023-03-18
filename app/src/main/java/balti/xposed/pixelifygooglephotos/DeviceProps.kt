@@ -301,7 +301,7 @@ object DeviceProps {
                 Pair("DEVICE", "cheetah"),
                 Pair("PRODUCT", "cheetah"),
                 Pair("MODEL", "Pixel 7 Pro"),
-                Pair("FINGERPRINT", "I NEED IT"),
+                Pair("FINGERPRINT", "google/cheetah/cheetah:13/TQ2A.230305.008.C1/9619669:user/release-keys"),
             ),
             "Pixel 2022",
             getAndroidVersionFromLabel("T 13.0"),
