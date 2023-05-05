@@ -96,6 +96,10 @@ object DeviceProps {
             "com.google.android.feature.PIXEL_2021_EXPERIENCE",
             "com.google.android.apps.photos.PIXEL_2021_PRELOAD",
         ),
+        Features("Pixel 2022", // Pixel 7 Pro
+            "com.google.android.feature.PIXEL_2022_EXPERIENCE",
+            "com.google.android.apps.photos.PIXEL_2022_PRELOAD",
+        ),
     )
 
     /**
@@ -142,6 +146,7 @@ object DeviceProps {
         AndroidVersion("Q 10.0", "10", 29),
         AndroidVersion("R 11.0", "11", 30),
         AndroidVersion("S 12.0", "12", 31),
+        AndroidVersion("T 13.0", "13", 32),
     )
 
     /**
@@ -173,6 +178,7 @@ object DeviceProps {
 
         DeviceEntries(
             "Pixel XL", hashMapOf(
+                Pair("ID", "QP1A.191005.007.A3"),
                 Pair("BRAND", "google"),
                 Pair("MANUFACTURER", "Google"),
                 Pair("DEVICE", "marlin"),
@@ -186,51 +192,55 @@ object DeviceProps {
 
         DeviceEntries(
             "Pixel 2", hashMapOf(
+                Pair("ID", "RP1A.201005.004.A1"),
                 Pair("BRAND", "google"),
                 Pair("MANUFACTURER", "Google"),
                 Pair("DEVICE", "walleye"),
                 Pair("PRODUCT", "walleye"),
                 Pair("MODEL", "Pixel 2"),
-                Pair("FINGERPRINT", "google/walleye/walleye:8.1.0/OPM1.171019.021/4565141:user/release-keys"),
+                Pair("FINGERPRINT", "google/walleye/walleye:11/RP1A.201005.004.A1/6934943:user/release-keys"),
             ),
             "Pixel 2017",
-            getAndroidVersionFromLabel("Oreo 8.1.0"),
+            getAndroidVersionFromLabel("R 11.0"),
         ),
 
         DeviceEntries(
             "Pixel 3 XL", hashMapOf(
+                Pair("ID", "SP1A.210812.016.C2"),
                 Pair("BRAND", "google"),
                 Pair("MANUFACTURER", "Google"),
                 Pair("DEVICE", "crosshatch"),
                 Pair("PRODUCT", "crosshatch"),
                 Pair("MODEL", "Pixel 3 XL"),
-                Pair("FINGERPRINT", "google/crosshatch/crosshatch:11/RQ3A.211001.001/7641976:user/release-keys"),
+                Pair("FINGERPRINT", "google/crosshatch/crosshatch:12/SP1A.210812.016.C2/8618562:user/release-keys"),
             ),
             "Pixel 2018",
-            getAndroidVersionFromLabel("R 11.0"),
+            getAndroidVersionFromLabel("S 12.0"),
         ),
 
         DeviceEntries(
             "Pixel 3a XL", hashMapOf(
+                Pair("ID", "SP2A.220505.008"),
                 Pair("BRAND", "google"),
                 Pair("MANUFACTURER", "Google"),
                 Pair("DEVICE", "bonito"),
                 Pair("PRODUCT", "bonito"),
                 Pair("MODEL", "Pixel 3a XL"),
-                Pair("FINGERPRINT", "google/bonito/bonito:11/RQ3A.211001.001/7641976:user/release-keys"),
+                Pair("FINGERPRINT", "google/bonito/bonito:12/SP2A.220505.008/8782922:user/release-keys"),
             ),
             "Pixel 2019 mid-year",
-            getAndroidVersionFromLabel("R 11.0"),
+            getAndroidVersionFromLabel("S 12.0"),
         ),
 
         DeviceEntries(
             "Pixel 4 XL", hashMapOf(
+                Pair("ID", "TP1A.221005.002.B2"),
                 Pair("BRAND", "google"),
                 Pair("MANUFACTURER", "Google"),
                 Pair("DEVICE", "coral"),
                 Pair("PRODUCT", "coral"),
                 Pair("MODEL", "Pixel 4 XL"),
-                Pair("FINGERPRINT", "google/coral/coral:12/SP1A.211105.002/7743617:user/release-keys"),
+                Pair("FINGERPRINT", "google/coral/coral:13/TP1A.221005.002.B2/9382335:user/release-keys"),
             ),
             "Pixel 2019",
             getAndroidVersionFromLabel("S 12.0"),
@@ -238,12 +248,13 @@ object DeviceProps {
 
         DeviceEntries(
             "Pixel 4a", hashMapOf(
+                Pair("ID", "TQ1A.230205.002"),
                 Pair("BRAND", "google"),
                 Pair("MANUFACTURER", "Google"),
                 Pair("DEVICE", "sunfish"),
                 Pair("PRODUCT", "sunfish"),
                 Pair("MODEL", "Pixel 4a"),
-                Pair("FINGERPRINT", "google/sunfish/sunfish:11/RQ3A.211001.001/7641976:user/release-keys"),
+                Pair("FINGERPRINT", "google/sunfish/sunfish:13/TQ1A.230205.002/9471150:user/release-keys"),
             ),
             "Pixel 2020 mid-year",
             getAndroidVersionFromLabel("R 11.0"),
@@ -251,12 +262,13 @@ object DeviceProps {
 
         DeviceEntries(
             "Pixel 5", hashMapOf(
+                Pair("ID", "TQ1A.230205.002"),
                 Pair("BRAND", "google"),
                 Pair("MANUFACTURER", "Google"),
                 Pair("DEVICE", "redfin"),
                 Pair("PRODUCT", "redfin"),
                 Pair("MODEL", "Pixel 5"),
-                Pair("FINGERPRINT", "google/redfin/redfin:12/SP1A.211105.003/7757856:user/release-keys"),
+                Pair("FINGERPRINT", "google/redfin/redfin:13/TQ1A.230205.002/9471150:user/release-keys"),
             ),
             "Pixel 2020",
             getAndroidVersionFromLabel("S 12.0"),
@@ -264,12 +276,13 @@ object DeviceProps {
 
         DeviceEntries(
             "Pixel 5a", hashMapOf(
+                Pair("ID", "TQ1A.230205.002"),
                 Pair("BRAND", "google"),
                 Pair("MANUFACTURER", "Google"),
                 Pair("DEVICE", "barbet"),
                 Pair("PRODUCT", "barbet"),
                 Pair("MODEL", "Pixel 5a"),
-                Pair("FINGERPRINT", "google/barbet/barbet:11/RD2A.211001.002/7644766:user/release-keys"),
+                Pair("FINGERPRINT", "google/barbet/barbet:13/TQ1A.230205.002/9471150:user/release-keys"),
             ),
             "Pixel 2021 mid-year",
             getAndroidVersionFromLabel("R 11.0"),
@@ -277,15 +290,30 @@ object DeviceProps {
 
         DeviceEntries(
             "Pixel 6 Pro", hashMapOf(
+                Pair("ID", "TQ1A.230205.002"),
                 Pair("BRAND", "google"),
                 Pair("MANUFACTURER", "Google"),
                 Pair("DEVICE", "raven"),
                 Pair("PRODUCT", "raven"),
                 Pair("MODEL", "Pixel 6 Pro"),
-                Pair("FINGERPRINT", "google/raven/raven:12/SD1A.210817.036/7805805:user/release-keys"),
+                Pair("FINGERPRINT", "google/raven/raven:13/TQ1A.230205.002/9471150:user/release-keys"),
             ),
             "Pixel 2021",
             getAndroidVersionFromLabel("S 12.0"),
+        ),
+
+        DeviceEntries(
+            "Pixel 7 Pro", hashMapOf(
+                Pair("ID", "TQ1A.230205.002"),
+                Pair("BRAND", "google"),
+                Pair("MANUFACTURER", "Google"),
+                Pair("DEVICE", "cheetah"),
+                Pair("PRODUCT", "cheetah"),
+                Pair("MODEL", "Pixel 7 Pro"),
+                Pair("FINGERPRINT", "google/cheetah/cheetah:13/TQ1A.230205.002/9471150:user/release-keys"),
+            ),
+            "Pixel 2022",
+            getAndroidVersionFromLabel("T 13.0"),
         ),
     )
 
@@ -307,11 +335,11 @@ object DeviceProps {
     /**
      * Default name of device to spoof.
      */
-    val defaultDeviceName = "Pixel 5"
+    val defaultDeviceName = "Pixel 7 Pro"
 
     /**
      * Default feature level to spoof up to. Corresponds to what is expected for the device in [defaultDeviceName].
      */
-    val defaultFeatures = getFeaturesUpTo("Pixel 2020")
+    val defaultFeatures = getFeaturesUpTo("Pixel 2022")
 
 }
