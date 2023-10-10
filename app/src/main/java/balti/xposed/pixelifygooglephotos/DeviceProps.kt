@@ -173,6 +173,7 @@ object DeviceProps {
         AndroidVersion("R 11.0", "11", 30),
         AndroidVersion("S 12.0", "12", 31),
         AndroidVersion("T 13.0", "13", 33),
+        AndroidVersion("U 14.0", "14", 34),
     )
 
     /**
@@ -340,6 +341,20 @@ object DeviceProps {
             ),
             "Pixel 2022",
             getAndroidVersionFromLabel("T 13.0"),
+        ),
+
+        DeviceEntries(
+            "Pixel 8 Pro", hashMapOf(
+                Pair("BRAND", "google"),
+                Pair("MANUFACTURER", "Google"),
+                Pair("DEVICE", "husky"),
+                Pair("PRODUCT", "husky"),
+                Pair("MODEL", "Pixel 8 Pro"),
+                Pair("ID", "UD1A.230803.041"),
+                Pair("FINGERPRINT", "google/husky/husky:14/UD1A.230803.041/10808477:user/release-keys"),
+            ),
+            "Pixel 2023",
+            getAndroidVersionFromLabel("U 14.0"),
         ),
     )
 
