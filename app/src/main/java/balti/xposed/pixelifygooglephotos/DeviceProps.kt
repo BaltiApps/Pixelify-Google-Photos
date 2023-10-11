@@ -367,7 +367,7 @@ object DeviceProps {
                 Pair("HARDWARE", "husky"),
                 Pair("MODEL", "Pixel 8 Pro"),
                 Pair("ID", "UD1A.230803.041"),
-                Pair("FINGERPRINT", "google/husky/husky:14/UD1A.230803.041/10808477:user/release-keys"
+                Pair("FINGERPRINT", "google/husky/husky:14/UD1A.230803.041/10808477:user/release-keys"),
             ),
             "Pixel 2023 mid-year",
             getAndroidVersionFromLabel("UD 14.0"),
