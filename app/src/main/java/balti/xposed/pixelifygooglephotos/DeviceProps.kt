@@ -359,6 +359,28 @@ object DeviceProps {
         ),
 
         DeviceEntries(
+            "Pixel 8", hashMapOf(
+                Pair("BRAND", "google"),
+                Pair("MANUFACTURER", "Google"),
+                Pair("DEVICE", "shiba"),
+                Pair("PRODUCT", "shiba"),
+                Pair("HARDWARE", "shiba"),
+                Pair("BOARD", "shiba"),
+                Pair("MODEL", "Pixel 8"),
+                Pair("ID", "UD1A.230803.041"),
+                Pair("DISPLAY", "shiba-user 14 UD1A.230803.041 10808477 release-keys"),
+                Pair("FINGERPRINT", "google/shiba/shiba:14/UD1A.230803.041/10808477:user/release-keys"),
+                Pair("BOOTLOADER", "ripcurrent-14.0-10807316"),
+                Pair("SOC_MANUFACTURER", "Google"),
+                Pair("SOC_MODEL", "Tensor G3"),
+                Pair("TYPE", "user"),
+                Pair("TAGS", "release-keys"),
+            ),
+            "Pixel 2023 mid-year",
+            getAndroidVersionFromLabel("U 14.0"),
+        ),
+
+        DeviceEntries(
             "Pixel 8 Pro", hashMapOf(
                 Pair("BRAND", "google"),
                 Pair("MANUFACTURER", "Google"),
