@@ -209,7 +209,7 @@ object DeviceProps {
         DeviceEntries("None", hashMapOf(), "None", null),
 
         DeviceEntries(
-            "Pixel XL", hashMapOf(
+            "Pixel XL (original quality)", hashMapOf(
                 Pair("BRAND", "google"),
                 Pair("MANUFACTURER", "Google"),
                 Pair("DEVICE", "marlin"),
@@ -227,103 +227,103 @@ object DeviceProps {
             getAndroidVersionFromLabel("Q 10.0"),
         ),
 
-        DeviceEntries(
-            "Pixel 2", hashMapOf(
-                Pair("BRAND", "google"),
-                Pair("MANUFACTURER", "Google"),
-                Pair("DEVICE", "walleye"),
-                Pair("PRODUCT", "walleye"),
-                Pair("HARDWARE", "walleye"),
-                Pair("BOARD", "walleye"),
-                Pair("MODEL", "Pixel 2"),
-                Pair("ID", "OPM1.171019.011"),
-                Pair("DISPLAY", "walleye-user 8.1.0 OPM1.171019.011 4448085 release-keys"),
-                Pair("FINGERPRINT", "google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys"),
-                Pair("TYPE", "user"),
-                Pair("TAGS", "release-keys"),
-            ),
-            "Pixel 2017",
-            getAndroidVersionFromLabel("Oreo 8.1.0"),
-        ),
+        // DeviceEntries(
+        //     "Pixel 2", hashMapOf(
+        //         Pair("BRAND", "google"),
+        //         Pair("MANUFACTURER", "Google"),
+        //         Pair("DEVICE", "walleye"),
+        //         Pair("PRODUCT", "walleye"),
+        //         Pair("HARDWARE", "walleye"),
+        //         Pair("BOARD", "walleye"),
+        //         Pair("MODEL", "Pixel 2"),
+        //         Pair("ID", "OPM1.171019.011"),
+        //         Pair("DISPLAY", "walleye-user 8.1.0 OPM1.171019.011 4448085 release-keys"),
+        //         Pair("FINGERPRINT", "google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys"),
+        //         Pair("TYPE", "user"),
+        //         Pair("TAGS", "release-keys"),
+        //     ),
+        //     "Pixel 2017",
+        //     getAndroidVersionFromLabel("Oreo 8.1.0"),
+        // ),
+
+        // DeviceEntries(
+        //     "Pixel 3 XL", hashMapOf(
+        //         Pair("BRAND", "google"),
+        //         Pair("MANUFACTURER", "Google"),
+        //         Pair("DEVICE", "crosshatch"),
+        //         Pair("PRODUCT", "crosshatch"),
+        //         Pair("HARDWARE", "crosshatch"),
+        //         Pair("BOARD", "crosshatch"),
+        //         Pair("MODEL", "Pixel 3 XL"),
+        //         Pair("ID", "RQ3A.211001.001"),
+        //         Pair("DISPLAY", "crosshatch-user 11 RQ3A.211001.001 7641976 release-keys"),
+        //         Pair("FINGERPRINT", "google/crosshatch/crosshatch:11/RQ3A.211001.001/7641976:user/release-keys"),
+        //         Pair("TYPE", "user"),
+        //         Pair("TAGS", "release-keys"),
+        //     ),
+        //     "Pixel 2018",
+        //     getAndroidVersionFromLabel("R 11.0"),
+        // ),
+
+        // DeviceEntries(
+        //     "Pixel 3a XL", hashMapOf(
+        //         Pair("BRAND", "google"),
+        //         Pair("MANUFACTURER", "Google"),
+        //         Pair("DEVICE", "bonito"),
+        //         Pair("PRODUCT", "bonito"),
+        //         Pair("HARDWARE", "bonito"),
+        //         Pair("BOARD", "bonito"),
+        //         Pair("MODEL", "Pixel 3a XL"),
+        //         Pair("ID", "RQ3A.211001.001"),
+        //         Pair("DISPLAY", "bonito-user 11 RQ3A.211001.001 7641976 release-keys"),
+        //         Pair("FINGERPRINT", "google/bonito/bonito:11/RQ3A.211001.001/7641976:user/release-keys"),
+        //         Pair("TYPE", "user"),
+        //         Pair("TAGS", "release-keys"),
+        //     ),
+        //     "Pixel 2019 mid-year",
+        //     getAndroidVersionFromLabel("R 11.0"),
+        // ),
+
+        // DeviceEntries(
+        //     "Pixel 4 XL", hashMapOf(
+        //         Pair("BRAND", "google"),
+        //         Pair("MANUFACTURER", "Google"),
+        //         Pair("DEVICE", "coral"),
+        //         Pair("PRODUCT", "coral"),
+        //         Pair("HARDWARE", "coral"),
+        //         Pair("BOARD", "coral"),
+        //         Pair("MODEL", "Pixel 4 XL"),
+        //         Pair("ID", "SP1A.211105.002"),
+        //         Pair("DISPLAY", "coral-user 12 SP1A.211105.002 7743617 release-keys"),
+        //         Pair("FINGERPRINT", "google/coral/coral:12/SP1A.211105.002/7743617:user/release-keys"),
+        //         Pair("TYPE", "user"),
+        //         Pair("TAGS", "release-keys"),
+        //     ),
+        //     "Pixel 2019 mid-year",
+        //     getAndroidVersionFromLabel("S 12.0"),
+        // ),
+
+        // DeviceEntries(
+        //     "Pixel 4a", hashMapOf(
+        //         Pair("BRAND", "google"),
+        //         Pair("MANUFACTURER", "Google"),
+        //         Pair("DEVICE", "sunfish"),
+        //         Pair("PRODUCT", "sunfish"),
+        //         Pair("HARDWARE", "sunfish"),
+        //         Pair("BOARD", "sunfish"),
+        //         Pair("MODEL", "Pixel 4a"),
+        //         Pair("ID", "RQ3A.211001.001"),
+        //         Pair("DISPLAY", "sunfish-user 11 RQ3A.211001.0011 7641976 release-keys"),
+        //         Pair("FINGERPRINT", "google/sunfish/sunfish:11/RQ3A.211001.001/7641976:user/release-keys"),
+        //         Pair("TYPE", "user"),
+        //         Pair("TAGS", "release-keys"),
+        //     ),
+        //     "Pixel 2020 mid-year",
+        //     getAndroidVersionFromLabel("R 11.0"),
+        // ),
 
         DeviceEntries(
-            "Pixel 3 XL", hashMapOf(
-                Pair("BRAND", "google"),
-                Pair("MANUFACTURER", "Google"),
-                Pair("DEVICE", "crosshatch"),
-                Pair("PRODUCT", "crosshatch"),
-                Pair("HARDWARE", "crosshatch"),
-                Pair("BOARD", "crosshatch"),
-                Pair("MODEL", "Pixel 3 XL"),
-                Pair("ID", "RQ3A.211001.001"),
-                Pair("DISPLAY", "crosshatch-user 11 RQ3A.211001.001 7641976 release-keys"),
-                Pair("FINGERPRINT", "google/crosshatch/crosshatch:11/RQ3A.211001.001/7641976:user/release-keys"),
-                Pair("TYPE", "user"),
-                Pair("TAGS", "release-keys"),
-            ),
-            "Pixel 2018",
-            getAndroidVersionFromLabel("R 11.0"),
-        ),
-
-        DeviceEntries(
-            "Pixel 3a XL", hashMapOf(
-                Pair("BRAND", "google"),
-                Pair("MANUFACTURER", "Google"),
-                Pair("DEVICE", "bonito"),
-                Pair("PRODUCT", "bonito"),
-                Pair("HARDWARE", "bonito"),
-                Pair("BOARD", "bonito"),
-                Pair("MODEL", "Pixel 3a XL"),
-                Pair("ID", "RQ3A.211001.001"),
-                Pair("DISPLAY", "bonito-user 11 RQ3A.211001.001 7641976 release-keys"),
-                Pair("FINGERPRINT", "google/bonito/bonito:11/RQ3A.211001.001/7641976:user/release-keys"),
-                Pair("TYPE", "user"),
-                Pair("TAGS", "release-keys"),
-            ),
-            "Pixel 2019 mid-year",
-            getAndroidVersionFromLabel("R 11.0"),
-        ),
-
-        DeviceEntries(
-            "Pixel 4 XL", hashMapOf(
-                Pair("BRAND", "google"),
-                Pair("MANUFACTURER", "Google"),
-                Pair("DEVICE", "coral"),
-                Pair("PRODUCT", "coral"),
-                Pair("HARDWARE", "coral"),
-                Pair("BOARD", "coral"),
-                Pair("MODEL", "Pixel 4 XL"),
-                Pair("ID", "SP1A.211105.002"),
-                Pair("DISPLAY", "coral-user 12 SP1A.211105.002 7743617 release-keys"),
-                Pair("FINGERPRINT", "google/coral/coral:12/SP1A.211105.002/7743617:user/release-keys"),
-                Pair("TYPE", "user"),
-                Pair("TAGS", "release-keys"),
-            ),
-            "Pixel 2019 mid-year",
-            getAndroidVersionFromLabel("S 12.0"),
-        ),
-
-        DeviceEntries(
-            "Pixel 4a", hashMapOf(
-                Pair("BRAND", "google"),
-                Pair("MANUFACTURER", "Google"),
-                Pair("DEVICE", "sunfish"),
-                Pair("PRODUCT", "sunfish"),
-                Pair("HARDWARE", "sunfish"),
-                Pair("BOARD", "sunfish"),
-                Pair("MODEL", "Pixel 4a"),
-                Pair("ID", "RQ3A.211001.001"),
-                Pair("DISPLAY", "sunfish-user 11 RQ3A.211001.0011 7641976 release-keys"),
-                Pair("FINGERPRINT", "google/sunfish/sunfish:11/RQ3A.211001.001/7641976:user/release-keys"),
-                Pair("TYPE", "user"),
-                Pair("TAGS", "release-keys"),
-            ),
-            "Pixel 2020 mid-year",
-            getAndroidVersionFromLabel("R 11.0"),
-        ),
-
-        DeviceEntries(
-            "Pixel 5", hashMapOf(
+            "Pixel 5 (Storage saver quality)", hashMapOf(
                 Pair("BRAND", "google"),
                 Pair("MANUFACTURER", "Google"),
                 Pair("DEVICE", "redfin"),
@@ -341,46 +341,46 @@ object DeviceProps {
             getAndroidVersionFromLabel("T 13.0"),
         ),
 
-        DeviceEntries(
-            "Pixel 5a", hashMapOf(
-                Pair("BRAND", "google"),
-                Pair("MANUFACTURER", "Google"),
-                Pair("DEVICE", "barbet"),
-                Pair("PRODUCT", "barbet"),
-                Pair("HARDWARE", "barbet"),
-                Pair("BOARD", "barbet"),
-                Pair("MODEL", "Pixel 5a"),
-                Pair("ID", "RD2A.211001.002"),
-                Pair("DISPLAY", "barbet-user 11 RD2A.211001.002 7644766 release-keys"),
-                Pair("FINGERPRINT", "google/barbet/barbet:11/RD2A.211001.002/7644766:user/release-keys"),
-                Pair("TYPE", "user"),
-                Pair("TAGS", "release-keys"),
-            ),
-            "Pixel 2021 mid-year",
-            getAndroidVersionFromLabel("R 11.0"),
-        ),
+        // DeviceEntries(
+        //     "Pixel 5a", hashMapOf(
+        //         Pair("BRAND", "google"),
+        //         Pair("MANUFACTURER", "Google"),
+        //         Pair("DEVICE", "barbet"),
+        //         Pair("PRODUCT", "barbet"),
+        //         Pair("HARDWARE", "barbet"),
+        //         Pair("BOARD", "barbet"),
+        //         Pair("MODEL", "Pixel 5a"),
+        //         Pair("ID", "RD2A.211001.002"),
+        //         Pair("DISPLAY", "barbet-user 11 RD2A.211001.002 7644766 release-keys"),
+        //         Pair("FINGERPRINT", "google/barbet/barbet:11/RD2A.211001.002/7644766:user/release-keys"),
+        //         Pair("TYPE", "user"),
+        //         Pair("TAGS", "release-keys"),
+        //     ),
+        //     "Pixel 2021 mid-year",
+        //     getAndroidVersionFromLabel("R 11.0"),
+        // ),
+
+        // DeviceEntries(
+        //     "Pixel 6 Pro", hashMapOf(
+        //         Pair("BRAND", "google"),
+        //         Pair("MANUFACTURER", "Google"),
+        //         Pair("DEVICE", "raven"),
+        //         Pair("PRODUCT", "raven"),
+        //         Pair("HARDWARE", "raven"),
+        //         Pair("BOARD", "raven"),
+        //         Pair("MODEL", "Pixel 6 Pro"),
+        //         Pair("ID", "SD1A.210817.036"),
+        //         Pair("DISPLAY", "raven-user 12 SD1A.210817.036 7805805 release-keys"),
+        //         Pair("FINGERPRINT", "google/raven/raven:12/SD1A.210817.036/7805805:user/release-keys"),
+        //         Pair("TYPE", "user"),
+        //         Pair("TAGS", "release-keys"),
+        //     ),
+        //     "Pixel 2021 mid-year",
+        //     getAndroidVersionFromLabel("S 12.0"),
+        // ),
 
         DeviceEntries(
-            "Pixel 6 Pro", hashMapOf(
-                Pair("BRAND", "google"),
-                Pair("MANUFACTURER", "Google"),
-                Pair("DEVICE", "raven"),
-                Pair("PRODUCT", "raven"),
-                Pair("HARDWARE", "raven"),
-                Pair("BOARD", "raven"),
-                Pair("MODEL", "Pixel 6 Pro"),
-                Pair("ID", "SD1A.210817.036"),
-                Pair("DISPLAY", "raven-user 12 SD1A.210817.036 7805805 release-keys"),
-                Pair("FINGERPRINT", "google/raven/raven:12/SD1A.210817.036/7805805:user/release-keys"),
-                Pair("TYPE", "user"),
-                Pair("TAGS", "release-keys"),
-            ),
-            "Pixel 2021 mid-year",
-            getAndroidVersionFromLabel("S 12.0"),
-        ),
-
-        DeviceEntries(
-            "Pixel 7 Pro", hashMapOf(
+            "Pixel 7 Pro (Google One VPN)", hashMapOf(
                 Pair("BRAND", "google"),
                 Pair("MANUFACTURER", "Google"),
                 Pair("DEVICE", "cheetah"),
@@ -401,7 +401,7 @@ object DeviceProps {
         ),
 
         DeviceEntries(
-            "Pixel 8", hashMapOf(
+            "Pixel 8 (wip)", hashMapOf(
                 Pair("BRAND", "google"),
                 Pair("MANUFACTURER", "Google"),
                 Pair("DEVICE", "shiba"),
@@ -423,7 +423,7 @@ object DeviceProps {
         ),
 
         DeviceEntries(
-            "Pixel 8 Pro", hashMapOf(
+            "Pixel 8 Pro (wip)", hashMapOf(
                 Pair("BRAND", "google"),
                 Pair("MANUFACTURER", "Google"),
                 Pair("DEVICE", "husky"),
