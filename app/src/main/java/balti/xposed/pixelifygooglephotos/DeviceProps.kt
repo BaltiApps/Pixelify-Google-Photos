@@ -122,6 +122,11 @@ object DeviceProps {
             "com.google.android.apps.photos.PIXEL_2023_MIDYEAR_PRELOAD",
         ),
 
+        Features("Pixel Tablet 2023",
+            "com.google.android.feature.PIXEL_TABLET_2023_EXPERIENCE",
+            "com.google.android.apps.photos.PIXEL_TABLET_2023_EXPERIENCE",
+        ),
+
         Features("Pixel 2024",
             "com.google.android.feature.PIXEL_2024_EXPERIENCE",
             "com.google.android.apps.photos.PIXEL_2024_PRELOAD",
@@ -378,6 +383,44 @@ object DeviceProps {
         //     "Pixel 2021 mid-year",
         //     getAndroidVersionFromLabel("S 12.0"),
         // ),
+
+        DeviceEntries(
+            "Pixel Fold", hashMapOf(
+                Pair("BRAND", "google"),
+                Pair("MANUFACTURER", "Google"),
+                Pair("DEVICE", "felix"),
+                Pair("PRODUCT", "felix"),
+                Pair("HARDWARE", "felix"),
+                Pair("BOARD", "felix"),
+                Pair("MODEL", "Pixel Fold"),
+                Pair("ID", "UP1A.231005.007"),
+                Pair("DISPLAY", "felix-user 14 UP1A.231005.007 10754064 release-keys"),
+                Pair("FINGERPRINT", "google/felix/felix:14/UP1A.231005.007/10754064:user/release-keys"),
+                Pair("TYPE", "user"),
+                Pair("TAGS", "release-keys"),
+            ),
+            "Pixel 2023 mid-year",
+            getAndroidVersionFromLabel("U 14.0"),
+        ),
+
+        DeviceEntries(
+            "Pixel Tablet", hashMapOf(
+                Pair("BRAND", "google"),
+                Pair("MANUFACTURER", "Google"),
+                Pair("DEVICE", "tangorpro"),
+                Pair("PRODUCT", "tangorpro"),
+                Pair("HARDWARE", "tangorpro"),
+                Pair("BOARD", "tangorpro"),
+                Pair("MODEL", "Pixel Tablet"),
+                Pair("ID", "TQ3A.230901.001"),
+                Pair("DISPLAY", "tangorpro-user 14 UP1A.231005.007 10754064 release-keys"),
+                Pair("FINGERPRINT", "google/tangorpro/tangorpro:14/UP1A.231005.007/10754064:user/release-keys"),
+                Pair("TYPE", "user"),
+                Pair("TAGS", "release-keys"),
+            ),
+            "Pixel Tablet 2023",
+            getAndroidVersionFromLabel("U 14.0"),
+        ),
 
         DeviceEntries(
             "Pixel 7 Pro (Google One VPN)", hashMapOf(
