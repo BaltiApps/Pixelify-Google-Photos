@@ -197,7 +197,7 @@ object DeviceProps {
         DeviceEntries("None", hashMapOf(), "None", null),
 
         DeviceEntries(
-            "Pixel XL (original quality)", hashMapOf(
+            "Pixel XL (original)", hashMapOf(
                 Pair("BRAND", "google"),
                 Pair("MANUFACTURER", "Google"),
                 Pair("DEVICE", "marlin"),
@@ -216,7 +216,7 @@ object DeviceProps {
         ),
 
         DeviceEntries(
-            "Pixel 5 (Storage saver quality)", hashMapOf(
+            "Pixel 5 (Storage saver)", hashMapOf(
                 Pair("BRAND", "google"),
                 Pair("MANUFACTURER", "Google"),
                 Pair("DEVICE", "redfin"),
@@ -273,7 +273,7 @@ object DeviceProps {
         ),
 
         DeviceEntries(
-            "Pixel 7 Pro (Only for Google One VPN)", hashMapOf(
+            "Pixel 7 Pro (Google 1 VPN)", hashMapOf(
                 Pair("BRAND", "google"),
                 Pair("MANUFACTURER", "Google"),
                 Pair("DEVICE", "cheetah"),
