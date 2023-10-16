@@ -243,14 +243,14 @@ object DeviceProps {
                 Pair("HARDWARE", "felix"),
                 Pair("BOARD", "felix"),
                 Pair("MODEL", "Pixel Fold"),
-                Pair("ID", "TQ3C.230901.001.B1"),
-                Pair("DISPLAY", "felix-user 13 TQ3C.230901.001.B1 10750989 release-keys"),
-                Pair("FINGERPRINT", "google/felix/felix:13/TQ3C.230901.001.B1/10750989:user/release-keys"),
+                Pair("ID", "UP1A.231005.007"),
+                Pair("DISPLAY", "felix-user 14 UP1A.231005.007 10754064 release-keys"),
+                Pair("FINGERPRINT", "google/felix/felix:14/UP1A.231005.007/10754064:user/release-keys"),
                 Pair("TYPE", "user"),
                 Pair("TAGS", "release-keys"),
             ),
             "Pixel 2023 mid-year",
-            getAndroidVersionFromLabel("T 13.0"),
+            getAndroidVersionFromLabel("U 14.0"),
         ),
 
         DeviceEntries(
@@ -262,14 +262,14 @@ object DeviceProps {
                 Pair("HARDWARE", "tangorpro"),
                 Pair("BOARD", "tangorpro"),
                 Pair("MODEL", "Pixel Tablet"),
-                Pair("ID", "TQ3A.230901.001.B1"),
-                Pair("DISPLAY", "tangorpro-user 13 TQ3A.230901.001.B1 10750577 release-keys"),
-                Pair("FINGERPRINT", "google/tangorpro/tangorpro:13/TQ3A.230901.001.B1/10750577:user/release-keys"),
+                Pair("ID", "TQ3A.230901.001"),
+                Pair("DISPLAY", "tangorpro-user 14 UP1A.231005.007 10754064 release-keys"),
+                Pair("FINGERPRINT", "google/tangorpro/tangorpro:14/UP1A.231005.007/10754064:user/release-keys"),
                 Pair("TYPE", "user"),
                 Pair("TAGS", "release-keys"),
             ),
             "Pixel Tablet 2023",
-            getAndroidVersionFromLabel("T 13.0"),
+            getAndroidVersionFromLabel("U 14.0"),
         ),
 
         DeviceEntries(
@@ -281,9 +281,9 @@ object DeviceProps {
                 Pair("HARDWARE", "cheetah"),
                 Pair("BOARD", "cheetah"),
                 Pair("MODEL", "Pixel 7 Pro"),
-                Pair("ID", "TQ3A.230901.001.C2"),
-                Pair("DISPLAY", "cheetah-user 13 TQ3A.230901.001.C2 10753682 release-keys"),
-                Pair("FINGERPRINT", "google/cheetah/cheetah:13/TQ3A.230901.001.C2/10753682:user/release-keys"),
+                Pair("ID", "TQ2A.230305.008.C1"),
+                Pair("DISPLAY", "cheetah-user 13 TQ2A.230305.008.C1 9619669 release-keys"),
+                Pair("FINGERPRINT", "google/cheetah/cheetah:13/TQ2A.230305.008.C1/9619669:user/release-keys"),
                 Pair("TYPE", "user"),
                 Pair("TAGS", "release-keys"),
                 Pair("SOC_MANUFACTURER", "Google"),
@@ -356,7 +356,7 @@ object DeviceProps {
     /**
      * Default name of device to spoof.
      */
-    val defaultDeviceName = "Pixel XL (original quality)"
+    val defaultDeviceName = "Pixel XL (original)"
 
     /**
      * Default feature level to spoof up to. Corresponds to what is expected for the device in [defaultDeviceName].

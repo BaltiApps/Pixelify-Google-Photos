@@ -1,6 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="module_scope">
+        <item>com.amazon.avod.thirdpartyclient</item>
+        <item>com.android.chrome</item>
+        <item>com.android.vending</item>
+        <item>com.breel.wallpaper</item>
+        <item>com.breel.wallpapers20</item>
+        <item>com.disney.disneyplus</item>
+        <item>com.google.android.GoogleCamera</item>
+        <item>com.google.android.apps.camera.services</item>
+        <item>com.google.android.apps.customization.pixel</item>
+        <item>com.google.android.apps.emojiwallpaper</item>
+        <item>com.google.android.apps.miphone.aiai.AiaiApplication</item>
+        <item>com.google.android.apps.motionsense.bridge</item>
         <item>com.google.android.apps.photos</item>
+        <item>com.google.android.apps.pixelmigrate</item>
+        <item>com.google.android.apps.privacy.wildlife</item>
+        <item>com.google.android.apps.recorder</item>
+        <item>com.google.android.apps.restore</item>
+        <item>com.google.android.apps.subscriptions.red</item>
+        <item>com.google.android.apps.tachyon</item>
+        <item>com.google.android.apps.turbo</item>
+        <item>com.google.android.apps.tycho</item>
+        <item>com.google.android.apps.wallpaper.pixel</item>
+        <item>com.google.android.apps.wallpaper</item>
+        <item>com.google.android.apps.wearables.maestro.companion</item>
+        <item>com.google.android.apps.youtube.kids</item>
+        <item>com.google.android.apps.youtube.music</item>
+        <item>com.google.android.as</item>
+        <item>com.google.android.dialer</item>
+        <item>com.google.android.euicc</item>
+        <item>com.google.android.gms</item>
+        <item>com.google.android.googlequicksearchbox</item>
+        <item>com.google.android.inputmethod.latin</item>
+        <item>com.google.android.quicksearchbox</item>
+        <item>com.google.android.settings.intelligence</item>
+        <item>com.google.android.setupwizard</item>
+        <item>com.google.android.tts</item>
+        <item>com.google.android.wallpaper.effects</item>
+        <item>com.google.android.wallpaper</item>
+        <item>com.google.android.xx</item>
+        <item>com.google.android.youtube</item>
+        <item>com.google.ar.core</item>
+        <item>com.google.oslo</item>
+        <item>com.google.pixel.livewallpaper</item>
+        <item>com.google.vr.apps.ornament</item>
+        <item>com.google</item>
+        <item>com.microsoft.android.smsorganizer</item>
+        <item>com.netflix.mediaclient</item>
+        <item>com.nhs.online.nhsonline</item>
+        <item>com.nothing.smartcenter</item>
+        <item>com.snapchat.android</item>
+        <item>in.startv.hotstar</item>
     </string-array>
 </resources>
