@@ -2,16 +2,7 @@ package balti.xposed.pixelifygooglephotos
 
 /**
  * Build values taken from:
- * Pixel 6:
- * https://github.com/DotOS/android_frameworks_base/blob/dot12/core/java/com/android/internal/util/custom/PixelPropsUtils.java
- * Pixel 2:
- * https://gist.github.com/markstachowski/4069f15c5c989827b9e64c0aec045434
- * Pixel 5a:
- * https://github.com/LineageOS/android_device_google_barbet/blob/lineage-18.1/lineage_barbet.mk
- * All other pixels:
- * https://github.com/orgs/Pixel-Props/repositories
- * Also from
- * https://github.com/DotOS/android_frameworks_base/commit/3f7ea7d070017ed1f38035333f084865865698b2
+ * https://www.pling.com/p/2129780/ (aka PixelProps)
  *
  * Features taken from:
  * https://t.me/PixelProps
@@ -92,14 +83,39 @@ object DeviceProps {
             "com.google.android.apps.photos.PIXEL_2021_MIDYEAR_PRELOAD",
         ),
 
-        Features("Pixel 2021", // Pixel 6 Pro
+        Features("Pixel 2021", // Pixel 6 (Pro)
             "com.google.android.feature.PIXEL_2021_EXPERIENCE",
             "com.google.android.apps.photos.PIXEL_2021_PRELOAD",
         ),
 
-        Features("Pixel 2022", // Pixel 7 Pro
+        Features("Pixel 2022 mid-year", // Pixel 6a
+            "com.google.android.feature.PIXEL_2022_MIDYEAR_EXPERIENCE",
+            "com.google.android.apps.photos.PIXEL_2022_MIDYEAR_PRELOAD",
+        ),
+
+        Features("Pixel 2022", // Pixel 7 (Pro)
             "com.google.android.feature.PIXEL_2022_EXPERIENCE",
-            "com.google.android.apps.photos.PIXEL_2021_PRELOAD",
+            "com.google.android.apps.photos.PIXEL_2022_PRELOAD",
+        ),
+
+        Features("Pixel 2023 mid-year", // Pixel 7a
+            "com.google.android.feature.PIXEL_2023_MIDYEAR_EXPERIENCE",
+            "com.google.android.apps.photos.PIXEL_2023_MIDYEAR_PRELOAD",
+        ),
+
+        Features("Pixel 2023", // Pixel 8 (Pro)
+            "com.google.android.feature.PIXEL_2023_EXPERIENCE",
+            "com.google.android.apps.photos.PIXEL_2023_PRELOAD",
+        ),
+
+        Features("Pixel 2024 mid-year", // Pixel 8a
+            "com.google.android.feature.PIXEL_2024_MIDYEAR_EXPERIENCE",
+            "com.google.android.apps.photos.PIXEL_2024_MIDYEAR_PRELOAD",
+        ),
+
+        Features("Pixel 2024", // Pixel 9 (Pro)
+            "com.google.android.feature.PIXEL_2024_EXPERIENCE",
+            "com.google.android.apps.photos.PIXEL_2024_PRELOAD",
         ),
     )
 
@@ -147,7 +163,12 @@ object DeviceProps {
         AndroidVersion("Q 10.0", "10", 29),
         AndroidVersion("R 11.0", "11", 30),
         AndroidVersion("S 12.0", "12", 31),
+        // Haha Android 12L
+        AndroidVersion("S 12.1", "12.1", 32),
         AndroidVersion("T 13.0", "13", 33),
+        AndroidVersion("U 14.0", "14", 34),
+        // Predict Vanilla Ice Cream Props 
+        AndroidVersion("V 15.0", "15", 35),
     )
 
     /**
@@ -186,7 +207,7 @@ object DeviceProps {
                 Pair("MODEL", "Pixel XL"),
                 Pair("FINGERPRINT", "google/marlin/marlin:10/QP1A.191005.007.A3/5972272:user/release-keys"),
             ),
-            "Pixel 2016",
+            "Pixel XL",
             getAndroidVersionFromLabel("Q 10.0"),
         ),
 
@@ -199,7 +220,7 @@ object DeviceProps {
                 Pair("MODEL", "Pixel 2"),
                 Pair("FINGERPRINT", "google/walleye/walleye:8.1.0/OPM1.171019.021/4565141:user/release-keys"),
             ),
-            "Pixel 2017",
+            "Pixel 2",
             getAndroidVersionFromLabel("Oreo 8.1.0"),
         ),
 
@@ -212,7 +233,7 @@ object DeviceProps {
                 Pair("MODEL", "Pixel 3 XL"),
                 Pair("FINGERPRINT", "google/crosshatch/crosshatch:11/RQ3A.211001.001/7641976:user/release-keys"),
             ),
-            "Pixel 2018",
+            "Pixel 3 XL",
             getAndroidVersionFromLabel("R 11.0"),
         ),
 
@@ -225,7 +246,7 @@ object DeviceProps {
                 Pair("MODEL", "Pixel 3a XL"),
                 Pair("FINGERPRINT", "google/bonito/bonito:11/RQ3A.211001.001/7641976:user/release-keys"),
             ),
-            "Pixel 2019 mid-year",
+            "Pixel 3a XL",
             getAndroidVersionFromLabel("R 11.0"),
         ),
 
@@ -238,7 +259,7 @@ object DeviceProps {
                 Pair("MODEL", "Pixel 4 XL"),
                 Pair("FINGERPRINT", "google/coral/coral:12/SP1A.211105.002/7743617:user/release-keys"),
             ),
-            "Pixel 2019",
+            "Pixel 4 XL",
             getAndroidVersionFromLabel("S 12.0"),
         ),
 
@@ -251,7 +272,7 @@ object DeviceProps {
                 Pair("MODEL", "Pixel 4a"),
                 Pair("FINGERPRINT", "google/sunfish/sunfish:11/RQ3A.211001.001/7641976:user/release-keys"),
             ),
-            "Pixel 2020 mid-year",
+            "Pixel 4a",
             getAndroidVersionFromLabel("R 11.0"),
         ),
 
@@ -264,7 +285,7 @@ object DeviceProps {
                 Pair("MODEL", "Pixel 5"),
                 Pair("FINGERPRINT", "google/redfin/redfin:12/SP1A.211105.003/7757856:user/release-keys"),
             ),
-            "Pixel 2020",
+            "Pixel 5",
             getAndroidVersionFromLabel("S 12.0"),
         ),
 
@@ -277,7 +298,7 @@ object DeviceProps {
                 Pair("MODEL", "Pixel 5a"),
                 Pair("FINGERPRINT", "google/barbet/barbet:11/RD2A.211001.002/7644766:user/release-keys"),
             ),
-            "Pixel 2021 mid-year",
+            "Pixel 5a",
             getAndroidVersionFromLabel("R 11.0"),
         ),
 
@@ -288,12 +309,25 @@ object DeviceProps {
                 Pair("DEVICE", "raven"),
                 Pair("PRODUCT", "raven"),
                 Pair("MODEL", "Pixel 6 Pro"),
-                Pair("FINGERPRINT", "google/raven/raven:12/SD1A.210817.036/7805805:user/release-keys"),
+                Pair("FINGERPRINT", "google/raven/raven:14/UQ1A.240205.002/11224170:user/release-keys"),
             ),
-            "Pixel 2021",
-            getAndroidVersionFromLabel("S 12.0"),
+            "Pixel 6 Pro",
+            getAndroidVersionFromLabel("U 14.0"),
         ),
-        
+
+        DeviceEntries(
+            "Pixel 6a", hashMapOf(
+                Pair("BRAND", "google"),
+                Pair("MANUFACTURER", "Google"),
+                Pair("DEVICE", "bluejay"),
+                Pair("PRODUCT", "bluejay"),
+                Pair("MODEL", "Pixel 6a"),
+                Pair("FINGERPRINT", "google/bluejay/bluejay:13/TP1A.220905.004.A2/9014697:user/release-keys"),
+            ),
+            "Pixel 6a",
+            getAndroidVersionFromLabel("T 13.0"),
+        ),
+
         DeviceEntries(
             "Pixel 7 Pro", hashMapOf(
                 Pair("BRAND", "google"),
@@ -301,10 +335,39 @@ object DeviceProps {
                 Pair("DEVICE", "cheetah"),
                 Pair("PRODUCT", "cheetah"),
                 Pair("MODEL", "Pixel 7 Pro"),
-                Pair("FINGERPRINT", "google/cheetah/cheetah:13/TD1A.220804.031/9071314:user/release-keys__2022-10-05"),
+                Pair("FINGERPRINT", "google/cheetah/cheetah:14/UQ1A.240105.004/11206848:user/release-keys"),
             ),
-            "Pixel 2022",
-            getAndroidVersionFromLabel("T 13.0"),
+            "Pixel 7 Pro",
+            getAndroidVersionFromLabel("U 14.0"),
+        ),
+
+        // NO PROPS FOR PIXEL 7A RIP
+        // Also I've added Pixel 8 since now there is a Pro paywall for a lot of new features -_-
+
+        DeviceEntries(
+            "Pixel 8", hashMapOf(
+                Pair("BRAND", "google"),
+                Pair("MANUFACTURER", "Google"),
+                Pair("DEVICE", "shiba"),
+                Pair("PRODUCT", "shiba"),
+                Pair("MODEL", "Pixel 8"),
+                Pair("FINGERPRINT", "google/shiba/shiba:14/UQ1A.240205.004/11269751:user/release-keys"),
+            ),
+            "Pixel 8",
+            getAndroidVersionFromLabel("U 14.0"),
+        ),
+        
+        DeviceEntries(
+            "Pixel 8 Pro", hashMapOf(
+                Pair("BRAND", "google"),
+                Pair("MANUFACTURER", "Google"),
+                Pair("DEVICE", "husky"),
+                Pair("PRODUCT", "husky"),
+                Pair("MODEL", "Pixel 8 Pro"),
+                Pair("FINGERPRINT", "google/husky/husky:14/UQ1A.240205.004/11269751:user/release-keys"),
+            ),
+            "Pixel 8 Pro",
+            getAndroidVersionFromLabel("U 14.0"),
         ),
     )
 
@@ -326,11 +389,11 @@ object DeviceProps {
     /**
      * Default name of device to spoof.
      */
-    val defaultDeviceName = "Pixel 5"
+    val defaultDeviceName = "Pixel 8 Pro"
 
     /**
      * Default feature level to spoof up to. Corresponds to what is expected for the device in [defaultDeviceName].
      */
-    val defaultFeatures = getFeaturesUpTo("Pixel 2020")
+    val defaultFeatures = getFeaturesUpTo("Pixel 2023")
 
 }
