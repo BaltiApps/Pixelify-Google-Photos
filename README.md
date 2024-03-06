@@ -1,3 +1,6 @@
+# Fork Info
+Adds the latest fingerprints for Pixel 6, 7 and 8 series.
+
 # Pixelify-Google-Photos
 LSPosed / EdXposed module to add Google Pixel features on Google Photos for any device.  
 Tested on EdXposed by [Jim Wu](https://github.com/MlgmXyysd)  
