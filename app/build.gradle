@@ -11,7 +11,7 @@ android {
         minSdk 21
         targetSdk 31
         versionCode 5
-        versionName "4.1"
+        versionName "5.0.2"
     }
 
     buildTypes {

@@ -38,7 +38,7 @@
     <string name="update_available">App update available!</string>
 
     <!--changelog-->
-    <string name="version_head">Version 4.1</string>
+    <string name="version_head">Version 5.0.2</string>
     <string name="version_desc">
         \n
         # In light of recent event of Vanced project getting shut down because of using Youtube logo,
