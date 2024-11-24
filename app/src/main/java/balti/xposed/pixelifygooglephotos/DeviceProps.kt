@@ -49,52 +49,75 @@ object DeviceProps {
      */
     val allFeatures = listOf(
 
-        Features("Pixel 2016", // Pixel XL
+        Features("Pixel Core",
+            "com.google.android.feature.PIXEL_EXPERIENCE",
+            "com.google.android.feature.GOOGLE_BUILD",
+            "com.google.android.feature.GOOGLE_EXPERIENCE",
+        ),
+
+        Features("Pixel 2016 - Pixel XL (original quality)",
             "com.google.android.apps.photos.NEXUS_PRELOAD",
             "com.google.android.apps.photos.nexus_preload",
-            "com.google.android.feature.PIXEL_EXPERIENCE",
             "com.google.android.apps.photos.PIXEL_PRELOAD",
             "com.google.android.apps.photos.PIXEL_2016_PRELOAD",
         ),
 
-        Features("Pixel 2017", // Pixel 2
+        Features("Pixel 2017 - Pixel 2",
             "com.google.android.feature.PIXEL_2017_EXPERIENCE",
-            "com.google.android.apps.photos.PIXEL_2017_PRELOAD"
+            "com.google.android.apps.photos.PIXEL_2017_PRELOAD",
         ),
 
-        Features("Pixel 2018", // Pixel 3 XL
+        Features("Pixel 2018 - Pixel 3",
             "com.google.android.feature.PIXEL_2018_EXPERIENCE",
-            "com.google.android.apps.photos.PIXEL_2018_PRELOAD"
+            "com.google.android.apps.photos.PIXEL_2018_PRELOAD",
         ),
 
-        Features("Pixel 2019 mid-year", // Pixel 3a XL
+        Features("Pixel 2019 - Pixel 4",
+            "com.google.android.feature.PIXEL_2019_EXPERIENCE",
+            "com.google.android.apps.photos.PIXEL_2019_PRELOAD",
             "com.google.android.feature.PIXEL_2019_MIDYEAR_EXPERIENCE",
             "com.google.android.apps.photos.PIXEL_2019_MIDYEAR_PRELOAD",
         ),
 
-        Features("Pixel 2019", // Pixel 4 XL
-            "com.google.android.feature.PIXEL_2019_EXPERIENCE",
-            "com.google.android.apps.photos.PIXEL_2019_PRELOAD",
-        ),
-
-        Features("Pixel 2020 mid-year", // Pixel 4a
-            "com.google.android.feature.PIXEL_2020_MIDYEAR_EXPERIENCE",
-            "com.google.android.apps.photos.PIXEL_2020_MIDYEAR_PRELOAD",
-        ),
-
-        Features("Pixel 2020", // Pixel 5
+        Features("Pixel 2020 - Pixel 5 (Storage saver quality)",
             "com.google.android.feature.PIXEL_2020_EXPERIENCE",
-            "com.google.android.apps.photos.PIXEL_2020_PRELOAD",
+            "com.google.android.feature.PIXEL_2020_MIDYEAR_EXPERIENCE",
         ),
 
-        Features("Pixel 2021 mid-year", // Pixel 5a
-            "com.google.android.feature.PIXEL_2021_MIDYEAR_EXPERIENCE",
-            "com.google.android.apps.photos.PIXEL_2021_MIDYEAR_PRELOAD",
-        ),
-
-        Features("Pixel 2021", // Pixel 6 Pro
+        Features("Pixel 2021",
             "com.google.android.feature.PIXEL_2021_EXPERIENCE",
-            "com.google.android.apps.photos.PIXEL_2021_PRELOAD",
+        ),
+
+        Features("Pixel 2021 mid-year",
+            "com.google.android.feature.PIXEL_2021_MIDYEAR_EXPERIENCE",
+        ),
+
+        Features("Pixel 2022",
+            "com.google.android.feature.PIXEL_2022_EXPERIENCE",
+        ),
+
+        Features("Pixel 2022 mid-year",
+            "com.google.android.feature.PIXEL_2022_MIDYEAR_EXPERIENCE",
+        ),
+
+        Features("Pixel 2023",
+            "com.google.android.feature.PIXEL_2023_EXPERIENCE",
+        ),
+
+        Features("Pixel 2023 mid-year",
+            "com.google.android.feature.PIXEL_2023_MIDYEAR_EXPERIENCE",
+        ),
+
+        Features("Pixel Tablet 2023",
+            "com.google.android.feature.PIXEL_TABLET_2023_EXPERIENCE",
+        ),
+
+        Features("Pixel 2024",
+            "com.google.android.feature.PIXEL_2024_EXPERIENCE",
+        ),
+
+        Features("Pixel 2024 mid-year",
+            "com.google.android.feature.PIXEL_2024_MIDYEAR_EXPERIENCE",
         ),
     )
 
@@ -142,6 +165,8 @@ object DeviceProps {
         AndroidVersion("Q 10.0", "10", 29),
         AndroidVersion("R 11.0", "11", 30),
         AndroidVersion("S 12.0", "12", 31),
+        AndroidVersion("T 13.0", "13", 33),
+        AndroidVersion("U 14.0", "14", 34),
     )
 
     /**
@@ -172,120 +197,144 @@ object DeviceProps {
         DeviceEntries("None", hashMapOf(), "None", null),
 
         DeviceEntries(
-            "Pixel XL", hashMapOf(
+            "Pixel XL (original)", hashMapOf(
                 Pair("BRAND", "google"),
                 Pair("MANUFACTURER", "Google"),
                 Pair("DEVICE", "marlin"),
                 Pair("PRODUCT", "marlin"),
+                Pair("HARDWARE", "marlin"),
+                Pair("BOARD", "marlin"),
                 Pair("MODEL", "Pixel XL"),
+                Pair("ID", "QP1A.191005.007.A3"),
+                Pair("DISPLAY", "marlin-user 10 QP1A.191005.007.A3 5972272 release-keys"),
                 Pair("FINGERPRINT", "google/marlin/marlin:10/QP1A.191005.007.A3/5972272:user/release-keys"),
+                Pair("TYPE", "user"),
+                Pair("TAGS", "release-keys"),
             ),
-            "Pixel 2016",
+            "Pixel 2016 - Pixel XL (original quality)",
             getAndroidVersionFromLabel("Q 10.0"),
         ),
 
         DeviceEntries(
-            "Pixel 2", hashMapOf(
-                Pair("BRAND", "google"),
-                Pair("MANUFACTURER", "Google"),
-                Pair("DEVICE", "walleye"),
-                Pair("PRODUCT", "walleye"),
-                Pair("MODEL", "Pixel 2"),
-                Pair("FINGERPRINT", "google/walleye/walleye:8.1.0/OPM1.171019.021/4565141:user/release-keys"),
-            ),
-            "Pixel 2017",
-            getAndroidVersionFromLabel("Oreo 8.1.0"),
-        ),
-
-        DeviceEntries(
-            "Pixel 3 XL", hashMapOf(
-                Pair("BRAND", "google"),
-                Pair("MANUFACTURER", "Google"),
-                Pair("DEVICE", "crosshatch"),
-                Pair("PRODUCT", "crosshatch"),
-                Pair("MODEL", "Pixel 3 XL"),
-                Pair("FINGERPRINT", "google/crosshatch/crosshatch:11/RQ3A.211001.001/7641976:user/release-keys"),
-            ),
-            "Pixel 2018",
-            getAndroidVersionFromLabel("R 11.0"),
-        ),
-
-        DeviceEntries(
-            "Pixel 3a XL", hashMapOf(
-                Pair("BRAND", "google"),
-                Pair("MANUFACTURER", "Google"),
-                Pair("DEVICE", "bonito"),
-                Pair("PRODUCT", "bonito"),
-                Pair("MODEL", "Pixel 3a XL"),
-                Pair("FINGERPRINT", "google/bonito/bonito:11/RQ3A.211001.001/7641976:user/release-keys"),
-            ),
-            "Pixel 2019 mid-year",
-            getAndroidVersionFromLabel("R 11.0"),
-        ),
-
-        DeviceEntries(
-            "Pixel 4 XL", hashMapOf(
-                Pair("BRAND", "google"),
-                Pair("MANUFACTURER", "Google"),
-                Pair("DEVICE", "coral"),
-                Pair("PRODUCT", "coral"),
-                Pair("MODEL", "Pixel 4 XL"),
-                Pair("FINGERPRINT", "google/coral/coral:12/SP1A.211105.002/7743617:user/release-keys"),
-            ),
-            "Pixel 2019",
-            getAndroidVersionFromLabel("S 12.0"),
-        ),
-
-        DeviceEntries(
-            "Pixel 4a", hashMapOf(
-                Pair("BRAND", "google"),
-                Pair("MANUFACTURER", "Google"),
-                Pair("DEVICE", "sunfish"),
-                Pair("PRODUCT", "sunfish"),
-                Pair("MODEL", "Pixel 4a"),
-                Pair("FINGERPRINT", "google/sunfish/sunfish:11/RQ3A.211001.001/7641976:user/release-keys"),
-            ),
-            "Pixel 2020 mid-year",
-            getAndroidVersionFromLabel("R 11.0"),
-        ),
-
-        DeviceEntries(
-            "Pixel 5", hashMapOf(
+            "Pixel 5 (Storage saver)", hashMapOf(
                 Pair("BRAND", "google"),
                 Pair("MANUFACTURER", "Google"),
                 Pair("DEVICE", "redfin"),
                 Pair("PRODUCT", "redfin"),
+                Pair("HARDWARE", "redfin"),
+                Pair("BOARD", "redfin"),
                 Pair("MODEL", "Pixel 5"),
-                Pair("FINGERPRINT", "google/redfin/redfin:12/SP1A.211105.003/7757856:user/release-keys"),
+                Pair("ID", "TQ3A.230605.011"),
+                Pair("DISPLAY", "redfin-user 13 TQ3A.230605.011 10161073 release-keys"),
+                Pair("FINGERPRINT", "google/redfin/redfin:13/TQ3A.230605.011/10161073:user/release-keys"),
+                Pair("TYPE", "user"),
+                Pair("TAGS", "release-keys"),
             ),
-            "Pixel 2020",
-            getAndroidVersionFromLabel("S 12.0"),
+            "Pixel 2020 - Pixel 5 (Storage saver quality)",
+            getAndroidVersionFromLabel("T 13.0"),
         ),
 
         DeviceEntries(
-            "Pixel 5a", hashMapOf(
+            "Pixel Fold (wip)", hashMapOf(
                 Pair("BRAND", "google"),
                 Pair("MANUFACTURER", "Google"),
-                Pair("DEVICE", "barbet"),
-                Pair("PRODUCT", "barbet"),
-                Pair("MODEL", "Pixel 5a"),
-                Pair("FINGERPRINT", "google/barbet/barbet:11/RD2A.211001.002/7644766:user/release-keys"),
+                Pair("DEVICE", "felix"),
+                Pair("PRODUCT", "felix"),
+                Pair("HARDWARE", "felix"),
+                Pair("BOARD", "felix"),
+                Pair("MODEL", "Pixel Fold"),
+                Pair("ID", "UP1A.231005.007"),
+                Pair("DISPLAY", "felix-user 14 UP1A.231005.007 10754064 release-keys"),
+                Pair("FINGERPRINT", "google/felix/felix:14/UP1A.231005.007/10754064:user/release-keys"),
+                Pair("TYPE", "user"),
+                Pair("TAGS", "release-keys"),
             ),
-            "Pixel 2021 mid-year",
-            getAndroidVersionFromLabel("R 11.0"),
+            "Pixel 2023 mid-year",
+            getAndroidVersionFromLabel("U 14.0"),
         ),
 
         DeviceEntries(
-            "Pixel 6 Pro", hashMapOf(
+            "Pixel Tablet (wip)", hashMapOf(
                 Pair("BRAND", "google"),
                 Pair("MANUFACTURER", "Google"),
-                Pair("DEVICE", "raven"),
-                Pair("PRODUCT", "raven"),
-                Pair("MODEL", "Pixel 6 Pro"),
-                Pair("FINGERPRINT", "google/raven/raven:12/SD1A.210817.036/7805805:user/release-keys"),
+                Pair("DEVICE", "tangorpro"),
+                Pair("PRODUCT", "tangorpro"),
+                Pair("HARDWARE", "tangorpro"),
+                Pair("BOARD", "tangorpro"),
+                Pair("MODEL", "Pixel Tablet"),
+                Pair("ID", "TQ3A.230901.001"),
+                Pair("DISPLAY", "tangorpro-user 14 UP1A.231005.007 10754064 release-keys"),
+                Pair("FINGERPRINT", "google/tangorpro/tangorpro:14/UP1A.231005.007/10754064:user/release-keys"),
+                Pair("TYPE", "user"),
+                Pair("TAGS", "release-keys"),
             ),
-            "Pixel 2021",
-            getAndroidVersionFromLabel("S 12.0"),
+            "Pixel Tablet 2023",
+            getAndroidVersionFromLabel("U 14.0"),
+        ),
+
+        DeviceEntries(
+            "Pixel 7 Pro (Google 1 VPN)", hashMapOf(
+                Pair("BRAND", "google"),
+                Pair("MANUFACTURER", "Google"),
+                Pair("DEVICE", "cheetah"),
+                Pair("PRODUCT", "cheetah"),
+                Pair("HARDWARE", "cheetah"),
+                Pair("BOARD", "cheetah"),
+                Pair("MODEL", "Pixel 7 Pro"),
+                Pair("ID", "TQ2A.230305.008.C1"),
+                Pair("DISPLAY", "cheetah-user 13 TQ2A.230305.008.C1 9619669 release-keys"),
+                Pair("FINGERPRINT", "google/cheetah/cheetah:13/TQ2A.230305.008.C1/9619669:user/release-keys"),
+                Pair("TYPE", "user"),
+                Pair("TAGS", "release-keys"),
+                Pair("SOC_MANUFACTURER", "Google"),
+                Pair("SOC_MODEL", "GS201"),
+            ),
+            "Pixel 2022 mid-year",
+            getAndroidVersionFromLabel("T 13.0"),
+        ),
+
+        DeviceEntries(
+            "Pixel 8 (wip)", hashMapOf(
+                Pair("BRAND", "google"),
+                Pair("MANUFACTURER", "Google"),
+                Pair("DEVICE", "shiba"),
+                Pair("PRODUCT", "shiba"),
+                Pair("HARDWARE", "shiba"),
+                Pair("BOARD", "shiba"),
+                Pair("MODEL", "Pixel 8"),
+                Pair("ID", "UD1A.230803.041"),
+                Pair("DISPLAY", "shiba-user 14 UD1A.230803.041 10808477 release-keys"),
+                Pair("FINGERPRINT", "google/shiba/shiba:14/UD1A.230803.041/10808477:user/release-keys"),
+                Pair("TYPE", "user"),
+                Pair("TAGS", "release-keys"),
+                Pair("BOOTLOADER", "ripcurrent-14.0-10807316"),
+                Pair("SOC_MANUFACTURER", "Google"),
+                Pair("SOC_MODEL", "Tensor G3"),
+            ),
+            "Pixel 2023 mid-year",
+            getAndroidVersionFromLabel("U 14.0"),
+        ),
+
+        DeviceEntries(
+            "Pixel 8 Pro (wip)", hashMapOf(
+                Pair("BRAND", "google"),
+                Pair("MANUFACTURER", "Google"),
+                Pair("DEVICE", "husky"),
+                Pair("PRODUCT", "husky"),
+                Pair("HARDWARE", "husky"),
+                Pair("BOARD", "husky"),
+                Pair("MODEL", "Pixel 8 Pro"),
+                Pair("ID", "UD1A.230803.041"),
+                Pair("DISPLAY", "husky-user 14 UD1A.230803.041 10808477 release-keys"),
+                Pair("FINGERPRINT", "google/husky/husky:14/UD1A.230803.041/10808477:user/release-keys"),
+                Pair("TYPE", "user"),
+                Pair("TAGS", "release-keys"),
+                Pair("BOOTLOADER", "ripcurrent-14.0-10807316"),
+                Pair("SOC_MANUFACTURER", "Google"),
+                Pair("SOC_MODEL", "Tensor G3"),
+            ),
+            "Pixel 2023 mid-year",
+            getAndroidVersionFromLabel("U 14.0"),
         ),
     )
 
@@ -307,11 +356,11 @@ object DeviceProps {
     /**
      * Default name of device to spoof.
      */
-    val defaultDeviceName = "Pixel 5"
+    val defaultDeviceName = "Pixel XL (original)"
 
     /**
      * Default feature level to spoof up to. Corresponds to what is expected for the device in [defaultDeviceName].
      */
-    val defaultFeatures = getFeaturesUpTo("Pixel 2020")
+    val defaultFeatures = getFeaturesUpTo("Pixel 2016 - Pixel XL (original quality)")
 
 }
