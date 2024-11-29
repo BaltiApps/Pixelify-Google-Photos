@@ -1,3 +1,6 @@
+# Fork Info
+Adds the latest fingerprints for Pixel 6, 7 and 8 series.
+
 # Pixelify-Google-Photos
 
 ⚠️⚠️ This project is EOL. I have entirely stopped using Google Photos. Sorry for the inconvenience. ⚠️⚠️
